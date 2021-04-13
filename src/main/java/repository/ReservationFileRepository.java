@@ -4,10 +4,7 @@ import models.Guest;
 import models.Host;
 import models.Reservation;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigDecimal;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -47,6 +44,23 @@ public class ReservationFileRepository implements ReservationRepository {
         return all;
     }
 
+    @Override
+    public Reservation add(Reservation reservation) throws DataAccessException {
+        if (reservation == null) {
+            return null;
+        }
+
+        String hostId = reservation.getHost().getId();
+        List<Reservation> all = findById(hostId);
+        int nextInt = all.size();
+
+        reservation.setReservationId(nextInt);
+        all.add(reservation);
+        writeAll(all, hostId);
+
+        return reservation;
+    }
+
     private String getFilePath(String id) {
         return Paths.get(repository, id + ".csv").toString();
     }
@@ -70,11 +84,35 @@ public class ReservationFileRepository implements ReservationRepository {
         return reservation;
     }
 
+    private String serialized(Reservation reservation) {
+        StringBuilder builder = new StringBuilder(100);
+
+        builder.append(reservation.getReservationId()).append(DELIMITER);
+        builder.append(reservation.getStartDate()).append(DELIMITER);
+        builder.append(reservation.getEndDate()).append(DELIMITER);
+        builder.append(reservation.getGuest().getId()).append(DELIMITER);
+        builder.append(reservation.getTotal());
+
+        return builder.toString();
+    }
+
     private LocalDate stringToDate(String date) {
         try {
             return LocalDate.parse(date, Reservation.FORMATTER);
         } catch (DateTimeParseException ex) {
             return null;
+        }
+    }
+
+    private void writeAll(List<Reservation> reservations, String hostId) throws DataAccessException {
+        try (PrintWriter writer = new PrintWriter(getFilePath(hostId))) {
+            writer.println(HEADER);
+
+            for (Reservation r : reservations) {
+                writer.println(serialized(r));
+            }
+        } catch (FileNotFoundException ex) {
+            throw new DataAccessException(ex.getMessage());
         }
     }
 }

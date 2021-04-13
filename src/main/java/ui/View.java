@@ -4,6 +4,7 @@ import models.Host;
 import models.MainMenu;
 import models.Reservation;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -39,6 +40,18 @@ public class View {
         return io.readRequiredString("Host Email: ");
     }
 
+    public String chooseGuest() {
+        return io.readRequiredString("Guest Email: ");
+    }
+
+    public LocalDate chooseStartDate() {
+        return io.readDate("Start Date: ");
+    }
+
+    public LocalDate chooseEndDate(LocalDate startDate) {
+        return io.readDate("End Date: ", startDate);
+    }
+
     public void displayHeader(String message) {
         io.println(message);
         io.println("=".repeat(message.length()));
@@ -48,6 +61,22 @@ public class View {
         displayHeader("Critical Error Occurred");
         io.println(ex.getMessage());
     }
+
+    public void displayStatus(boolean status, List<String> messages) {
+        if (status) {
+            displayHeader("Success");
+        } else {
+            displayHeader("Error");
+            for (String m : messages) {
+                io.println(m);
+            }
+        }
+    }
+
+    public void displayStatus(boolean status, String message) {
+        displayStatus(status, List.of(message));
+    }
+
     public void displayReservations(Host host, List<Reservation> reservations) {
         String hostLastName = host.getLast_name();
         String location = host.getCity() + ", " + host.getState();
@@ -61,6 +90,14 @@ public class View {
                     r.getGuest().getFirst_name(),
                     r.getGuest().getEmail());
         }
+    }
+
+    public boolean displaySummary(Reservation reservation) {
+        displayHeader("Summary");
+        io.printf("Start Date: %s", reservation.getStartDate());
+        io.printf("End Date: %s", reservation.getEndDate());
+        io.printf("Total: %s", reservation.getTotal());
+        return io.readBoolean("Is this okay? [y/n]: ");
     }
 
 }

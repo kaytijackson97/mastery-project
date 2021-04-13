@@ -28,7 +28,8 @@ public class HostFileRepository implements HostRepository{
                 .findFirst().orElse(null);
     }
 
-    private List<Host> findAll() throws DataAccessException {
+    @Override
+    public List<Host> findAll() throws DataAccessException {
         ArrayList<Host> hosts = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 

@@ -1,10 +1,19 @@
 package domain;
 
-import models.User;
+import models.Guest;
+import repository.DataAccessException;
+import repository.GuestRepository;
 
-public class GuestService implements UserService{
+public class GuestService implements UserService {
+
+    private final GuestRepository repository;
+
+    public GuestService(GuestRepository guestRepository) {
+        this.repository = guestRepository;
+    }
+
     @Override
-    public User findByEmail(String email) {
-        return null;
+    public Guest findByEmail(String email) throws DataAccessException {
+        return repository.findByEmail(email);
     }
 }

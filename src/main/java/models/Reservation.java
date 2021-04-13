@@ -16,13 +16,11 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(int reservationId, LocalDate startDate, LocalDate endDate, Host host, Guest guest, BigDecimal total) {
-        this.reservationId = reservationId;
+    public Reservation(Host host, Guest guest, LocalDate startDate, LocalDate endDate) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.host = host;
         this.guest = guest;
-        this.total = total;
     }
 
     public int getReservationId() {

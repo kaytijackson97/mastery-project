@@ -1,3 +1,4 @@
+import domain.GuestService;
 import domain.HostService;
 import domain.ReservationService;
 import repository.*;
@@ -15,10 +16,9 @@ public class App {
         GuestRepository guestRepository = new GuestFileRepository("./data/guests.csv");
 
         ReservationService reservationService = new ReservationService(reservationRepository, guestRepository, hostRepository);
-
-
-        HostService hostService = new HostService(hostRepository, guestRepository, reservationRepository);
-        Controller controller = new Controller(view, reservationService, hostService);
+        HostService hostService = new HostService(hostRepository);
+        GuestService guestService = new GuestService(guestRepository);
+        Controller controller = new Controller(view, reservationService, hostService, guestService);
 
         controller.run();
     }

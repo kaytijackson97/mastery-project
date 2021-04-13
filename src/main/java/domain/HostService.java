@@ -2,15 +2,13 @@ package domain;
 
 import models.Host;
 import repository.DataAccessException;
-import repository.GuestRepository;
 import repository.HostRepository;
-import repository.ReservationRepository;
 
 public class HostService implements UserService{
 
     private final HostRepository hostRepository;
 
-    public HostService(HostRepository hostRepository, GuestRepository guestRepository, ReservationRepository reservationRepository) {
+    public HostService(HostRepository hostRepository) {
         this.hostRepository = hostRepository;
     }
 

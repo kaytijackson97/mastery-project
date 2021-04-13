@@ -1,14 +1,14 @@
 package models;
 
-public class Guest extends User{
+public class Guest extends User {
 
     private String first_name;
 
     public Guest() {
     }
 
-    public Guest(String id, String first_name, String last_name, String phone, String email, String state) {
-        super(id, last_name, phone, email, state);
+    public Guest(String id, String first_name, String last_name, String email, String phone, String state) {
+        super(id, last_name, email, phone, state);
         this.first_name = first_name;
     }
 
