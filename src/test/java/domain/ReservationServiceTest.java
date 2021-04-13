@@ -25,7 +25,7 @@ class ReservationServiceTest {
     @Test
     void shouldNotReturnAnyReservationsIfInvalidId() throws DataAccessException {
         List<Reservation> actual = service.findById("Test");
-        assertEquals(0, actual.size());
+        assertNull(actual);
     }
 
     @Test

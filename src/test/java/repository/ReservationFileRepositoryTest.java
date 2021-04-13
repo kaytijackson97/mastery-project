@@ -109,4 +109,63 @@ class ReservationFileRepositoryTest {
         assertNull(repository.add(reservation));
     }
 
+    @Test
+    void shouldUpdateIfValid() throws DataAccessException {
+        List<Reservation> reservations = repository.findById(testHostId);
+        Reservation reservation = reservations.get(0);
+
+        reservation.setStartDate(LocalDate.of(2021, 10, 8));
+        reservation.setEndDate(LocalDate.of(2021, 10, 9));
+
+        assertTrue(repository.update(reservation));
+
+    }
+
+    @Test
+    void shouldAllowForNewReservationsOnOldDates() throws DataAccessException {
+        List<Reservation> reservations = repository.findById(testHostId);
+        Reservation reservation = reservations.get(0);
+
+        reservation.setStartDate(LocalDate.of(2021, 10, 8));
+        reservation.setEndDate(LocalDate.of(2021, 10, 9));
+
+        assertTrue(repository.update(reservation));
+
+        Reservation newReservation = new Reservation();
+        newReservation.setStartDate(LocalDate.of(2022, 10, 12));
+        newReservation.setEndDate(LocalDate.of(2022, 10, 14));
+        Host host = new Host();
+        host.setId(testHostId);
+        newReservation.setHost(host);
+        newReservation.setGuest(GuestRepositoryDouble.GUEST);
+        newReservation.setTotal(new BigDecimal("400.00"));
+
+        newReservation = repository.add(newReservation);
+        assertNotNull(newReservation);
+
+        List<Reservation> all = repository.findById(testHostId);
+        assertEquals(reservations.size() + 1, all.size());
+
+    }
+
+    @Test
+    void shouldNotUpdateIfNoExistingReservation() throws DataAccessException {
+        Reservation reservation = new Reservation();
+        reservation.setReservationId(-1);
+        reservation.setStartDate(LocalDate.of(2022, 10, 12));
+        reservation.setEndDate(LocalDate.of(2022, 10, 14));
+        Host host = new Host();
+        host.setId(testHostId);
+        reservation.setHost(host);
+        reservation.setGuest(GuestRepositoryDouble.GUEST);
+        reservation.setTotal(new BigDecimal("400.00"));
+
+        assertFalse(repository.update(reservation));
+    }
+
+    @Test
+    void shouldNotUpdateNullReservation() throws DataAccessException {
+        assertFalse(repository.update(null));
+    }
+
 }
