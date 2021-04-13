@@ -209,9 +209,11 @@ public class ReservationService {
         List<Reservation> reservations = reservationRepository.findById(reservation.getHost().getId());
         List<LocalDate> bookedDates = new ArrayList<>();
         for (Reservation r : reservations) {
+            if (r.getReservationId() == reservation.getReservationId()) {
+                break;
+            }
 
             LocalDate startDate = r.getStartDate();
-
             while (!startDate.isAfter(r.getEndDate())) {
                 bookedDates.add(startDate);
                 startDate = startDate.plusDays(1);
