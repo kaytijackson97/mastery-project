@@ -29,8 +29,6 @@ public class ReservationService {
     }
 
     public List<Reservation> findById(String id) throws DataAccessException {
-        List<Reservation> result = new ArrayList<>();
-
         Map<String, Guest> guestMap = guestRepository.findAll().stream()
                 .collect(Collectors.toMap(Guest::getId, i -> i));
 
@@ -39,10 +37,10 @@ public class ReservationService {
                 .findFirst().orElse(null);
 
         if (host == null) {
-            return result;
+            return null;
         }
 
-        result = reservationRepository.findById(id);
+        List<Reservation> result = reservationRepository.findById(id);
 
         if (result == null || result.size() == 0) {
             return null;
@@ -51,9 +49,31 @@ public class ReservationService {
         for (Reservation r : result) {
             r.setGuest(guestMap.get(r.getGuest().getId()));
         }
-
         return result;
     }
+
+    public List<Reservation> findById(String hostId, String guestId) throws DataAccessException {
+        List<Reservation> allHostsReservations = findById(hostId);
+        if (allHostsReservations == null || allHostsReservations.size() == 0) {
+            return null;
+        }
+
+        if (guestId == null) {
+            return null;
+        }
+
+        return allHostsReservations.stream()
+                .filter(i -> i.getGuest().getId().equalsIgnoreCase(guestId))
+                .collect(Collectors.toList());
+    }
+
+    public Reservation findByReservationId(String hostId, int reservationId) throws DataAccessException {
+        List<Reservation> reservations = findById(hostId);
+        return reservations.stream()
+                .filter(i -> i.getReservationId() == reservationId)
+                .findFirst().orElse(null);
+    }
+
 
     public Result<Reservation> isReservationAvailable(Reservation reservation) throws DataAccessException {
         Result<Reservation> result = validateFields(reservation);
@@ -96,10 +116,35 @@ public class ReservationService {
         reservation = reservationRepository.add(reservation);
 
         if (reservation == null) {
-            result.addErrorMessage("Could not complete booking");
+            result.addErrorMessage("Could not complete reservation.");
             return result;
         }
 
+        result.setPayload(reservation);
+        return result;
+    }
+
+    public Result<Reservation> updateReservation(Reservation reservation) throws DataAccessException {
+        Result<Reservation> result = validateFields(reservation);
+        if (!result.isSuccess()) {
+            return result;
+        }
+
+        result = validateDates(reservation);
+        if (!result.isSuccess()) {
+            return result;
+        }
+
+        result = validateIsNotAlreadyBooked(reservation);
+        if (!result.isSuccess()) {
+            return result;
+        }
+
+        boolean isSuccess = reservationRepository.update(reservation);
+        if (!isSuccess) {
+            result.addErrorMessage("Could not update reservation.");
+        }
+        reservation.setTotal(getPrice(reservation));
         result.setPayload(reservation);
         return result;
     }

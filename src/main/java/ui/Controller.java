@@ -52,7 +52,7 @@ public class Controller {
                     break;
 
                 case EDIT_RESERVATION:
-                    view.displayHeader(MainMenu.EDIT_RESERVATION.getTitle());
+                    editReservation();
                     break;
 
                 case DELETE_RESERVATION:
@@ -101,9 +101,44 @@ public class Controller {
 
         result = reservationService.addReservation(reservation);
         if (result.isSuccess()) {
-            view.displayStatus(true, "Booking was created!");
+            view.displayStatus(true, "Reservation was created.");
         } else {
             view.displayStatus(false, result.getMessages());
         }
+    }
+
+    private void editReservation() throws DataAccessException {
+        view.displayHeader(MainMenu.EDIT_RESERVATION.getTitle());
+        String hostEmail = view.chooseHost();
+        Host host = hostService.findByEmail(hostEmail);
+
+        String guestEmail = view.chooseGuest();
+        Guest guest = guestService.findByEmail(guestEmail);
+
+        List<Reservation> reservations = reservationService.findById(host.getId(), guest.getId());
+        view.displayReservations(host, reservations);
+
+        Reservation reservation = view.chooseReservation(reservations);
+        reservation = reservationService.findByReservationId(host.getId(), reservation.getReservationId());
+        reservation = view.editReservation(reservation);
+        Result<Reservation> result = reservationService.isReservationAvailable(reservation);
+
+        if (!result.isSuccess()) {
+            view.displayStatus(false, result.getMessages());
+            return;
+        }
+
+        boolean isGoingToBook = view.displaySummary(result.getPayload());
+        if (!isGoingToBook) {
+            return;
+        }
+
+        result = reservationService.updateReservation(reservation);
+        if (result.isSuccess()) {
+            view.displayStatus(true, "Reservation was updated.");
+        } else {
+            view.displayStatus(false, result.getMessages());
+        }
+
     }
 }

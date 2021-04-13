@@ -5,6 +5,7 @@ import models.MainMenu;
 import models.Reservation;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -36,6 +37,18 @@ public class View {
         return mainMenuOptions.get(input);
     }
 
+    public Reservation editReservation(Reservation reservation) {
+        displayHeader("Editing Reservation " + reservation.getReservationId());
+
+        LocalDate startDate = io.readDate("Start (" + reservation.getStartDate() + "): ", reservation.getStartDate());
+        LocalDate endDate = io.readDate("End (" + reservation.getStartDate() + "): ", reservation.getEndDate(), startDate);
+
+        reservation.setStartDate(startDate);
+        reservation.setEndDate(endDate);
+
+        return reservation;
+    }
+
     public String chooseHost() {
         return io.readRequiredString("Host Email: ");
     }
@@ -45,11 +58,21 @@ public class View {
     }
 
     public LocalDate chooseStartDate() {
-        return io.readDate("Start Date: ");
+        return io.readRequiredDate("Start Date: ");
     }
 
     public LocalDate chooseEndDate(LocalDate startDate) {
-        return io.readDate("End Date: ", startDate);
+        return io.readRequiredDate("End Date: ", startDate);
+    }
+
+    public Reservation chooseReservation(List<Reservation> reservations) {
+        int choice = -1;
+        do {
+            choice = io.readInt("Reservation ID: ");
+            if (reservations.get(choice) != null) {
+                return reservations.get(choice);
+            }
+        } while (true);
     }
 
     public void displayHeader(String message) {

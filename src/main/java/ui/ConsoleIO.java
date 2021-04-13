@@ -8,11 +8,12 @@ import java.util.Scanner;
 public class ConsoleIO {
 
     private static final String INVALID_NUMBER_PROMPT = "Input must be a whole number";
-    private static final String INVALID_DATE_PROMPT = "Input must be formatted as YYYY-MM-DD";
+    private static final String INVALID_DATE_FORMAT_PROMPT = "Input must be formatted as YYYY-MM-DD";
+    private static final String INVALID_DATE_PROMPT = "Input must be after %s";
     private static final String INVALID_BOOLEAN_PROMPT = "Input must be [y/n]";
 
     private final Scanner console = new Scanner(System.in);
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public void print(String message) {
         System.out.print(message);
@@ -63,24 +64,50 @@ public class ConsoleIO {
         return newValue;
     }
 
-    public LocalDate readDate(String prompt) {
+    public LocalDate readDate(String prompt, LocalDate previousDate) {
+        do {
+            String input = readString(prompt);
+            if (input.isBlank()) {
+                return previousDate;
+            }
+            try {
+                previousDate = LocalDate.parse(input, ConsoleIO.FORMATTER);
+                return previousDate;
+            } catch (DateTimeParseException ex) {
+                println(INVALID_DATE_FORMAT_PROMPT);
+            }
+        } while (true);
+    }
+
+    public LocalDate readDate(String prompt, LocalDate previousDate, LocalDate startDate) {
+        LocalDate date;
+        do {
+            date = readDate(prompt, previousDate);
+            if (date.isAfter(startDate)) {
+                return date;
+            }
+            printf(INVALID_DATE_PROMPT, startDate);
+        } while (true);
+    }
+
+    public LocalDate readRequiredDate(String prompt) {
         LocalDate date = LocalDate.now();
         do {
             String dateString = readRequiredString(prompt);
             try {
-                date = LocalDate.parse(dateString, formatter);
+                date = LocalDate.parse(dateString, FORMATTER);
             } catch (DateTimeParseException ex) {
-                System.out.println(INVALID_DATE_PROMPT);
+                System.out.println(INVALID_DATE_FORMAT_PROMPT);
             }
         } while (date.isBefore(LocalDate.now().plusDays(1)));
 
         return date;
     }
 
-    public LocalDate readDate(String prompt, LocalDate startDate) {
+    public LocalDate readRequiredDate(String prompt, LocalDate startDate) {
         LocalDate date = LocalDate.now();
         do {
-            date = readDate(prompt);
+            date = readRequiredDate(prompt);
             if (date.isAfter(startDate)) {
                 return date;
             }

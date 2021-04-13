@@ -18,9 +18,6 @@ public class ReservationRepositoryDouble implements ReservationRepository {
 
 
     public ReservationRepositoryDouble() {
-        Reservation reservation = new Reservation(HostRepositoryDouble.HOST, GuestRepositoryDouble.GUEST, startDate, endDate);
-        Reservation reservation1 = new Reservation(HostRepositoryDouble.HOST, GuestRepositoryDouble.GUEST, startDate.plusWeeks(1), endDate.plusWeeks(1));
-
         reservation.setReservationId(1);
         reservation1.setReservationId(2);
         reservations.add(reservation);
@@ -29,22 +26,19 @@ public class ReservationRepositoryDouble implements ReservationRepository {
 
     @Override
     public List<Reservation> findById(String id) throws DataAccessException {
-//        return reservations.stream()
-//                .filter(r -> r.getHost().getId().equalsIgnoreCase(id))
-//                .collect(Collectors.toList());
-        List<Reservation> allMatchingId = new ArrayList<>();
-        for (Reservation r : reservations) {
-            if (r.getHost().getId().equalsIgnoreCase(id)) {
-                allMatchingId.add(r);
-            }
-        }
-
-        return allMatchingId;
+        return reservations.stream()
+                .filter(r -> r.getHost().getId().equalsIgnoreCase(id))
+                .collect(Collectors.toList());
     }
 
     @Override
     public Reservation add(Reservation reservation) throws DataAccessException {
         return reservation;
+    }
+
+    @Override
+    public boolean update(Reservation reservation) throws DataAccessException {
+        return true;
     }
 
 }
