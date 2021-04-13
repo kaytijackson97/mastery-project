@@ -99,7 +99,7 @@ public class Controller {
             return;
         }
 
-        result = reservationService.makeBooking(reservation);
+        result = reservationService.addReservation(reservation);
         if (result.isSuccess()) {
             view.displayStatus(true, "Booking was created!");
         } else {

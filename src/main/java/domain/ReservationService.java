@@ -1,8 +1,8 @@
 package domain;
 
 import models.Guest;
+import models.Host;
 import models.Reservation;
-import org.springframework.cglib.core.Local;
 import repository.DataAccessException;
 import repository.GuestRepository;
 import repository.HostRepository;
@@ -11,8 +11,6 @@ import repository.ReservationRepository;
 import java.math.BigDecimal;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.Period;
-import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -31,11 +29,20 @@ public class ReservationService {
     }
 
     public List<Reservation> findById(String id) throws DataAccessException {
+        List<Reservation> result = new ArrayList<>();
 
         Map<String, Guest> guestMap = guestRepository.findAll().stream()
                 .collect(Collectors.toMap(Guest::getId, i -> i));
 
-        List<Reservation> result = reservationRepository.findById(id);
+        Host host = hostRepository.findAll().stream()
+                .filter(i -> i.getId().equalsIgnoreCase(id))
+                .findFirst().orElse(null);
+
+        if (host == null) {
+            return result;
+        }
+
+        result = reservationRepository.findById(id);
 
         if (result == null || result.size() == 0) {
             return null;
@@ -49,7 +56,12 @@ public class ReservationService {
     }
 
     public Result<Reservation> isReservationAvailable(Reservation reservation) throws DataAccessException {
-        Result<Reservation> result = validateDates(reservation);
+        Result<Reservation> result = validateFields(reservation);
+        if (!result.isSuccess()) {
+            return result;
+        }
+
+        result = validateDates(reservation);
         if (!result.isSuccess()) {
             return result;
         }
@@ -65,8 +77,13 @@ public class ReservationService {
         return result;
     }
 
-    public Result<Reservation> makeBooking(Reservation reservation) throws DataAccessException {
-        Result<Reservation> result = validateDates(reservation);
+    public Result<Reservation> addReservation(Reservation reservation) throws DataAccessException {
+        Result<Reservation> result = validateFields(reservation);
+        if (!result.isSuccess()) {
+            return result;
+        }
+
+        result = validateDates(reservation);
         if (!result.isSuccess()) {
             return result;
         }
@@ -87,19 +104,54 @@ public class ReservationService {
         return result;
     }
 
-    private Result<Reservation> validateDates(Reservation reservation) {
+    public BigDecimal getPrice(Reservation reservation) {
+        BigDecimal total = new BigDecimal("0.00");
+        LocalDate startDate = reservation.getStartDate();
+        LocalDate endDate = reservation.getEndDate();
+        ArrayList<LocalDate> reservedDates = new ArrayList<>();
+
+        while (!startDate.isAfter(endDate)) {
+            if (startDate.getDayOfWeek() == DayOfWeek.SATURDAY || startDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
+                total = total.add(reservation.getHost().getWeekend_rate());
+            } else {
+                total = total.add(reservation.getHost().getStandard_rate());
+            }
+            startDate = startDate.plusDays(1);
+        }
+        return total;
+    }
+
+    private Result<Reservation> validateFields(Reservation reservation) {
         Result<Reservation> result = new Result<>();
+        if (reservation == null) {
+            result.addErrorMessage("Reservation cannot be null");
+            return result;
+        }
+
+        if (reservation.getHost() == null) {
+            result.addErrorMessage("Host cannot be null");
+        }
+
+        if (reservation.getGuest() == null) {
+            result.addErrorMessage("Guest cannot be null");
+        }
 
         if (reservation.getStartDate() == null || reservation.getEndDate() == null) {
             result.addErrorMessage("Dates cannot be null.");
         }
+        return result;
+    }
 
-        if (reservation.getStartDate().isBefore(LocalDate.now())) {
+    private Result<Reservation> validateDates(Reservation reservation) {
+        Result<Reservation> result = new Result<>();
+
+        if (reservation.getStartDate().isBefore(LocalDate.now())
+        || reservation.getStartDate().equals(LocalDate.now())) {
             result.addErrorMessage("Start date must be in the future");
         }
 
         if (reservation.getEndDate().isBefore(reservation.getStartDate())
-        || reservation.getStartDate().equals(reservation.getEndDate())) {
+                || reservation.getStartDate().equals(reservation.getEndDate())) {
             result.addErrorMessage("Start date must be before end date.");
         }
 
@@ -126,21 +178,5 @@ public class ReservationService {
         }
 
         return result;
-    }
-
-    private BigDecimal getPrice(Reservation reservation) {
-        BigDecimal total = new BigDecimal("0.00");
-        LocalDate startDate = reservation.getStartDate();
-        ArrayList<LocalDate> reservedDates = new ArrayList<>();
-
-        while (!startDate.isAfter(reservation.getEndDate())) {
-            if (startDate.getDayOfWeek() == DayOfWeek.SATURDAY || startDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
-                total = total.add(reservation.getHost().getWeekend_rate());
-            } else {
-                total = total.add(reservation.getHost().getStandard_rate());
-            }
-            startDate = startDate.plusDays(1);
-        }
-        return total;
     }
 }

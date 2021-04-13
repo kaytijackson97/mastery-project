@@ -50,6 +50,11 @@ public class ReservationFileRepository implements ReservationRepository {
             return null;
         }
 
+        if (reservation.getStartDate() == null || reservation.getEndDate() == null || reservation.getHost() == null
+        || reservation.getGuest() == null || reservation.getTotal() == null) {
+            return null;
+        }
+
         String hostId = reservation.getHost().getId();
         List<Reservation> all = findById(hostId);
         int nextInt = all.size();

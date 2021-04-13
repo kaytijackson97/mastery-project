@@ -1,14 +1,18 @@
 package repository;
 
+import models.Host;
 import models.Reservation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.cglib.core.Local;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -56,5 +60,54 @@ class ReservationFileRepositoryTest {
         assertEquals(0, actual.size());
     }
 
+    @Test
+    void shouldAddValidReservation() throws DataAccessException {
+        List<Reservation> all = repository.findById(testHostId);
+        Reservation reservation = new Reservation();
+        reservation.setStartDate(LocalDate.of(2022, 10, 4));
+        reservation.setEndDate(LocalDate.of(2022, 10, 6));
+        Host host = new Host();
+        host.setId(testHostId);
+        reservation.setHost(host);
+        reservation.setGuest(GuestRepositoryDouble.GUEST);
+        reservation.setTotal(new BigDecimal("400.00"));
+        reservation = repository.add(reservation);
+
+        List<Reservation> actual = repository.findById(testHostId);
+
+        assertNotNull(reservation);
+        assertEquals(all.size() + 1, actual.size());
+    }
+
+    @Test
+    void shouldNotMakeReservationIfNull() throws DataAccessException {
+        List<Reservation> all = repository.findById(testHostId);
+        Reservation reservation = repository.add(null);
+        List<Reservation> actual = repository.findById(testHostId);
+
+        assertNull(reservation);
+        assertEquals(all.size(), actual.size());
+    }
+
+    @Test
+    void shouldReturnMakeNewFileIfNoPreviousReservations() throws DataAccessException {
+        Reservation reservation = new Reservation();
+        reservation.setStartDate(LocalDate.of(2022, 10, 4));
+        reservation.setEndDate(LocalDate.of(2022, 10, 6));
+        Host host = new Host();
+        host.setId("Test Id");
+        reservation.setHost(host);
+        reservation.setGuest(GuestRepositoryDouble.GUEST);
+        reservation.setTotal(new BigDecimal("400.00"));
+        reservation = repository.add(reservation);
+
+        assertNotNull(reservation);
+    }
+
+    @Test
+    void shouldNotMakeReservationIfNullFieldsInReservation() throws DataAccessException {
+        Reservation reservation = new Reservation();
+        assertNull(repository.add(reservation));
+    }
 
 }
