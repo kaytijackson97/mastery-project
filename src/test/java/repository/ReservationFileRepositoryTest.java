@@ -4,7 +4,6 @@ import models.Host;
 import models.Reservation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.cglib.core.Local;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -43,7 +42,7 @@ class ReservationFileRepositoryTest {
 
     @Test
     void shouldNotReturnAnyReservationsIfInvalid() throws DataAccessException {
-        List<Reservation> actual = repository.findById("Test Id");
+        List<Reservation> actual = repository.findById("Test");
         assertEquals(0, actual.size());
 
     }

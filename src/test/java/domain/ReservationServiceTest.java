@@ -66,7 +66,9 @@ class ReservationServiceTest {
     @Test
     void shouldNotMakeReservationIfNullFieldsInReservation() throws DataAccessException {
         Reservation reservation = new Reservation();
-        assertNull(service.addReservation(reservation));
+        Result<Reservation> result = service.addReservation(reservation);
+        assertFalse(result.isSuccess());
+        assertEquals(3, result.getMessages().size());
     }
 
     @Test
