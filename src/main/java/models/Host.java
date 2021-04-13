@@ -10,9 +10,11 @@ public class Host extends User{
     private BigDecimal standard_rate;
     private BigDecimal weekend_rate;
 
+    public Host() {
+    }
+
     public Host(String id, String last_name, String email, String phone, String address, String city, String state, int postal_code, BigDecimal standard_rate, BigDecimal weekend_rate) {
-        super(last_name, email, phone, state);
-        this.id = id;
+        super(id, last_name, email, phone, state);
         this.address = address;
         this.city = city;
         this.postal_code = postal_code;
