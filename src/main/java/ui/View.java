@@ -75,6 +75,10 @@ public class View {
         } while (true);
     }
 
+    public boolean chooseToDelete(Reservation reservation) {
+        return io.readBoolean("Are you sure you would like to delete reservation " + reservation.getReservationId() + "? [y/n]: ");
+    }
+
     public void displayHeader(String message) {
         io.println(message);
         io.println("=".repeat(message.length()));

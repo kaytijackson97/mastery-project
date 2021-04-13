@@ -83,6 +83,19 @@ public class ReservationFileRepository implements ReservationRepository {
         return false;
     }
 
+    @Override
+    public boolean deleteById(Reservation reservation) throws DataAccessException {
+        List<Reservation> all = findById(reservation.getHost().getId());
+        for (int i = 0; i < all.size(); i++) {
+            if (all.get(i).getReservationId() == reservation.getReservationId()) {
+                all.remove(i);
+                writeAll(all, reservation.getHost().getId());
+                return true;
+            }
+        }
+        return false;
+    }
+
     private String getFilePath(String id) {
         return Paths.get(repository, id + ".csv").toString();
     }

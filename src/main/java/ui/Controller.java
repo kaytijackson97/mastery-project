@@ -56,7 +56,7 @@ public class Controller {
                     break;
 
                 case DELETE_RESERVATION:
-                    view.displayHeader(MainMenu.DELETE_RESERVATION.getTitle());
+                    deleteReservation();
                     break;
             }
         } while (mainMenu != MainMenu.EXIT);
@@ -109,17 +109,8 @@ public class Controller {
 
     private void editReservation() throws DataAccessException {
         view.displayHeader(MainMenu.EDIT_RESERVATION.getTitle());
-        String hostEmail = view.chooseHost();
-        Host host = hostService.findByEmail(hostEmail);
+        Reservation reservation = getReservation();
 
-        String guestEmail = view.chooseGuest();
-        Guest guest = guestService.findByEmail(guestEmail);
-
-        List<Reservation> reservations = reservationService.findById(host.getId(), guest.getId());
-        view.displayReservations(host, reservations);
-
-        Reservation reservation = view.chooseReservation(reservations);
-        reservation = reservationService.findByReservationId(host.getId(), reservation.getReservationId());
         reservation = view.editReservation(reservation);
         Result<Reservation> result = reservationService.isReservationAvailable(reservation);
 
@@ -139,6 +130,33 @@ public class Controller {
         } else {
             view.displayStatus(false, result.getMessages());
         }
+    }
 
+    private void deleteReservation() throws DataAccessException {
+        view.displayHeader(MainMenu.DELETE_RESERVATION.getTitle());
+        Reservation reservation = getReservation();
+        boolean isGoingToDelete = view.chooseToDelete(reservation);
+
+        if (!isGoingToDelete) {
+            return;
+        }
+
+        Result<Reservation> result = reservationService.deleteReservationById(reservation);
+
+    }
+
+    //support methods
+    private Reservation getReservation() throws DataAccessException {
+        String hostEmail = view.chooseHost();
+        Host host = hostService.findByEmail(hostEmail);
+
+        String guestEmail = view.chooseGuest();
+        Guest guest = guestService.findByEmail(guestEmail);
+
+        List<Reservation> reservations = reservationService.findById(host.getId(), guest.getId());
+        view.displayReservations(host, reservations);
+
+        Reservation reservation = view.chooseReservation(reservations);
+        return reservationService.findByReservationId(host.getId(), reservation.getReservationId());
     }
 }

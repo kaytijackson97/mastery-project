@@ -149,11 +149,20 @@ public class ReservationService {
         return result;
     }
 
+    public Result<Reservation> deleteReservationById(Reservation reservation) throws DataAccessException {
+        Result<Reservation> result = new Result<>();
+
+        boolean isSuccess = reservationRepository.deleteById(reservation);
+        if (!isSuccess) {
+            result.addErrorMessage("Could not delete reservation");
+        }
+        return result;
+    }
+
     public BigDecimal getPrice(Reservation reservation) {
         BigDecimal total = new BigDecimal("0.00");
         LocalDate startDate = reservation.getStartDate();
         LocalDate endDate = reservation.getEndDate();
-        ArrayList<LocalDate> reservedDates = new ArrayList<>();
 
         while (!startDate.isAfter(endDate)) {
             if (startDate.getDayOfWeek() == DayOfWeek.SATURDAY || startDate.getDayOfWeek() == DayOfWeek.SUNDAY) {

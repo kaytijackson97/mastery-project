@@ -41,4 +41,9 @@ public class ReservationRepositoryDouble implements ReservationRepository {
         return true;
     }
 
+    @Override
+    public boolean deleteById(Reservation reservation) throws DataAccessException {
+        return false;
+    }
+
 }
