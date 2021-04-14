@@ -3,6 +3,7 @@ package learn.ui;
 import learn.models.Host;
 import learn.models.MainMenu;
 import learn.models.Reservation;
+import learn.models.User;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -48,12 +49,8 @@ public class View {
         return reservation;
     }
 
-    public String chooseHost() {
-        return io.readRequiredString("Host Email: ");
-    }
-
-    public String chooseGuest() {
-        return io.readRequiredString("Guest Email: ");
+    public String chooseUser(String userType) {
+        return io.readRequiredString(userType + " Email: ");
     }
 
     public LocalDate chooseStartDate() {
@@ -108,9 +105,9 @@ public class View {
         displayStatus(status, List.of(message));
     }
 
-    public void displayReservations(Host host, List<Reservation> reservations) {
-        String hostLastName = host.getLast_name();
-        String location = host.getCity() + ", " + host.getState();
+    public void displayReservations(User host, List<Reservation> reservations) {
+        String hostLastName = host.getFullName();
+        String location = host.getFullAddress();
         displayHeader(hostLastName + ": " + location);
         if (reservations == null || reservations.size() == 0) {
             io.println("No reservations found.");
@@ -121,8 +118,7 @@ public class View {
                     r.getReservationId(),
                     r.getStartDate(),
                     r.getEndDate(),
-                    r.getGuest().getLast_name(),
-                    r.getGuest().getFirst_name(),
+                    r.getGuest().getFullName(),
                     r.getGuest().getEmail());
         }
     }

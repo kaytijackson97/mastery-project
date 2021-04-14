@@ -1,8 +1,9 @@
 package learn.models;
 
 import java.math.BigDecimal;
+import java.util.List;
 
-public class Host extends User{
+public class Host extends User {
     private String id;
     private String address;
     private String city;
@@ -68,5 +69,18 @@ public class Host extends User{
 
     public void setWeekend_rate(BigDecimal weekend_rate) {
         this.weekend_rate = weekend_rate;
+    }
+
+    @Override
+    public String getFullAddress() {
+        return String.format("%s, %s, %s, %s", address, city, super.getFullAddress(), postal_code);
+    }
+
+    @Override
+    public List<BigDecimal> getRates() {
+        List<BigDecimal> rates = super.getRates();
+        rates.add(standard_rate);
+        rates.add(weekend_rate);
+        return rates;
     }
 }

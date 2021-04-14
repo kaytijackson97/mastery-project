@@ -1,7 +1,6 @@
 package learn.domain;
 
-import learn.models.Guest;
-import learn.models.Host;
+import learn.models.User;
 import learn.repository.DataAccessException;
 import learn.repository.GuestRepository;
 
@@ -13,13 +12,13 @@ public class GuestService {
         this.repository = guestRepository;
     }
 
-    public Result<Guest> findByEmail(String email) throws DataAccessException {
-        Result<Guest> result = validateEmail(email);
+    public Result<User> findByEmail(String email) throws DataAccessException {
+        Result<User> result = validateEmail(email);
         if (!result.isSuccess()) {
             return result;
         }
 
-        Guest guest = repository.findByEmail(email);
+        User guest = repository.findByEmail(email);
         if(guest == null) {
             result.addErrorMessage("Guest could not be found.");
             return result;
@@ -29,8 +28,8 @@ public class GuestService {
         return result;
     }
 
-    public Result<Guest> validateEmail(String email) throws DataAccessException {
-        Result<Guest> result = new Result<>();
+    public Result<User> validateEmail(String email) throws DataAccessException {
+        Result<User> result = new Result<>();
         if (email == null || email.isBlank()) {
             result.addErrorMessage("Email cannot but empty");
             return result;

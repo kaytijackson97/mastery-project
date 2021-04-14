@@ -1,6 +1,6 @@
 package learn.domain;
 
-import learn.models.Host;
+import learn.models.User;
 import learn.repository.DataAccessException;
 import learn.repository.HostRepository;
 
@@ -12,13 +12,13 @@ public class HostService {
         this.repository = repository;
     }
 
-    public Result<Host> findByEmail(String email) throws DataAccessException {
-        Result<Host> result = validateEmail(email);
+    public Result<User> findByEmail(String email) throws DataAccessException {
+        Result<User> result = validateEmail(email);
         if (!result.isSuccess()) {
             return result;
         }
 
-        Host host = repository.findByEmail(email);
+        User host = repository.findByEmail(email);
         if (host == null) {
             result.addErrorMessage("Host could not be found.");
             return result;
@@ -28,8 +28,8 @@ public class HostService {
         return result;
     }
 
-    public Result<Host> validateEmail(String email) throws DataAccessException {
-        Result<Host> result = new Result<>();
+    public Result<User> validateEmail(String email) throws DataAccessException {
+        Result<User> result = new Result<>();
         if (email == null || email.isBlank()) {
             result.addErrorMessage("Email cannot but empty");
             return result;

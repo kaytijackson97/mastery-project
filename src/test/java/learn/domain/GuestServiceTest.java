@@ -1,6 +1,7 @@
 package learn.domain;
 
 import learn.models.Guest;
+import learn.models.User;
 import learn.repository.DataAccessException;
 import learn.repository.GuestRepositoryDouble;
 import org.junit.jupiter.api.Test;
@@ -13,43 +14,43 @@ public class GuestServiceTest {
 
     @Test
     void shouldAcceptValidEmail() throws DataAccessException {
-        Result<Guest> result = service.findByEmail("wkuhlie@patch.com");
+        Result<User> result = service.findByEmail("wkuhlie@patch.com");
         assertTrue(result.isSuccess());
     }
 
     @Test
     void shouldIgnoreCasing() throws DataAccessException {
-        Result<Guest> result = service.findByEmail("wkuhlie@patch.COM");
+        Result<User> result = service.findByEmail("wkuhlie@patch.COM");
         assertTrue(result.isSuccess());
     }
 
     @Test
     void shouldNotAcceptInvalidEmail() throws DataAccessException {
-        Result<Guest> result = service.findByEmail("test@test.com");
+        Result<User> result = service.findByEmail("test@test.com");
         assertFalse(result.isSuccess());
     }
 
     @Test
     void shouldNotAcceptNullEmail() throws DataAccessException {
-        Result<Guest> result = service.findByEmail(null);
+        Result<User> result = service.findByEmail(null);
         assertFalse(result.isSuccess());
     }
 
     @Test
     void shouldNotAcceptValidEmailWithoutAtSymbol() throws DataAccessException {
-        Result<Guest> result = service.findByEmail("test");
+        Result<User> result = service.findByEmail("test");
         assertFalse(result.isSuccess());
     }
 
     @Test
     void shouldNotAcceptValidEmailWithMoreThanOneSymbol() throws DataAccessException {
-        Result<Guest> result = service.findByEmail("test@test@test.com");
+        Result<User> result = service.findByEmail("test@test@test.com");
         assertFalse(result.isSuccess());
     }
 
     @Test
     void shouldNotAcceptValidEmailWithoutPeriodAfterAtSymbol() throws DataAccessException {
-        Result<Guest> result = service.findByEmail("test@test");
+        Result<User> result = service.findByEmail("test@test");
         assertFalse(result.isSuccess());
     }
 

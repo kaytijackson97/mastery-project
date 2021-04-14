@@ -8,15 +8,15 @@ public class Reservation {
     private int reservationId;
     private LocalDate startDate;
     private LocalDate endDate;
-    private Host host;
-    private Guest guest;
+    private User host;
+    private User guest;
     private BigDecimal total;
     public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public Reservation() {
     }
 
-    public Reservation(Host host, Guest guest, LocalDate startDate, LocalDate endDate) {
+    public Reservation(User host, User guest, LocalDate startDate, LocalDate endDate) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.host = host;
@@ -47,19 +47,19 @@ public class Reservation {
         this.endDate = endDate;
     }
 
-    public Host getHost() {
+    public User getHost() {
         return host;
     }
 
-    public void setHost(Host host) {
+    public void setHost(User host) {
         this.host = host;
     }
 
-    public Guest getGuest() {
+    public User getGuest() {
         return guest;
     }
 
-    public void setGuest(Guest guest) {
+    public void setGuest(User guest) {
         this.guest = guest;
     }
 

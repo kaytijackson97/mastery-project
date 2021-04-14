@@ -3,6 +3,7 @@ package learn.domain;
 import learn.models.Guest;
 import learn.models.Host;
 import learn.models.Reservation;
+import learn.models.User;
 import learn.repository.DataAccessException;
 import learn.repository.GuestRepository;
 import learn.repository.HostRepository;
@@ -69,7 +70,7 @@ public class ReservationService {
                 .collect(Collectors.toList());
     }
 
-    public Reservation findByReservationId(Host host, int reservationId) throws DataAccessException {
+    public Reservation findByReservationId(User host, int reservationId) throws DataAccessException {
         List<Reservation> all = findById(host.getId());
         Reservation reservation = all.stream()
                 .filter(i -> i.getReservationId() == reservationId)
@@ -158,12 +159,14 @@ public class ReservationService {
         BigDecimal total = new BigDecimal("0.00");
         LocalDate startDate = reservation.getStartDate();
         LocalDate endDate = reservation.getEndDate();
+        BigDecimal standard_rate = reservation.getHost().getRates().get(0);
+        BigDecimal weekend_rate = reservation.getHost().getRates().get(1);
 
         while (!startDate.isAfter(endDate)) {
             if (startDate.getDayOfWeek() == DayOfWeek.FRIDAY || startDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
-                total = total.add(reservation.getHost().getWeekend_rate());
+                total = total.add(weekend_rate);
             } else {
-                total = total.add(reservation.getHost().getStandard_rate());
+                total = total.add(standard_rate);
             }
             startDate = startDate.plusDays(1);
         }

@@ -4,11 +4,8 @@ import learn.domain.GuestService;
 import learn.domain.HostService;
 import learn.domain.ReservationService;
 import learn.domain.Result;
+import learn.models.*;
 import learn.repository.DataAccessException;
-import learn.models.Guest;
-import learn.models.Host;
-import learn.models.MainMenu;
-import learn.models.Reservation;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -65,7 +62,7 @@ public class Controller {
     private void viewReservations() throws DataAccessException {
         view.displayHeader(MainMenu.VIEW_RESERVATIONS.getTitle());
 
-        Host host = getHost();
+        User host = getHost();
         if (host == null) {
             return;
         }
@@ -78,12 +75,12 @@ public class Controller {
     private void makeReservation() throws DataAccessException {
         view.displayHeader(MainMenu.MAKE_RESERVATION.getTitle());
 
-        Host host = getHost();
+        User host = getHost();
         if (host == null) {
             return;
         }
 
-        Guest guest = getGuest();
+        User guest = getGuest();
         if (guest == null) {
             return;
         }
@@ -119,12 +116,12 @@ public class Controller {
     private void editReservation() throws DataAccessException {
         view.displayHeader(MainMenu.EDIT_RESERVATION.getTitle());
 
-        Host host = getHost();
+        User host = getHost();
         if (host == null) {
             return;
         }
 
-        Guest guest = getGuest();
+        User guest = getGuest();
         if (guest == null) {
             return;
         }
@@ -164,9 +161,13 @@ public class Controller {
     private void deleteReservation() throws DataAccessException {
         view.displayHeader(MainMenu.DELETE_RESERVATION.getTitle());
 
-        Host host = getHost();
-        Guest guest = getGuest();
-        if (host == null || guest == null) {
+        User host = getHost();
+        if (host == null) {
+            return;
+        }
+
+        User guest = getGuest();
+        if (guest == null) {
             return;
         }
 
@@ -189,9 +190,9 @@ public class Controller {
     }
 
     //support methods
-    private Host getHost() throws DataAccessException {
-        String hostEmail = view.chooseHost();
-        Result<Host> result = hostService.findByEmail(hostEmail);
+    private User getHost() throws DataAccessException {
+        String hostEmail = view.chooseUser("Host");
+        Result<User> result = hostService.findByEmail(hostEmail);
         if (!result.isSuccess()) {
             view.displayStatus(false, result.getMessages());
             return null;
@@ -199,9 +200,9 @@ public class Controller {
         return result.getPayload();
     }
 
-    private Guest getGuest() throws DataAccessException {
-        String guestEmail = view.chooseGuest();
-        Result<Guest> result = guestService.findByEmail(guestEmail);
+    private User getGuest() throws DataAccessException {
+        String guestEmail = view.chooseUser("Guest");
+        Result<User> result = guestService.findByEmail(guestEmail);
         if (!result.isSuccess()) {
             view.displayStatus(false, result.getMessages());
             return null;

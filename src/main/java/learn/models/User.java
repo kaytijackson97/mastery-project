@@ -1,5 +1,9 @@
 package learn.models;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     private String id;
     private String last_name;
@@ -56,5 +60,18 @@ public class User {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    //parent class methods
+    public String getFullName() {
+        return last_name;
+    }
+
+    public String getFullAddress() {
+        return state;
+    }
+
+    public List<BigDecimal> getRates() {
+        return new ArrayList<>();
     }
 }

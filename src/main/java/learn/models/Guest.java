@@ -19,4 +19,10 @@ public class Guest extends User {
     public void setFirst_name(String first_name) {
         this.first_name = first_name;
     }
+
+    //parent methods
+    @Override
+    public String getFullName() {
+        return String.format("%s %s", first_name, super.getFullName());
+    }
 }
