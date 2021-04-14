@@ -1,7 +1,5 @@
-package repository;
+package learn.repository;
 
-import learn.repository.DataAccessException;
-import learn.repository.ReservationRepository;
 import learn.models.Reservation;
 
 import java.time.LocalDate;

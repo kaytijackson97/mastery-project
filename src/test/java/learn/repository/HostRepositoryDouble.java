@@ -1,4 +1,4 @@
-package repository;
+package learn.repository;
 
 import learn.repository.DataAccessException;
 import learn.repository.HostRepository;
@@ -20,7 +20,10 @@ public class HostRepositoryDouble implements HostRepository {
 
     @Override
     public Host findByEmail(String email) throws DataAccessException {
-        return null;
+        List<Host> allHosts = findAll();
+        return allHosts.stream()
+                .filter(h -> h.getEmail().equalsIgnoreCase(email))
+                .findFirst().orElse(null);
     }
 
     @Override

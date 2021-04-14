@@ -1,12 +1,11 @@
-package domain;
+package learn.domain;
 
-import learn.domain.ReservationService;
-import learn.domain.Result;
-import learn.models.Host;
 import learn.repository.DataAccessException;
 import learn.models.Reservation;
+import learn.repository.GuestRepositoryDouble;
+import learn.repository.HostRepositoryDouble;
+import learn.repository.ReservationRepositoryDouble;
 import org.junit.jupiter.api.Test;
-import repository.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -55,7 +54,7 @@ class ReservationServiceTest {
     }
 
     @Test
-    void shouldMakeValidReservation() throws DataAccessException {
+    void shouldAddValidReservation() throws DataAccessException {
         Reservation reservation = new Reservation();
         reservation.setHost(HostRepositoryDouble.HOST);
         reservation.setGuest(GuestRepositoryDouble.GUEST);
@@ -64,6 +63,32 @@ class ReservationServiceTest {
         reservation.setTotal(service.getPrice(reservation));
 
         Result<Reservation> result = service.isReservationAvailable(reservation);
+        assertTrue(result.isSuccess());
+
+        result = service.addReservation(reservation);
+        assertTrue(result.isSuccess());
+    }
+
+    @Test
+    void shouldAddReservationIfStartDateIsOnEndDateOfExisting() throws DataAccessException {
+        Reservation reservation = new Reservation();
+        reservation.setHost(HostRepositoryDouble.HOST);
+        reservation.setGuest(GuestRepositoryDouble.GUEST);
+        reservation.setStartDate(LocalDate.of(2021, 10,14));
+        reservation.setEndDate(LocalDate.of(2021, 10,15));
+        reservation.setTotal(service.getPrice(reservation));
+
+        Result<Reservation> result = service.isReservationAvailable(reservation);
+        assertTrue(result.isSuccess());
+
+        result = service.addReservation(reservation);
+        assertTrue(result.isSuccess());
+
+        reservation.setStartDate(LocalDate.of(2021, 10,11));
+        reservation.setEndDate(LocalDate.of(2021, 10,12));
+        reservation.setTotal(service.getPrice(reservation));
+
+        result = service.isReservationAvailable(reservation);
         assertTrue(result.isSuccess());
 
         result = service.addReservation(reservation);

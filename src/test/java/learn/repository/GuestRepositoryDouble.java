@@ -1,7 +1,5 @@
-package repository;
+package learn.repository;
 
-import learn.repository.DataAccessException;
-import learn.repository.GuestRepository;
 import learn.models.Guest;
 
 import java.util.ArrayList;
@@ -19,7 +17,10 @@ public class GuestRepositoryDouble implements GuestRepository {
 
     @Override
     public Guest findByEmail(String email) throws DataAccessException {
-        return null;
+        List<Guest> allGuests = findAll();
+        return allGuests.stream()
+                .filter(g -> g.getEmail().equalsIgnoreCase(email))
+                .findFirst().orElse(null);
     }
 
     @Override

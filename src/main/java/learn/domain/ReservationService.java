@@ -75,7 +75,10 @@ public class ReservationService {
                 .filter(i -> i.getReservationId() == reservationId)
                 .findFirst().orElse(null);
 
-        reservation.setHost(host);
+        if (reservation != null) {
+            reservation.setHost(host);
+        }
+
         return reservation;
     }
 
@@ -102,23 +105,13 @@ public class ReservationService {
     }
 
     public Result<Reservation> addReservation(Reservation reservation) throws DataAccessException {
-        Result<Reservation> result = validateFields(reservation);
+        Result<Reservation> result = isReservationAvailable(reservation);
         if (!result.isSuccess()) {
             return result;
         }
 
         if (reservation.getReservationId() != 0) {
             result.addErrorMessage("Cannot set reservation Id.");
-            return result;
-        }
-
-        result = validateDates(reservation);
-        if (!result.isSuccess()) {
-            return result;
-        }
-
-        result = validateIsNotAlreadyBooked(reservation);
-        if (!result.isSuccess()) {
             return result;
         }
 
@@ -135,17 +128,7 @@ public class ReservationService {
     }
 
     public Result<Reservation> updateReservation(Reservation reservation) throws DataAccessException {
-        Result<Reservation> result = validateFields(reservation);
-        if (!result.isSuccess()) {
-            return result;
-        }
-
-        result = validateDates(reservation);
-        if (!result.isSuccess()) {
-            return result;
-        }
-
-        result = validateIsNotAlreadyBooked(reservation);
+        Result<Reservation> result = isReservationAvailable(reservation);
         if (!result.isSuccess()) {
             return result;
         }
@@ -154,7 +137,7 @@ public class ReservationService {
         if (!isSuccess) {
             result.addErrorMessage("Could not update reservation.");
         }
-        reservation.setTotal(getPrice(reservation));
+
         result.setPayload(reservation);
         return result;
     }
@@ -235,7 +218,7 @@ public class ReservationService {
                 break;
             }
 
-            if (r.getStartDate() == reservation.getStartDate() || r.getEndDate() == reservation.getEndDate()) {
+            if (r.getStartDate().equals(reservation.getStartDate()) || r.getEndDate().equals(reservation.getEndDate())) {
                 result.addErrorMessage("Pre-existing reservation");
                 return result;
             }
