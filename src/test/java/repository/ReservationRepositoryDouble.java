@@ -1,6 +1,8 @@
 package repository;
 
-import models.Reservation;
+import learn.repository.DataAccessException;
+import learn.repository.ReservationRepository;
+import learn.models.Reservation;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -15,13 +17,17 @@ public class ReservationRepositoryDouble implements ReservationRepository {
     private final LocalDate endDate = LocalDate.of(2021, 10, 14);
     private final Reservation reservation = new Reservation(HostRepositoryDouble.HOST, GuestRepositoryDouble.GUEST, startDate, endDate);
     private final Reservation reservation1 = new Reservation(HostRepositoryDouble.HOST, GuestRepositoryDouble.GUEST, startDate.plusWeeks(1), endDate.plusWeeks(1));
+    private final Reservation oldReservation = new Reservation(HostRepositoryDouble.HOST, GuestRepositoryDouble.GUEST, startDate.minusYears(1), endDate.minusYears(1));
+
 
 
     public ReservationRepositoryDouble() {
         reservation.setReservationId(1);
         reservation1.setReservationId(2);
+        oldReservation.setReservationId(3);
         reservations.add(reservation);
         reservations.add(reservation1);
+        reservations.add(oldReservation);
     }
 
     @Override

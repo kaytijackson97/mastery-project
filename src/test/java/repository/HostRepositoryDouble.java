@@ -1,6 +1,8 @@
 package repository;
 
-import models.Host;
+import learn.repository.DataAccessException;
+import learn.repository.HostRepository;
+import learn.models.Host;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

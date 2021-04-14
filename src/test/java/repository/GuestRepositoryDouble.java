@@ -1,11 +1,13 @@
 package repository;
 
-import models.Guest;
+import learn.repository.DataAccessException;
+import learn.repository.GuestRepository;
+import learn.models.Guest;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GuestRepositoryDouble implements GuestRepository{
+public class GuestRepositoryDouble implements GuestRepository {
 
     private ArrayList<Guest> guests = new ArrayList<>();
     public static final Guest GUEST = new Guest("663","Wallis","Kuhl",

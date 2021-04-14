@@ -1,7 +1,9 @@
 package repository;
 
-import models.Host;
-import models.Reservation;
+import learn.repository.DataAccessException;
+import learn.repository.ReservationFileRepository;
+import learn.models.Host;
+import learn.models.Reservation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -44,7 +46,6 @@ class ReservationFileRepositoryTest {
     void shouldNotReturnAnyReservationsIfInvalid() throws DataAccessException {
         List<Reservation> actual = repository.findById("Test");
         assertEquals(0, actual.size());
-
     }
 
     @Test

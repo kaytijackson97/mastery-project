@@ -1,9 +1,14 @@
 package domain;
 
-import models.Reservation;
+import learn.domain.ReservationService;
+import learn.domain.Result;
+import learn.models.Host;
+import learn.repository.DataAccessException;
+import learn.models.Reservation;
 import org.junit.jupiter.api.Test;
 import repository.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -35,6 +40,15 @@ class ReservationServiceTest {
     }
 
     @Test
+    void shouldNotReturnPastReservations() throws DataAccessException {
+        List<Reservation> actual = service.findById(HostRepositoryDouble.HOST_ID);
+        assertEquals(2, actual.size());
+
+        Reservation reservation = service.findByReservationId(HostRepositoryDouble.HOST, 3);
+        assertNull(reservation);
+    }
+
+    @Test
     void shouldReturnNullIfInvalidHostOrGuestId() throws DataAccessException {
         List<Reservation> actual = service.findById("Test Host", "Test Guest");
         assertNull(actual);
@@ -54,6 +68,24 @@ class ReservationServiceTest {
 
         result = service.addReservation(reservation);
         assertTrue(result.isSuccess());
+    }
+
+    @Test
+    void shouldNotAddReservationIfSetId() throws DataAccessException {
+        Reservation reservation = new Reservation();
+        reservation.setReservationId(10);
+        reservation.setHost(HostRepositoryDouble.HOST);
+        reservation.setGuest(GuestRepositoryDouble.GUEST);
+        reservation.setStartDate(LocalDate.of(2021, 10,16));
+        reservation.setEndDate(LocalDate.of(2021, 10,18));
+        reservation.setTotal(service.getPrice(reservation));
+
+        Result<Reservation> result = service.isReservationAvailable(reservation);
+        assertTrue(result.isSuccess());
+
+        result = service.addReservation(reservation);
+        assertFalse(result.isSuccess());
+
     }
 
     @Test
@@ -130,6 +162,32 @@ class ReservationServiceTest {
 
         result = service.addReservation(reservation);
         assertFalse(result.isSuccess());
+    }
+
+    @Test
+    void shouldChargeWeekendRateOnFridayAndSaturday() throws DataAccessException {
+        Reservation reservation = new Reservation();
+        reservation.setHost(HostRepositoryDouble.HOST);
+        reservation.setGuest(GuestRepositoryDouble.GUEST);
+        reservation.setStartDate(LocalDate.of(2021, 10,15));
+        reservation.setEndDate(LocalDate.of(2021, 10,16));
+        BigDecimal actual = service.getPrice(reservation);
+
+        BigDecimal expected = new BigDecimal("500.00");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldChargeStandardRateSundayThroughThursday() throws DataAccessException {
+        Reservation reservation = new Reservation();
+        reservation.setHost(HostRepositoryDouble.HOST);
+        reservation.setGuest(GuestRepositoryDouble.GUEST);
+        reservation.setStartDate(LocalDate.of(2021, 10,17));
+        reservation.setEndDate(LocalDate.of(2021, 10,21));
+        BigDecimal actual = service.getPrice(reservation);
+
+        BigDecimal expected = new BigDecimal("1000.00");
+        assertEquals(expected, actual);
     }
 
     @Test
