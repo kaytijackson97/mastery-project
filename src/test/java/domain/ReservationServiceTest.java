@@ -241,12 +241,21 @@ class ReservationServiceTest {
 
     @Test
     void shouldNotDeleteIfInvalid() throws DataAccessException {
+        Reservation reservation = new Reservation();
+        reservation.setReservationId(10);
+        reservation.setHost(HostRepositoryDouble.HOST);
 
+        Result<Reservation> result = service.deleteReservation(reservation.getHost().getId(), reservation.getReservationId());
+        assertFalse(result.isSuccess());
     }
 
     @Test
-    void shouldNotDeleteIfNull() throws DataAccessException {
+    void shouldNotDeleteIfHostIdNull() throws DataAccessException {
+        Reservation reservation = new Reservation();
+        reservation.setReservationId(0);
 
+        Result<Reservation> result = service.deleteReservation(null, reservation.getReservationId());
+        assertFalse(result.isSuccess());
     }
 
 }

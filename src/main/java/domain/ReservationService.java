@@ -149,10 +149,12 @@ public class ReservationService {
 
     public Result<Reservation> deleteReservation(String hostId, int reservationId) throws DataAccessException {
         Result<Reservation> result = new Result<>();
-
+        if (hostId == null) {
+            result.addErrorMessage("Host Id is required.");
+        }
         boolean isSuccess = reservationRepository.deleteById(hostId, reservationId);
         if (!isSuccess) {
-            result.addErrorMessage("Could not delete reservation");
+            result.addErrorMessage("Could not delete reservation.");
         }
         return result;
     }

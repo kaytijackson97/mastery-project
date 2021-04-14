@@ -43,7 +43,18 @@ public class ReservationRepositoryDouble implements ReservationRepository {
 
     @Override
     public boolean deleteById(String hostId, int reservationId) throws DataAccessException {
-        return findById(hostId) != null;
+        List<Reservation> all = findById(hostId);
+        if (all == null || all.size() == 0) {
+            return false;
+        }
+
+        for (int i = 0; i < all.size(); i++) {
+            if (all.get(i).getReservationId() == reservationId) {
+                all.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
 
 }
