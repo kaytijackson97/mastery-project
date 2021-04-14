@@ -84,12 +84,17 @@ public class ReservationFileRepository implements ReservationRepository {
     }
 
     @Override
-    public boolean deleteById(Reservation reservation) throws DataAccessException {
-        List<Reservation> all = findById(reservation.getHost().getId());
+    public boolean deleteById(String hostId, int reservationId) throws DataAccessException {
+
+        List<Reservation> all = findById(hostId);
+        if (all == null || all.size() == 0) {
+            return false;
+        }
+
         for (int i = 0; i < all.size(); i++) {
-            if (all.get(i).getReservationId() == reservation.getReservationId()) {
+            if (all.get(i).getReservationId() == reservationId) {
                 all.remove(i);
-                writeAll(all, reservation.getHost().getId());
+                writeAll(all, hostId);
                 return true;
             }
         }

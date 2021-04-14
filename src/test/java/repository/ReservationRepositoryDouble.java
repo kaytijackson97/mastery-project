@@ -38,12 +38,12 @@ public class ReservationRepositoryDouble implements ReservationRepository {
 
     @Override
     public boolean update(Reservation reservation) throws DataAccessException {
-        return true;
+        return findById(reservation.getHost().getId()) != null;
     }
 
     @Override
-    public boolean deleteById(Reservation reservation) throws DataAccessException {
-        return false;
+    public boolean deleteById(String hostId, int reservationId) throws DataAccessException {
+        return findById(hostId) != null;
     }
 
 }

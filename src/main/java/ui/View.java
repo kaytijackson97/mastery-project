@@ -65,12 +65,12 @@ public class View {
         return io.readRequiredDate("End Date: ", startDate);
     }
 
-    public Reservation chooseReservation(List<Reservation> reservations) {
+    public int chooseReservation(List<Reservation> reservations) {
         int choice = -1;
         do {
             choice = io.readInt("Reservation ID: ");
             if (reservations.get(choice) != null) {
-                return reservations.get(choice);
+                return choice;
             }
         } while (true);
     }

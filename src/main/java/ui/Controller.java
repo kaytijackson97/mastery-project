@@ -141,7 +141,7 @@ public class Controller {
             return;
         }
 
-        Result<Reservation> result = reservationService.deleteReservationById(reservation);
+        Result<Reservation> result = reservationService.deleteReservation(reservation.getHost().getId(), reservation.getReservationId());
 
     }
 
@@ -156,7 +156,8 @@ public class Controller {
         List<Reservation> reservations = reservationService.findById(host.getId(), guest.getId());
         view.displayReservations(host, reservations);
 
-        Reservation reservation = view.chooseReservation(reservations);
-        return reservationService.findByReservationId(host.getId(), reservation.getReservationId());
+        int reservationId = view.chooseReservation(reservations);
+        Result<Reservation> result = reservationService.deleteReservation(host.getId(), reservationId);
+        return null;
     }
 }

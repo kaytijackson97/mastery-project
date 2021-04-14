@@ -67,14 +67,6 @@ public class ReservationService {
                 .collect(Collectors.toList());
     }
 
-    public Reservation findByReservationId(String hostId, int reservationId) throws DataAccessException {
-        List<Reservation> reservations = findById(hostId);
-        return reservations.stream()
-                .filter(i -> i.getReservationId() == reservationId)
-                .findFirst().orElse(null);
-    }
-
-
     public Result<Reservation> isReservationAvailable(Reservation reservation) throws DataAccessException {
         Result<Reservation> result = validateFields(reservation);
         if (!result.isSuccess()) {
@@ -103,6 +95,11 @@ public class ReservationService {
             return result;
         }
 
+        if (reservation.getReservationId() != 0) {
+            result.addErrorMessage("Cannot set reservation Id.");
+            return result;
+        }
+
         result = validateDates(reservation);
         if (!result.isSuccess()) {
             return result;
@@ -113,6 +110,7 @@ public class ReservationService {
             return result;
         }
 
+        reservation.setTotal(getPrice(reservation));
         reservation = reservationRepository.add(reservation);
 
         if (reservation == null) {
@@ -149,10 +147,10 @@ public class ReservationService {
         return result;
     }
 
-    public Result<Reservation> deleteReservationById(Reservation reservation) throws DataAccessException {
+    public Result<Reservation> deleteReservation(String hostId, int reservationId) throws DataAccessException {
         Result<Reservation> result = new Result<>();
 
-        boolean isSuccess = reservationRepository.deleteById(reservation);
+        boolean isSuccess = reservationRepository.deleteById(hostId, reservationId);
         if (!isSuccess) {
             result.addErrorMessage("Could not delete reservation");
         }

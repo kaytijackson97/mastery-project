@@ -41,12 +41,6 @@ class ReservationServiceTest {
     }
 
     @Test
-    void shouldReturnOneReservationForFindByReservationId() throws DataAccessException {
-        Reservation reservation = service.findByReservationId(HostRepositoryDouble.HOST_ID, 1);
-        assertEquals(1, reservation.getReservationId());
-    }
-
-    @Test
     void shouldMakeValidReservation() throws DataAccessException {
         Reservation reservation = new Reservation();
         reservation.setHost(HostRepositoryDouble.HOST);
@@ -231,10 +225,28 @@ class ReservationServiceTest {
         newReservation.setStartDate(LocalDate.of(2021, 10,16));
         newReservation.setEndDate(LocalDate.of(2021, 10,18));
         newReservation.setTotal(service.getPrice(reservation));
-        result = service.addReservation(reservation);
+        result = service.addReservation(newReservation);
 
         assertTrue(result.isSuccess());
     }
 
+    @Test
+    void shouldDeleteIfValid() throws DataAccessException {
+        List<Reservation> reservations = service.findById(HostRepositoryDouble.HOST.getId());
+        Reservation reservation = reservations.get(1);
+
+        Result<Reservation> result = service.deleteReservation(reservation.getHost().getId(), reservation.getReservationId());
+        assertTrue(result.isSuccess());
+    }
+
+    @Test
+    void shouldNotDeleteIfInvalid() throws DataAccessException {
+
+    }
+
+    @Test
+    void shouldNotDeleteIfNull() throws DataAccessException {
+
+    }
 
 }

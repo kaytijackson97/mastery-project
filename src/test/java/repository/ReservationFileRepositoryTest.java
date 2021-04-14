@@ -168,4 +168,19 @@ class ReservationFileRepositoryTest {
         assertFalse(repository.update(null));
     }
 
+    @Test
+    void shouldDeleteIfValid() throws DataAccessException {
+        Reservation reservation = repository.findById(testHostId).get(0);
+        assertTrue(repository.deleteById(HostRepositoryDouble.HOST_ID, reservation.getReservationId()));
+
+    }
+
+    @Test
+    void shouldNotDeleteIfInvalid() throws DataAccessException {
+        Reservation reservation = new Reservation();
+        reservation.setReservationId(-1);
+
+        assertFalse(repository.deleteById(HostRepositoryDouble.HOST_ID, reservation.getReservationId()));
+    }
+
 }
