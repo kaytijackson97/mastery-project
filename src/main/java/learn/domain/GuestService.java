@@ -4,7 +4,7 @@ import learn.models.User;
 import learn.repository.DataAccessException;
 import learn.repository.GuestRepository;
 
-public class GuestService {
+public class GuestService implements UserService{
 
     private final GuestRepository repository;
 
@@ -28,7 +28,7 @@ public class GuestService {
         return result;
     }
 
-    public Result<User> validateEmail(String email) throws DataAccessException {
+    public Result<User> validateEmail(String email) {
         Result<User> result = new Result<>();
         if (email == null || email.isBlank()) {
             result.addErrorMessage("Email cannot but empty");

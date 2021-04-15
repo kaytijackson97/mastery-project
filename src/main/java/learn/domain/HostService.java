@@ -4,7 +4,7 @@ import learn.models.User;
 import learn.repository.DataAccessException;
 import learn.repository.HostRepository;
 
-public class HostService {
+public class HostService implements UserService{
 
     private final HostRepository repository;
 
@@ -12,6 +12,7 @@ public class HostService {
         this.repository = repository;
     }
 
+    @Override
     public Result<User> findByEmail(String email) throws DataAccessException {
         Result<User> result = validateEmail(email);
         if (!result.isSuccess()) {
@@ -28,7 +29,8 @@ public class HostService {
         return result;
     }
 
-    public Result<User> validateEmail(String email) throws DataAccessException {
+    @Override
+    public Result<User> validateEmail(String email) {
         Result<User> result = new Result<>();
         if (email == null || email.isBlank()) {
             result.addErrorMessage("Email cannot but empty");
