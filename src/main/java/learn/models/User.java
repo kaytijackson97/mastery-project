@@ -6,20 +6,22 @@ import java.util.List;
 
 public class User {
     private String id;
-    private String last_name;
+    private String lastName;
     private String email;
     private String phone;
     private String state;
+    private boolean isDeleted;
 
     public User() {
     }
 
-    public User(String id,String last_name, String email, String phone, String state) {
+    public User(String id,String lastName, String email, String phone, String state, boolean isDeleted) {
         this.id = id;
-        this.last_name = last_name;
+        this.lastName = lastName;
         this.email = email;
         this.phone = phone;
         this.state = state;
+        this.isDeleted = isDeleted;
     }
 
     public String getId() {
@@ -30,12 +32,12 @@ public class User {
         this.id = id;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -62,9 +64,17 @@ public class User {
         this.state = state;
     }
 
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
+    }
+
     //parent class methods
     public String getFullName() {
-        return last_name;
+        return lastName;
     }
 
     public String getFullAddress() {

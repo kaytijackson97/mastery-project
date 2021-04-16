@@ -1,20 +1,20 @@
 package learn.repository;
 
 import learn.models.Host;
+import learn.models.User;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class HostFileRepository implements HostRepository{
+public class HostFileRepository implements HostRepository {
 
     private static final String HEADER = "id,last_name,email,phone,address,city,state,postal_code,standard_rate,weekend_rate";
     private final String filePath;
     private static final String DELIMITER = ",";
+    private static final String DELIMITER_REPLACEMENT = "@@@";
 
     public HostFileRepository(String filePath) {
         this.filePath = filePath;
@@ -22,8 +22,7 @@ public class HostFileRepository implements HostRepository{
 
     @Override
     public Host findByEmail(String email) throws DataAccessException {
-        List<Host> allHosts = findAll();
-        return allHosts.stream()
+        return findAllNotDeleted().stream()
                 .filter(h -> h.getEmail().equalsIgnoreCase(email))
                 .findFirst().orElse(null);
     }
@@ -49,20 +48,137 @@ public class HostFileRepository implements HostRepository{
         return hosts;
     }
 
+    @Override
+    public List<Host> findAllNotDeleted() throws DataAccessException {
+        return findAll().stream()
+                .filter(h -> !h.isDeleted())
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Host add(User user) throws DataAccessException {
+        if (user == null) {
+            return null;
+        }
+
+        Host host = createHostFromUser(user);
+        host.setId(java.util.UUID.randomUUID().toString());
+
+        List<Host> all = findAll();
+        all.add(host);
+        writeAll(all);
+        return host;
+    }
+
+    @Override
+    public boolean update(User user) throws DataAccessException {
+        if (user == null) {
+            return false;
+        }
+
+        Host host = createHostFromUser(user);
+
+        List<Host> all = findAll();
+        for (int i = 0; i < all.size(); i++) {
+            if (all.get(i).getEmail().equalsIgnoreCase(host.getEmail())) {
+                all.set(i, host);
+                writeAll(all);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteByEmail(String email) throws DataAccessException {
+        List<Host> all = findAllNotDeleted();
+        for (int i = 0; i < all.size(); i++) {
+            if (all.get(i).getEmail().equalsIgnoreCase(email)) {
+                Host host = all.get(i);
+                host.setDeleted(true);
+                all.set(i, host);
+                writeAll(all);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Host createHostFromUser(User user) {
+        Host host = new Host();
+
+        host.setLastName(user.getLastName());
+        host.setEmail(user.getEmail());
+        host.setPhone(user.getPhone());
+
+        String[] addressFields = user.getFullAddress().split(DELIMITER, -1);
+        host.setAddress(addressFields[0]);
+        host.setCity(addressFields[1]);
+        host.setState(user.getState());
+        host.setPostalCode(Integer.parseInt(addressFields[3]));
+
+        host.setStandardRate(user.getRates().get(0));
+        host.setWeekendRate(user.getRates().get(1));
+
+        return host;
+    }
+
     private Host deserialized(String line) {
         String[] fields = line.split(DELIMITER);
         Host host = new Host();
+
         host.setId(fields[0]);
-        host.setLast_name(fields[1]);
+        host.setLastName(fields[1]);
         host.setEmail(fields[2]);
         host.setPhone(fields[3]);
+
         host.setAddress(fields[4]);
         host.setCity(fields[5]);
         host.setState(fields[6]);
-        host.setPostal_code(Integer.parseInt(fields[7]));
-        host.setStandard_rate(BigDecimal.valueOf(Double.parseDouble(fields[8])));
-        host.setWeekend_rate(BigDecimal.valueOf(Double.parseDouble(fields[9])));
+        host.setPostalCode(Integer.parseInt(fields[7]));
+
+        host.setStandardRate(BigDecimal.valueOf(Double.parseDouble(fields[8])));
+        host.setWeekendRate(BigDecimal.valueOf(Double.parseDouble(fields[9])));
+        host.setDeleted(fields[10].equals("true"));
 
         return host;
+    }
+
+    private String serialized(Host host) {
+        StringBuilder builder = new StringBuilder(100);
+
+        builder.append(host.getId()).append(DELIMITER);
+        builder.append(cleanField(host.getLastName())).append(DELIMITER);
+        builder.append(host.getEmail()).append(DELIMITER);
+        builder.append(host.getPhone()).append(DELIMITER);
+
+        builder.append(cleanField(host.getAddress())).append(DELIMITER);
+        builder.append(cleanField(host.getCity())).append(DELIMITER);
+        builder.append(host.getState()).append(DELIMITER);
+        builder.append(host.getPostalCode()).append(DELIMITER);
+
+        builder.append(host.getStandardRate()).append(DELIMITER);
+        builder.append(host.getWeekendRate()).append(DELIMITER);
+        builder.append(host.isDeleted());
+
+        return builder.toString();
+    }
+
+    private void writeAll(List<Host> hosts) throws DataAccessException {
+        try (PrintWriter writer = new PrintWriter(filePath)) {
+            writer.println(HEADER);
+
+            for (Host h : hosts) {
+                writer.println(serialized(h));
+            }
+        } catch (FileNotFoundException ex) {
+            throw new DataAccessException(ex.getMessage());
+        }
+    }
+
+    private String cleanField(String field) {
+        return field.replace(DELIMITER, DELIMITER_REPLACEMENT)
+                .replace("/r", "")
+                .replace("/n", "");
     }
 }

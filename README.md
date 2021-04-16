@@ -90,8 +90,37 @@ Timing will be completed and documented using Trello
                         * append address[3] (postal_code)
                         * append getRates[0] (standard_rate)
                         * append getRates[1] (weekend_rate)
-            
-        
+                        
+* update Host 
+    * add update to runAppLoop
+    * add update method to controller
+        * chooseUser
+        * findByEmail
+        * add readPhone to IO
+        * add readBigDecimal to IO
+        * add editHost to view
+            * display header
+            * set lastName
+            * set email
+            * set phone
+            * set address
+            * set city
+            * set state
+            * set postal code
+            * set standard rate
+            * set weekend rate
+            * return Host
+        * add editUser to UserService
+        * add editUser to HostService
+            * validateUser
+            * validateHost
+        * add editHost to HostRepository
+        * add editHost in HostFileRepository
+            * findAll()
+            * for loop looping through all hosts
+                * if hostId matches, set host in List to parameter
+                * writeAll
+        * displayStatus
 
 ##File Breakdown
 ###data directory - sibling of src

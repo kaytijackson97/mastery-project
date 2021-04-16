@@ -1,10 +1,12 @@
 package learn.repository;
 
 import learn.models.Host;
+import learn.models.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -33,7 +35,7 @@ class HostFileRepositoryTest {
         String expected = "de Clerk";
 
         assertNotNull(host);
-        assertEquals(expected, host.getLast_name());
+        assertEquals(expected, host.getLastName());
     }
 
     @Test
@@ -44,6 +46,80 @@ class HostFileRepositoryTest {
     @Test
     void shouldNotReturnEmailIfNull() throws DataAccessException {
         assertNull(repository.findByEmail(null));
+    }
+
+    @Test
+    void shouldAddValidHost() throws DataAccessException {
+        Host host = new Host();
+        host.setLastName("Test");
+        host.setEmail("Test@Test.com");
+        host.setPhone("1234567890");
+        host.setAddress("1 Test");
+        host.setCity("Testville");
+        host.setState("Test");
+        host.setPostalCode(11111);
+        host.setStandardRate(new BigDecimal("200.00"));
+        host.setWeekendRate(new BigDecimal("250.00"));
+
+        User user = host;
+        Host actual = repository.add(user);
+
+        assertNotNull(actual);
+    }
+
+    @Test
+    void shouldNotAddNullHost() throws DataAccessException {
+        Host actual = repository.add(null);
+        assertNull(actual);
+    }
+
+    @Test
+    void shouldUpdateValidHost() throws DataAccessException {
+        Host host = repository.findByEmail("kdeclerkdc@sitemeter.com");
+        host.setLastName("Test");
+
+        User user = host;
+        assertTrue(repository.update(user));
+        user = repository.findByEmail(user.getEmail());
+        assertEquals("Test", user.getLastName());
+    }
+
+    @Test
+    void shouldNotUpdateInvalidHost() throws DataAccessException {
+        Host host = new Host();
+        host.setLastName("Test");
+        host.setEmail("Test@Test.com");
+        host.setPhone("1234567890");
+        host.setAddress("1 Test");
+        host.setCity("Testville");
+        host.setState("Test");
+        host.setPostalCode(11111);
+        host.setStandardRate(new BigDecimal("200.00"));
+        host.setWeekendRate(new BigDecimal("250.00"));
+
+        User user = host;
+        assertFalse(repository.update(user));
+    }
+
+    @Test
+    void shouldNotUpdateNullHost() throws DataAccessException {
+        assertFalse(repository.update(null));
+    }
+
+    @Test
+    void shouldDeleteIfValid() throws DataAccessException {
+        assertTrue(repository.deleteByEmail("mfader2@amazon.co.jp"));
+    }
+
+    @Test
+    void shouldNotDeleteIfInvalid() throws DataAccessException {
+        assertFalse(repository.deleteByEmail("test"));
+        assertFalse(repository.deleteByEmail(null));
+    }
+
+    @Test
+    void shouldNotDeleteIfAlreadyDeleted() throws DataAccessException {
+
     }
 
 }

@@ -4,9 +4,10 @@ import learn.models.User;
 import learn.repository.DataAccessException;
 import learn.repository.HostRepository;
 
-public class HostService implements UserService{
+public class HostService implements UserService {
 
     private final HostRepository repository;
+    private final Validation validation = new Validation();
 
     public HostService(HostRepository repository) {
         this.repository = repository;
@@ -14,7 +15,7 @@ public class HostService implements UserService{
 
     @Override
     public Result<User> findByEmail(String email) throws DataAccessException {
-        Result<User> result = validateEmail(email);
+        Result<User> result = validation.validateEmail(email);
         if (!result.isSuccess()) {
             return result;
         }
@@ -30,23 +31,88 @@ public class HostService implements UserService{
     }
 
     @Override
-    public Result<User> validateEmail(String email) {
-        Result<User> result = new Result<>();
-        if (email == null || email.isBlank()) {
-            result.addErrorMessage("Email cannot but empty");
+    public Result<User> addUser(User host) throws DataAccessException {
+        Result<User> result = validation.validateUser(host, "Host");
+        if (!result.isSuccess()) {
             return result;
         }
 
-        if (!email.contains("@")) {
-            result.addErrorMessage("Not a valid email address");
+        result = validateHost(host);
+        if (!result.isSuccess()) {
             return result;
         }
 
-        String[] emailParts = email.split("@");
-        if (emailParts.length != 2 || !emailParts[emailParts.length - 1].contains(".")) {
-            result.addErrorMessage("Not a valid email address");
+        if (host.getId() != null) {
+            result.addErrorMessage("Cannot set Id.");
+            return result;
         }
+
+        User existingHost = repository.findByEmail(host.getEmail());
+        if (existingHost != null) {
+            result.addErrorMessage("User with this email already exists.");
+        }
+
+        host = repository.add(host);
+        if (host == null) {
+            result.addErrorMessage("Could not add host.");
+            return result;
+        }
+
+        result.setPayload(host);
         return result;
     }
 
+    @Override
+    public Result<User> editUser(User host) throws DataAccessException {
+        Result<User> result = validation.validateUser(host, "Host");
+        if (!result.isSuccess()) {
+            return result;
+        }
+
+        result = validateHost(host);
+        if (!result.isSuccess()) {
+            return result;
+        }
+
+        boolean isSuccess = repository.update(host);
+        if (!isSuccess) {
+            result.addErrorMessage("Could not update host.");
+            return result;
+        }
+
+        result.setPayload(host);
+        return result;
+    }
+
+    @Override
+    public Result<User> deleteUser(User host) throws DataAccessException {
+        Result<User> result = new Result<>();
+        if (host == null) {
+            result.addErrorMessage("Host cannot be null.");
+            return result;
+        }
+
+        if (host.getEmail() == null || host.getEmail().isBlank()) {
+            result.addErrorMessage("Email cannot be null.");
+            return result;
+        }
+
+        boolean isSuccess = repository.deleteByEmail(host.getEmail());
+        if (!isSuccess) {
+            result.addErrorMessage("Could not delete host.");
+        }
+
+        return result;
+    }
+
+
+    private Result<User> validateHost(User user) {
+        Result<User> result = validation.validateFullAddress(user);
+        if (!result.isSuccess()) {
+            return result;
+        }
+
+        result = validation.validateRates(user);
+        return result;
+    }
 }

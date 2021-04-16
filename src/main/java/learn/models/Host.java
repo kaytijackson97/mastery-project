@@ -7,20 +7,20 @@ public class Host extends User {
     private String id;
     private String address;
     private String city;
-    private int postal_code;
-    private BigDecimal standard_rate;
-    private BigDecimal weekend_rate;
+    private int postalCode;
+    private BigDecimal standardRate;
+    private BigDecimal weekendRate;
 
     public Host() {
     }
 
-    public Host(String id, String last_name, String email, String phone, String address, String city, String state, int postal_code, BigDecimal standard_rate, BigDecimal weekend_rate) {
-        super(id, last_name, email, phone, state);
+    public Host(String id, String last_name, String email, String phone, String address, String city, String state, int postalCode, BigDecimal standardRate, BigDecimal weekendRate, boolean isDeleted) {
+        super(id, last_name, email, phone, state, isDeleted);
         this.address = address;
         this.city = city;
-        this.postal_code = postal_code;
-        this.standard_rate = standard_rate;
-        this.weekend_rate = weekend_rate;
+        this.postalCode = postalCode;
+        this.standardRate = standardRate;
+        this.weekendRate = weekendRate;
     }
 
     public String getId() {
@@ -47,40 +47,40 @@ public class Host extends User {
         this.city = city;
     }
 
-    public int getPostal_code() {
-        return postal_code;
+    public int getPostalCode() {
+        return postalCode;
     }
 
-    public void setPostal_code(int postal_code) {
-        this.postal_code = postal_code;
+    public void setPostalCode(int postalCode) {
+        this.postalCode = postalCode;
     }
 
-    public BigDecimal getStandard_rate() {
-        return standard_rate;
+    public BigDecimal getStandardRate() {
+        return standardRate;
     }
 
-    public void setStandard_rate(BigDecimal standard_rate) {
-        this.standard_rate = standard_rate;
+    public void setStandardRate(BigDecimal standardRate) {
+        this.standardRate = standardRate;
     }
 
-    public BigDecimal getWeekend_rate() {
-        return weekend_rate;
+    public BigDecimal getWeekendRate() {
+        return weekendRate;
     }
 
-    public void setWeekend_rate(BigDecimal weekend_rate) {
-        this.weekend_rate = weekend_rate;
+    public void setWeekendRate(BigDecimal weekendRate) {
+        this.weekendRate = weekendRate;
     }
 
     @Override
     public String getFullAddress() {
-        return String.format("%s, %s, %s, %s", address, city, super.getFullAddress(), postal_code);
+        return String.format("%s,%s,%s,%s", address, city, super.getFullAddress(), postalCode);
     }
 
     @Override
     public List<BigDecimal> getRates() {
         List<BigDecimal> rates = super.getRates();
-        rates.add(standard_rate);
-        rates.add(weekend_rate);
+        rates.add(standardRate);
+        rates.add(weekendRate);
         return rates;
     }
 }

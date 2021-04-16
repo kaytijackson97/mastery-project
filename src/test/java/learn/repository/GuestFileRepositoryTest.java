@@ -1,6 +1,7 @@
 package learn.repository;
 
 import learn.models.Guest;
+import learn.models.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -29,11 +30,11 @@ class GuestFileRepositoryTest {
 
     @Test
     void shouldReturnGuestValidEmail() throws DataAccessException {
-        Guest guest = repository.findByEmail("slomas0@mediafire.com");
-        String expected = "Lomas";
+        Guest guest = repository.findByEmail("ndetoile3r@yahoo.co.jp");
+        String expected = "Detoile";
 
         assertNotNull(guest);
-        assertEquals(expected, guest.getLast_name());
+        assertEquals(expected, guest.getLastName());
     }
 
     @Test
@@ -44,5 +45,66 @@ class GuestFileRepositoryTest {
     @Test
     void shouldNotReturnEmailIfNull() throws DataAccessException {
         assertNull(repository.findByEmail(null));
+    }
+
+    @Test
+    void shouldAddValidGuest() throws DataAccessException {
+        Guest guest = new Guest();
+        guest.setFirstName("Test");
+        guest.setLastName("Test");
+        guest.setEmail("Test@Test.com");
+        guest.setPhone("1234567890");
+        guest.setState("Test");
+
+        User user = guest;
+        Guest actual = repository.add(user);
+
+        assertNotNull(actual);
+    }
+
+    @Test
+    void shouldNotAddNullUser() throws DataAccessException {
+        Guest actual = repository.add(null);
+        assertNull(actual);
+    }
+
+    @Test
+    void shouldUpdateValidGuest() throws DataAccessException {
+        Guest guest = repository.findByEmail("ndetoile3r@yahoo.co.jp");
+        guest.setLastName("Test");
+
+        User user = guest;
+        assertTrue(repository.update(user));
+        user = repository.findByEmail(user.getEmail());
+        assertEquals("Test", user.getLastName());
+    }
+
+    @Test
+    void shouldNotUpdateInvalidGuest() throws DataAccessException {
+        Guest guest = new Guest();
+        guest.setFirstName("Test");
+        guest.setLastName("Test");
+        guest.setEmail("Test@Test.com");
+        guest.setPhone("1234567890");
+        guest.setState("Test");
+
+        User user = guest;
+        assertFalse(repository.update(user));
+    }
+
+    @Test
+    void shouldNotUpdateNullHost() throws DataAccessException {
+        assertFalse(repository.update(null));
+    }
+
+    @Test
+    void shouldDeleteIfValid() throws DataAccessException {
+        assertTrue(repository.deleteByEmail("ainmankh@example.com"));
+    }
+
+    @Test
+    void shouldNotDeleteIfInvalid() throws DataAccessException {
+        assertFalse(repository.deleteByEmail("test"));
+        assertFalse(repository.deleteByEmail(null));
     }
 }

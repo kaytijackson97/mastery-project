@@ -6,5 +6,9 @@ import learn.repository.DataAccessException;
 public interface UserService {
     Result<User> findByEmail(String email) throws DataAccessException;
 
-    Result<User> validateEmail(String email);
+    Result<User> addUser(User user) throws DataAccessException;
+
+    Result<User> editUser(User user) throws DataAccessException;
+
+    Result<User> deleteUser(User user) throws DataAccessException;
 }

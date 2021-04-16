@@ -1,9 +1,6 @@
 package learn.ui;
 
-import learn.domain.GuestService;
-import learn.domain.HostService;
-import learn.domain.ReservationService;
-import learn.domain.Result;
+import learn.domain.*;
 import learn.models.*;
 import learn.repository.DataAccessException;
 
@@ -41,6 +38,7 @@ public class Controller {
 
             switch (mainMenu) {
                 case VIEW_RESERVATIONS:
+                    view.displayHeader(MainMenu.VIEW_RESERVATIONS.getTitle());
                     viewReservations();
                     break;
 
@@ -48,45 +46,69 @@ public class Controller {
                     makeReservation();
                     break;
 
+                case MAKE_HOST:
+                    view.displayHeader(MainMenu.MAKE_HOST.getTitle());
+                    User host = view.addHost();
+                    makeUser(hostService, host);
+                    break;
+
+                case MAKE_GUEST:
+                    view.displayHeader(MainMenu.MAKE_GUEST.getTitle());
+                    User guest = view.addGuest();
+                    makeUser(guestService, guest);
+                    break;
+
                 case EDIT_RESERVATION:
                     editReservation();
+                    break;
+
+                case EDIT_HOST:
+                    view.displayHeader(MainMenu.EDIT_HOST.getTitle());
+                    editHost(hostService);
+                    break;
+
+                case EDIT_GUEST:
+                    view.displayHeader(MainMenu.EDIT_GUEST.getTitle());
+                    editGuest(guestService);
                     break;
 
                 case DELETE_RESERVATION:
                     deleteReservation();
                     break;
+
+                case DELETE_HOST:
+                    view.displayHeader(MainMenu.DELETE_HOST.getTitle());
+                    deleteUser(hostService, "Host");
+                    break;
+
+                case DELETE_GUEST:
+                    view.displayHeader(MainMenu.DELETE_GUEST.getTitle());
+                    deleteUser(guestService, "Guest");
+                    break;
             }
         } while (mainMenu != MainMenu.EXIT);
     }
 
-    private void viewReservations() throws DataAccessException {
-        view.displayHeader(MainMenu.VIEW_RESERVATIONS.getTitle());
-
-        User host = getHost();
+    private User viewReservations() throws DataAccessException {
+        User host = getUser(hostService, "Host");
         if (host == null) {
-            return;
+            return null;
         }
 
         List<Reservation> reservations = reservationService.findById(host.getId());
         view.displayReservations(host, reservations);
-
+        return host;
     }
 
     private void makeReservation() throws DataAccessException {
         view.displayHeader(MainMenu.MAKE_RESERVATION.getTitle());
 
-        User host = getHost();
-        if (host == null) {
-            return;
-        }
-
-        User guest = getGuest();
+        User guest = getUser(guestService, "Guest");
         if (guest == null) {
             return;
         }
 
-        List<Reservation> reservations = reservationService.findById(host.getId());
-        view.displayReservations(host, reservations);
+        User host = viewReservations();
 
         LocalDate startDate = view.chooseStartDate();
         LocalDate endDate = view.chooseEndDate(startDate);
@@ -113,15 +135,24 @@ public class Controller {
         }
     }
 
+    private void makeUser(UserService userService, User user) throws DataAccessException {
+        Result<User> result = userService.addUser(user);
+        if (result.isSuccess()) {
+            view.displayStatus(true, "Host created.");
+        } else {
+            view.displayStatus(false, result.getMessages());
+        }
+    }
+
     private void editReservation() throws DataAccessException {
         view.displayHeader(MainMenu.EDIT_RESERVATION.getTitle());
 
-        User host = getHost();
+        User host = getUser(hostService, "Host");
         if (host == null) {
             return;
         }
 
-        User guest = getGuest();
+        User guest = getUser(guestService, "Guest");
         if (guest == null) {
             return;
         }
@@ -129,6 +160,7 @@ public class Controller {
         List<Reservation> reservations = reservationService.findById(host.getId(), guest.getId());
         if (reservations == null || reservations.size() == 0) {
             view.displayStatus(false, "No existing reservations.");
+            return;
         }
 
         view.displayReservations(host, reservations);
@@ -158,15 +190,51 @@ public class Controller {
         }
     }
 
+    private void editHost(UserService userService) throws DataAccessException {
+        view.displayHeader(MainMenu.EDIT_HOST.getTitle());
+
+        User user = getUser(userService, "Host");
+        if (user == null) {
+            return;
+        }
+
+        user = view.editHost(user);
+        Result<User> result = userService.editUser(user);
+
+        if (result.isSuccess()) {
+            view.displayStatus(true, "Host updated.");
+        } else {
+            view.displayStatus(false, result.getMessages());
+        }
+    }
+
+    private void editGuest(UserService userService) throws DataAccessException {
+        view.displayHeader(MainMenu.EDIT_GUEST.getTitle());
+
+        User user = getUser(userService, "Guest");
+        if (user == null) {
+            return;
+        }
+
+        user = view.editGuest(user);
+        Result<User> result = userService.editUser(user);
+
+        if (result.isSuccess()) {
+            view.displayStatus(true, "Host updated.");
+        } else {
+            view.displayStatus(false, result.getMessages());
+        }
+    }
+
     private void deleteReservation() throws DataAccessException {
         view.displayHeader(MainMenu.DELETE_RESERVATION.getTitle());
 
-        User host = getHost();
+        User host = getUser(hostService, "Host");
         if (host == null) {
             return;
         }
 
-        User guest = getGuest();
+        User guest = getUser(guestService, "Guest");
         if (guest == null) {
             return;
         }
@@ -189,20 +257,29 @@ public class Controller {
         }
     }
 
-    //support methods
-    private User getHost() throws DataAccessException {
-        String hostEmail = view.chooseUser("Host");
-        Result<User> result = hostService.findByEmail(hostEmail);
-        if (!result.isSuccess()) {
-            view.displayStatus(false, result.getMessages());
-            return null;
+    private void deleteUser(UserService userService, String userType) throws DataAccessException {
+        User user = getUser(userService, userType);
+        if (user == null) {
+            return;
         }
-        return result.getPayload();
+
+        boolean isGoingToDelete = view.chooseToDelete(user);
+        if (!isGoingToDelete) {
+            return;
+        }
+
+        Result<User> result = userService.deleteUser(user);
+        if (result.isSuccess()) {
+            view.displayStatus(true, userType + " was deleted.");
+        } else {
+            view.displayStatus(false, result.getMessages());
+        }
     }
 
-    private User getGuest() throws DataAccessException {
-        String guestEmail = view.chooseUser("Guest");
-        Result<User> result = guestService.findByEmail(guestEmail);
+    //support methods
+    private User getUser(UserService userService, String userType) throws DataAccessException {
+        String email = view.chooseUser(userType);
+        Result<User> result = userService.findByEmail(email);
         if (!result.isSuccess()) {
             view.displayStatus(false, result.getMessages());
             return null;
