@@ -2,6 +2,7 @@ package learn.repository;
 
 import learn.models.Host;
 import learn.models.User;
+import learn.repository.convertToJSON.HostToJSONRepository;
 
 import java.io.*;
 import java.math.BigDecimal;
@@ -13,11 +14,13 @@ public class HostFileRepository implements HostRepository {
 
     private static final String HEADER = "id,last_name,email,phone,address,city,state,postal_code,standard_rate,weekend_rate";
     private final String filePath;
+    private final HostToJSONRepository hostToJSONRepository;
     private static final String DELIMITER = ",";
     private static final String DELIMITER_REPLACEMENT = "@@@";
 
-    public HostFileRepository(String filePath) {
+    public HostFileRepository(String filePath, HostToJSONRepository hostToJSONRepository) {
         this.filePath = filePath;
+        this.hostToJSONRepository = hostToJSONRepository;
     }
 
     @Override
@@ -128,12 +131,12 @@ public class HostFileRepository implements HostRepository {
         Host host = new Host();
 
         host.setId(fields[0]);
-        host.setLastName(fields[1]);
+        host.setLastName(fields[1].replace(DELIMITER_REPLACEMENT, DELIMITER));
         host.setEmail(fields[2]);
         host.setPhone(fields[3]);
 
-        host.setAddress(fields[4]);
-        host.setCity(fields[5]);
+        host.setAddress(fields[4].replace(DELIMITER_REPLACEMENT, DELIMITER));
+        host.setCity(fields[5].replace(DELIMITER_REPLACEMENT, DELIMITER));
         host.setState(fields[6]);
         host.setPostalCode(Integer.parseInt(fields[7]));
 
@@ -174,6 +177,7 @@ public class HostFileRepository implements HostRepository {
         } catch (FileNotFoundException ex) {
             throw new DataAccessException(ex.getMessage());
         }
+        hostToJSONRepository.writeToJSON(hosts);
     }
 
     private String cleanField(String field) {

@@ -121,7 +121,40 @@ Timing will be completed and documented using Trello
                 * if hostId matches, set host in List to parameter
                 * writeAll
         * displayStatus
-
+        
+* Strech Goal: View reservations by Guest
+    * add VIEW_BY_GUEST to mainmenu enum
+    * add viewByGuest to runAppLoop
+    * 
+    
+* Stretch Goal: convert to JSON
+    * JSON interface with convertToJSON
+    * add JSON dependency to pom.xml
+        <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>2.5.3</version>
+        </dependency>
+        
+    * create JSON bean in xml dependency-conversion.xml
+    * create JSON repository with loose coupling to each repository
+    * convertToJSON
+        * findAll
+            * read csv
+            * for each line, deserialize a list of objects from csv
+            * return list
+        * writeAllToJSON(List<Object> objects)
+            * create an ObjectMapper
+            * mapper.writeValue(new File(filepath), objects);
+        * deserialize
+            * take in a string
+            * create new object
+            * set all fields in object
+            * return object
+        * RESERVATION ONLY: findAllReservations
+            * for each file in 
+        
+        
 ##File Breakdown
 ###data directory - sibling of src
 * reservations directory

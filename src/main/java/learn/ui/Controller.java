@@ -89,6 +89,7 @@ public class Controller {
         } while (mainMenu != MainMenu.EXIT);
     }
 
+    //view
     private User viewReservations() throws DataAccessException {
         User host = getUser(hostService, "Host");
         if (host == null) {
@@ -100,6 +101,7 @@ public class Controller {
         return host;
     }
 
+    //create
     private void makeReservation() throws DataAccessException {
         view.displayHeader(MainMenu.MAKE_RESERVATION.getTitle());
 
@@ -144,6 +146,7 @@ public class Controller {
         }
     }
 
+    //update
     private void editReservation() throws DataAccessException {
         view.displayHeader(MainMenu.EDIT_RESERVATION.getTitle());
 
@@ -191,8 +194,6 @@ public class Controller {
     }
 
     private void editHost(UserService userService) throws DataAccessException {
-        view.displayHeader(MainMenu.EDIT_HOST.getTitle());
-
         User user = getUser(userService, "Host");
         if (user == null) {
             return;
@@ -209,8 +210,6 @@ public class Controller {
     }
 
     private void editGuest(UserService userService) throws DataAccessException {
-        view.displayHeader(MainMenu.EDIT_GUEST.getTitle());
-
         User user = getUser(userService, "Guest");
         if (user == null) {
             return;
@@ -220,7 +219,7 @@ public class Controller {
         Result<User> result = userService.editUser(user);
 
         if (result.isSuccess()) {
-            view.displayStatus(true, "Host updated.");
+            view.displayStatus(true, "Guest updated.");
         } else {
             view.displayStatus(false, result.getMessages());
         }

@@ -2,6 +2,8 @@ package learn.repository;
 
 import learn.models.Host;
 import learn.models.User;
+import learn.repository.convertToJSON.HostToJSONFileRepository;
+import learn.repository.convertToJSON.HostToJSONRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +21,8 @@ class HostFileRepositoryTest {
     private static final String SEED_FILE = "./data/host-seed-file.csv";
     private static final String TEST_FILE = "./data/host-test-file.csv";
 
-    HostRepository repository = new HostFileRepository(TEST_FILE);
+    HostToJSONRepository hostToJSONRepository = new HostToJSONRepositoryDouble();
+    HostRepository repository = new HostFileRepository(TEST_FILE, hostToJSONRepository);
 
     @BeforeEach
     void setUp() throws IOException {
@@ -115,11 +118,6 @@ class HostFileRepositoryTest {
     void shouldNotDeleteIfInvalid() throws DataAccessException {
         assertFalse(repository.deleteByEmail("test"));
         assertFalse(repository.deleteByEmail(null));
-    }
-
-    @Test
-    void shouldNotDeleteIfAlreadyDeleted() throws DataAccessException {
-
     }
 
 }

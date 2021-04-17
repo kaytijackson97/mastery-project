@@ -2,6 +2,7 @@ package learn.repository;
 
 import learn.models.Guest;
 import learn.models.User;
+import learn.repository.convertToJSON.GuestToJSONRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +19,8 @@ class GuestFileRepositoryTest {
     private static final String SEED_FILE = "./data/guest-seed-file.csv";
     private static final String TEST_FILE = "./data/guest-test-file.csv";
 
-    GuestFileRepository repository = new GuestFileRepository(TEST_FILE);
+    GuestToJSONRepository guestToJSONRepository = new GuestToJSONRepositoryDouble();
+    GuestFileRepository repository = new GuestFileRepository(TEST_FILE, guestToJSONRepository);
 
     @BeforeEach
     void setUp() throws IOException {

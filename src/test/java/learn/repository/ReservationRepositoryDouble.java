@@ -17,8 +17,6 @@ public class ReservationRepositoryDouble implements ReservationRepository {
     private final Reservation reservation1 = new Reservation(HostRepositoryDouble.HOST, GuestRepositoryDouble.GUEST, startDate.plusWeeks(1), endDate.plusWeeks(1));
     private final Reservation oldReservation = new Reservation(HostRepositoryDouble.HOST, GuestRepositoryDouble.GUEST, startDate.minusYears(1), endDate.minusYears(1));
 
-
-
     public ReservationRepositoryDouble() {
         reservation.setReservationId(1);
         reservation1.setReservationId(2);

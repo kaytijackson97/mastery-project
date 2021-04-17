@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome",
+  "definitions": {
+    "Welcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mpabelikbg@tripadvisor.com": {
+          "$ref": "#/definitions/MpabelikbgTripadvisorCOM"
+        }
+      },
+      "required": [
+        "mpabelikbg@tripadvisor.com"
+      ],
+      "title": "Welcome"
+    },
+    "MpabelikbgTripadvisorCOM": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "integer"
+        },
+        "standardRate": {
+          "type": "integer"
+        },
+        "weekendRate": {
+          "type": "number"
+        },
+        "fullAddress": {
+          "type": "string"
+        },
+        "rates": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "fullName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "city",
+        "deleted",
+        "email",
+        "fullAddress",
+        "fullName",
+        "id",
+        "lastName",
+        "phone",
+        "postalCode",
+        "rates",
+        "standardRate",
+        "state",
+        "weekendRate"
+      ],
+      "title": "MpabelikbgTripadvisorCOM"
+    }
+  }
+}

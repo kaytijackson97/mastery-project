@@ -142,8 +142,9 @@ public class View {
         return guest;
     }
 
+    //choose
     public String chooseUser(String userType) {
-        return io.readRequiredString(userType + " Email: ");
+        return io.readRequiredEmail(userType + " Email: ");
     }
 
     public LocalDate chooseStartDate() {
@@ -175,6 +176,7 @@ public class View {
         return io.readBoolean("Are you sure you would like to delete " + user.getEmail() + "? [y/n]: ");
     }
 
+    //display
     public void displayHeader(String message) {
         io.println("");
         io.println(message);
@@ -211,7 +213,7 @@ public class View {
             return;
         }
         for (Reservation r : reservations) {
-            io.printf("ID: %s, %s - %s, Guest: %s, %s, Email: %s%n",
+            io.printf("ID: %s, %s - %s, Guest: %s Email: %s%n",
                     r.getReservationId(),
                     r.getStartDate(),
                     r.getEndDate(),
@@ -228,6 +230,7 @@ public class View {
         return io.readBoolean("Is this okay? [y/n]: ");
     }
 
+    //support methods
     private String cleanField(String input) {
         return input.replace(",", "@@@");
     }

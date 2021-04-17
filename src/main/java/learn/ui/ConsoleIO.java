@@ -202,7 +202,7 @@ public class ConsoleIO {
 
             try {
                 return new BigDecimal(rate).setScale(2, RoundingMode.HALF_EVEN);
-            } catch (ArithmeticException ex) {
+            } catch (NumberFormatException ex) {
                 println(INVALID_AMOUNT);
             }
         }
@@ -214,7 +214,7 @@ public class ConsoleIO {
 
             try {
                 return new BigDecimal(rate).setScale(2, RoundingMode.HALF_EVEN);
-            } catch (ArithmeticException ex) {
+            } catch (NumberFormatException ex) {
                 println(INVALID_AMOUNT);
             }
         }

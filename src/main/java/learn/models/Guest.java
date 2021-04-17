@@ -23,6 +23,6 @@ public class Guest extends User {
     //parent methods
     @Override
     public String getFullName() {
-        return String.format("%s,%s", firstName, super.getFullName());
+        return String.format("%s, %s", firstName, super.getFullName());
     }
 }

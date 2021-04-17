@@ -3,6 +3,7 @@ package learn.repository;
 import learn.models.Guest;
 import learn.models.Host;
 import learn.models.User;
+import learn.repository.convertToJSON.GuestToJSONRepository;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -13,11 +14,13 @@ public class GuestFileRepository implements GuestRepository{
 
     private static final String HEADER = "guest_id,first_name,last_name,email,phone,state";
     private final String filePath;
+    private final GuestToJSONRepository guestToJSONRepository;
     private static final String DELIMITER = ",";
     private static final String DELIMITER_REPLACEMENT = "@@@";
 
-    public GuestFileRepository(String filePath) {
+    public GuestFileRepository(String filePath, GuestToJSONRepository guestToJSONRepository) {
         this.filePath = filePath;
+        this.guestToJSONRepository = guestToJSONRepository;
     }
 
     @Override
@@ -112,8 +115,8 @@ public class GuestFileRepository implements GuestRepository{
 
         guest.setId(guestId);
         String[] nameFields = user.getFullName().split(DELIMITER, -1);
-        guest.setFirstName(nameFields[0]);
-        guest.setLastName(user.getLastName());
+        guest.setFirstName(nameFields[0].replace(DELIMITER_REPLACEMENT, DELIMITER));
+        guest.setLastName(user.getLastName().replace(DELIMITER_REPLACEMENT, DELIMITER));
         guest.setEmail(user.getEmail());
         guest.setPhone(user.getPhone());
 
@@ -164,6 +167,7 @@ public class GuestFileRepository implements GuestRepository{
         } catch (FileNotFoundException ex) {
             throw new DataAccessException(ex.getMessage());
         }
+        guestToJSONRepository.writeToJSON(guests);
     }
 
     private String cleanField(String field) {

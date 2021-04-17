@@ -15,12 +15,22 @@
         <constructor-arg value="./data/reservations"/>
     </bean>
 
+    <bean id="guestToJSONRepository" class="learn.repository.convertToJSON.GuestToJSONFileRepository">
+        <constructor-arg value="./data/JSON-files/guest.json"/>
+    </bean>
+
     <bean id="guestRepository" class="learn.repository.GuestFileRepository">
         <constructor-arg value="./data/guests.csv"/>
+        <constructor-arg ref="guestToJSONRepository"/>
+    </bean>
+
+    <bean id="hostToJSONRepository" class="learn.repository.convertToJSON.HostToJSONFileRepository">
+        <constructor-arg value="./data/JSON-files/host.json"/>
     </bean>
 
     <bean id="hostRepository" class="learn.repository.HostFileRepository">
         <constructor-arg value="./data/hosts.csv"/>
+        <constructor-arg ref="hostToJSONRepository"/>
     </bean>
 
     <bean id="reservationService" class="learn.domain.ReservationService">

@@ -1,0 +1,26 @@
+{
+  "663" : {
+    "id" : "663",
+    "lastName" : "Test",
+    "email" : "wkuhlie@patch.com",
+    "phone" : "(704) 3740857",
+    "state" : "NC",
+    "firstName" : "Wallis",
+    "fullName" : "Wallis, Test",
+    "deleted" : false,
+    "fullAddress" : "NC",
+    "rates" : [ ]
+  },
+  "790" : {
+    "id" : "790",
+    "lastName" : "Kuhl",
+    "email" : "testDeleted@test.com",
+    "phone" : "(704) 3740857",
+    "state" : "NC",
+    "firstName" : "Wallis",
+    "fullName" : "Wallis, Kuhl",
+    "deleted" : true,
+    "fullAddress" : "NC",
+    "rates" : [ ]
+  }
+}
