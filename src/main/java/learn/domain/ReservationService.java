@@ -222,7 +222,7 @@ public class ReservationService {
         List<LocalDate> bookedDates = new ArrayList<>();
         for (Reservation r : reservations) {
             if (r.getReservationId() == reservation.getReservationId()) {
-                break;
+                continue;
             }
 
             if (r.getStartDate().equals(reservation.getStartDate()) || r.getEndDate().equals(reservation.getEndDate())) {

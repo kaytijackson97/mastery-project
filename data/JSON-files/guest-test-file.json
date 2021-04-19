@@ -8,8 +8,8 @@
     "firstName" : "Wallis",
     "fullName" : "Wallis, Test",
     "deleted" : false,
-    "rates" : [ ],
-    "fullAddress" : "NC"
+    "fullAddress" : "NC",
+    "rates" : [ ]
   },
   "790" : {
     "id" : "790",
@@ -20,7 +20,7 @@
     "firstName" : "Wallis",
     "fullName" : "Wallis, Kuhl",
     "deleted" : true,
-    "rates" : [ ],
-    "fullAddress" : "NC"
+    "fullAddress" : "NC",
+    "rates" : [ ]
   }
 }

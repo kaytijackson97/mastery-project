@@ -7064,11 +7064,11 @@
     "address" : "1 Preston",
     "city" : "Preston",
     "postalCode" : "55345",
-    "standardRate" : 250.00,
-    "weekendRate" : 350.00,
+    "standardRate" : 250.0,
+    "weekendRate" : 350.0,
     "fullAddress" : "1 Preston,Preston,MN,55345",
-    "rates" : [ 250.00, 350.00 ],
-    "deleted" : false,
+    "rates" : [ 250.0, 350.0 ],
+    "deleted" : true,
     "fullName" : "Jackson"
   },
   "host913" : {

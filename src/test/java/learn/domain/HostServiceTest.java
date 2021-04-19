@@ -13,8 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class HostServiceTest {
 
-    private final Host host = new Host(null, "Test", "Test@test.com", "(111) 1111111", "1 Test", "Test", "TT", "11111", new BigDecimal("100.00"), new BigDecimal("150.00"), false);
-
     HostService service = new HostService(new HostRepositoryDouble());
 
     @Test
@@ -67,7 +65,7 @@ public class HostServiceTest {
 
     @Test
     void shouldAddValidHost() throws DataAccessException {
-        User user = host;
+        User user = makeHost();
         Result<User> result = service.addUser(user);
 
         assertTrue(result.isSuccess());
@@ -99,169 +97,168 @@ public class HostServiceTest {
 
     @Test
     void shouldNotAddHostIfRatesAreLessThanOrEqualToZero() throws DataAccessException {
+        Host host = makeHost();
         host.setStandardRate(new BigDecimal("0.00"));
         host.setWeekendRate(new BigDecimal("0.00"));
 
-        User user = host;
-
-        Result<User> result = service.addUser(user);
+        Result<User> result = service.addUser(host);
         assertFalse(result.isSuccess());
         assertEquals(2, result.getMessages().size());
     }
 
     @Test
     void shouldNotAddHostIfInvalidEmail() throws DataAccessException {
+        User host = makeHost();
         host.setEmail(null);
-        User user = host;
-        Result<User> result = service.addUser(user);
+        Result<User> result = service.addUser(host);
         assertFalse(result.isSuccess());
 
+        host = makeHost();
         host.setEmail(" ");
-        user = host;
-        result = service.addUser(user);
+        result = service.addUser(host);
         assertFalse(result.isSuccess());
 
+        host = makeHost();
         host.setEmail("test");
-        user = host;
-        result = service.addUser(user);
+        result = service.addUser(host);
         assertFalse(result.isSuccess());
 
+        host = makeHost();
         host.setEmail("test@");
-        user = host;
-        result = service.addUser(user);
+        result = service.addUser(host);
         assertFalse(result.isSuccess());
 
+        host = makeHost();
         host.setEmail("test@test");
-        user = host;
-        result = service.addUser(user);
+        result = service.addUser(host);
         assertFalse(result.isSuccess());
 
+        host = makeHost();
         host.setEmail("test@test@test.com");
-        user = host;
-        result = service.addUser(user);
+        result = service.addUser(host);
         assertFalse(result.isSuccess());
 
     }
 
     @Test
     void shouldNotAddHostIfInvalidPhone() throws DataAccessException {
+        User host = makeHost();
         host.setPhone(null);
-        User user = host;
-        Result<User> result = service.addUser(user);
+        Result<User> result = service.addUser(host);
         assertFalse(result.isSuccess());
 
+        host = makeHost();
         host.setPhone(" ");
-        user = host;
-        result = service.addUser(user);
+        result = service.addUser(host);
         assertFalse(result.isSuccess());
 
+        host = makeHost();
         host.setPhone("1234567890");
-        user = host;
-        result = service.addUser(user);
+        result = service.addUser(host);
         assertFalse(result.isSuccess());
 
+        host = makeHost();
         host.setPhone("(123) 123456734");
-        user = host;
-        result = service.addUser(user);
+        result = service.addUser(host);
         assertFalse(result.isSuccess());
 
+        host = makeHost();
         host.setPhone("aaaaaaaaaaaa");
-        user = host;
-        result = service.addUser(user);
+        result = service.addUser(host);
         assertFalse(result.isSuccess());
 
+        host = makeHost();
         host.setPhone("a123a 1234567");
-        user = host;
-        result = service.addUser(user);
+        result = service.addUser(host);
         assertFalse(result.isSuccess());
 
+        host = makeHost();
         host.setPhone("(123)1234567");
-        user = host;
-        result = service.addUser(user);
+        result = service.addUser(host);
         assertFalse(result.isSuccess());
     }
 
     @Test
     void shouldNotAddHostIfNoName() throws DataAccessException {
+        User host = makeHost();
         host.setLastName(" ");
-        User user = host;
-        Result<User> result = service.addUser(user);
+        Result<User> result = service.addUser(host);
         assertFalse(result.isSuccess());
     }
 
     @Test
     void shouldNotAddHostIfNoState() throws DataAccessException {
+        User host = makeHost();
         host.setState(" ");
-        User user = host;
-        Result<User> result = service.addUser(user);
+        Result<User> result = service.addUser(host);
         assertFalse(result.isSuccess());
     }
 
     @Test
     void shouldAddHostWithValidState() throws DataAccessException {
+        User host = makeHost();
         host.setState("MN");
-        User user = host;
-        Result<User> result = service.addUser(user);
+        Result<User> result = service.addUser(host);
         assertTrue(result.isSuccess());
     }
 
     @Test
     void shouldNotAddHostIfInvalidState() throws DataAccessException {
+        User host = makeHost();
         host.setState(",,");
-        User user = host;
-        Result<User> result = service.addUser(user);
+        Result<User> result = service.addUser(host);
         assertFalse(result.isSuccess());
 
+        host = makeHost();
         host.setState("Virginia");
-        user = host;
-        result = service.addUser(user);
+        result = service.addUser(host);
         assertFalse(result.isSuccess());
     }
 
     @Test
     void shouldAddHostWithValidPostalCode() throws DataAccessException {
-        host.setPostalCode("12345");
-        User user = host;
-        Result<User> result = service.addUser(user);
+        Host host = makeHost();
+
+        Result<User> result = service.addUser(host);
         assertTrue(result.isSuccess());
     }
 
     @Test
     void shouldNotAddHostIfInvalidPostalCode() throws DataAccessException {
+        Host host = makeHost();
         host.setPostalCode("-1234");
-        User user = host;
-        Result<User> result = service.addUser(user);
+        Result<User> result = service.addUser(host);
         assertFalse(result.isSuccess());
 
+        host = makeHost();
         host.setPostalCode("Virginia");
-        user = host;
-        result = service.addUser(user);
+        result = service.addUser(host);
         assertFalse(result.isSuccess());
 
+        host = makeHost();
         host.setPostalCode(" ");
-        user = host;
-        result = service.addUser(user);
+        result = service.addUser(host);
         assertFalse(result.isSuccess());
 
+        host = makeHost();
         host.setPostalCode(null);
-        user = host;
-        result = service.addUser(user);
+        result = service.addUser(host);
         assertFalse(result.isSuccess());
     }
 
     @Test
     void shouldNotAddHostIfIdIsSet() throws DataAccessException {
+        User host = makeHost();
         host.setId("Test");
-        User user = host;
-        Result<User> result = service.addUser(user);
+        Result<User> result = service.addUser(host);
         assertFalse(result.isSuccess());
     }
 
     @Test
     void shouldNotAddHostIfDuplicate() throws DataAccessException {
+        User host = makeHost();
         host.setEmail("kdeclerkdc@sitemeter.com");
-        User user = host;
-        Result<User> result = service.addUser(user);
+        Result<User> result = service.addUser(host);
         assertFalse(result.isSuccess());
     }
 
@@ -287,6 +284,7 @@ public class HostServiceTest {
 
     @Test
     void shouldDeleteIfValid() throws DataAccessException {
+        User host = makeHost();
         Result<User> result = service.deleteUser(host);
         assertFalse(result.isSuccess());
     }
@@ -316,6 +314,25 @@ public class HostServiceTest {
     void shouldNotBeFoundByEmailIfDeleted()  throws DataAccessException {
         Result<User> result = service.findByEmail(HostRepositoryDouble.DELETED_HOST.getEmail());
         assertNull(result.getPayload());
+    }
+
+    //support methods
+    private Host makeHost() {
+        Host host = new Host();
+        host.setLastName("Test");
+        host.setEmail("Test@test.com");
+        host.setPhone("(111) 1111111");
+
+        host.setAddress("1 Test");
+        host.setCity("Test");
+        host.setState("TT");
+        host.setPostalCode("11111");
+
+        host.setStandardRate(new BigDecimal("100.00"));
+        host.setWeekendRate(new BigDecimal("150.00"));
+        host.setDeleted(false);
+        
+        return host;
     }
 }
 

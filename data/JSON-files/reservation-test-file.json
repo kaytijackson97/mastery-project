@@ -4,30 +4,30 @@
     "startDate" : {
       "year" : 2021,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 12,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "TUESDAY",
+      "era" : "CE",
       "dayOfYear" : 285,
-      "era" : "CE"
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 12
     },
     "endDate" : {
       "year" : 2021,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 14,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "THURSDAY",
+      "era" : "CE",
       "dayOfYear" : 287,
-      "era" : "CE"
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 14
     },
     "host" : {
       "id" : "2e72f86c-b8fe-4265-b4f1-304dea8762db",
@@ -40,8 +40,8 @@
       "postalCode" : null,
       "standardRate" : null,
       "weekendRate" : null,
-      "rates" : [ null, null ],
       "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
       "deleted" : false,
       "fullName" : null
     },
@@ -54,8 +54,8 @@
       "firstName" : null,
       "fullName" : "null, null",
       "deleted" : false,
-      "rates" : [ ],
-      "fullAddress" : null
+      "fullAddress" : null,
+      "rates" : [ ]
     },
     "total" : 400
   }, {
@@ -63,30 +63,30 @@
     "startDate" : {
       "year" : 2021,
       "month" : "SEPTEMBER",
-      "monthValue" : 9,
-      "dayOfMonth" : 10,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "FRIDAY",
+      "era" : "CE",
       "dayOfYear" : 253,
-      "era" : "CE"
+      "dayOfWeek" : "FRIDAY",
+      "leapYear" : false,
+      "monthValue" : 9,
+      "dayOfMonth" : 10
     },
     "endDate" : {
       "year" : 2021,
       "month" : "SEPTEMBER",
-      "monthValue" : 9,
-      "dayOfMonth" : 16,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "THURSDAY",
+      "era" : "CE",
       "dayOfYear" : 259,
-      "era" : "CE"
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 9,
+      "dayOfMonth" : 16
     },
     "host" : {
       "id" : "2e72f86c-b8fe-4265-b4f1-304dea8762db",
@@ -99,8 +99,8 @@
       "postalCode" : null,
       "standardRate" : null,
       "weekendRate" : null,
-      "rates" : [ null, null ],
       "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
       "deleted" : false,
       "fullName" : null
     },
@@ -113,8 +113,8 @@
       "firstName" : null,
       "fullName" : "null, null",
       "deleted" : false,
-      "rates" : [ ],
-      "fullAddress" : null
+      "fullAddress" : null,
+      "rates" : [ ]
     },
     "total" : 1300
   }, {
@@ -122,30 +122,30 @@
     "startDate" : {
       "year" : 2021,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 2,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "SATURDAY",
+      "era" : "CE",
       "dayOfYear" : 275,
-      "era" : "CE"
+      "dayOfWeek" : "SATURDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 2
     },
     "endDate" : {
       "year" : 2021,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 4,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "MONDAY",
+      "era" : "CE",
       "dayOfYear" : 277,
-      "era" : "CE"
+      "dayOfWeek" : "MONDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
     },
     "host" : {
       "id" : "2e72f86c-b8fe-4265-b4f1-304dea8762db",
@@ -158,8 +158,8 @@
       "postalCode" : null,
       "standardRate" : null,
       "weekendRate" : null,
-      "rates" : [ null, null ],
       "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
       "deleted" : false,
       "fullName" : null
     },
@@ -172,8 +172,8 @@
       "firstName" : null,
       "fullName" : "null, null",
       "deleted" : false,
-      "rates" : [ ],
-      "fullAddress" : null
+      "fullAddress" : null,
+      "rates" : [ ]
     },
     "total" : 450
   } ],
@@ -182,30 +182,30 @@
     "startDate" : {
       "year" : 2022,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 4,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "TUESDAY",
+      "era" : "CE",
       "dayOfYear" : 277,
-      "era" : "CE"
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
     },
     "endDate" : {
       "year" : 2022,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 6,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "THURSDAY",
+      "era" : "CE",
       "dayOfYear" : 279,
-      "era" : "CE"
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
     },
     "host" : {
       "id" : "Test Id",
@@ -218,8 +218,8 @@
       "postalCode" : null,
       "standardRate" : null,
       "weekendRate" : null,
-      "rates" : [ null, null ],
       "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
       "deleted" : false,
       "fullName" : null
     },
@@ -232,8 +232,8 @@
       "firstName" : null,
       "fullName" : "null, null",
       "deleted" : false,
-      "rates" : [ ],
-      "fullAddress" : null
+      "fullAddress" : null,
+      "rates" : [ ]
     },
     "total" : 400.00
   }, {
@@ -241,30 +241,30 @@
     "startDate" : {
       "year" : 2022,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 4,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "TUESDAY",
+      "era" : "CE",
       "dayOfYear" : 277,
-      "era" : "CE"
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
     },
     "endDate" : {
       "year" : 2022,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 6,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "THURSDAY",
+      "era" : "CE",
       "dayOfYear" : 279,
-      "era" : "CE"
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
     },
     "host" : {
       "id" : "Test Id",
@@ -277,8 +277,8 @@
       "postalCode" : null,
       "standardRate" : null,
       "weekendRate" : null,
-      "rates" : [ null, null ],
       "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
       "deleted" : false,
       "fullName" : null
     },
@@ -291,8 +291,8 @@
       "firstName" : null,
       "fullName" : "null, null",
       "deleted" : false,
-      "rates" : [ ],
-      "fullAddress" : null
+      "fullAddress" : null,
+      "rates" : [ ]
     },
     "total" : 400.00
   }, {
@@ -300,30 +300,30 @@
     "startDate" : {
       "year" : 2022,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 4,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "TUESDAY",
+      "era" : "CE",
       "dayOfYear" : 277,
-      "era" : "CE"
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
     },
     "endDate" : {
       "year" : 2022,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 6,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "THURSDAY",
+      "era" : "CE",
       "dayOfYear" : 279,
-      "era" : "CE"
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
     },
     "host" : {
       "id" : "Test Id",
@@ -336,8 +336,8 @@
       "postalCode" : null,
       "standardRate" : null,
       "weekendRate" : null,
-      "rates" : [ null, null ],
       "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
       "deleted" : false,
       "fullName" : null
     },
@@ -350,8 +350,8 @@
       "firstName" : null,
       "fullName" : "null, null",
       "deleted" : false,
-      "rates" : [ ],
-      "fullAddress" : null
+      "fullAddress" : null,
+      "rates" : [ ]
     },
     "total" : 400.00
   }, {
@@ -359,30 +359,30 @@
     "startDate" : {
       "year" : 2022,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 4,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "TUESDAY",
+      "era" : "CE",
       "dayOfYear" : 277,
-      "era" : "CE"
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
     },
     "endDate" : {
       "year" : 2022,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 6,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "THURSDAY",
+      "era" : "CE",
       "dayOfYear" : 279,
-      "era" : "CE"
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
     },
     "host" : {
       "id" : "Test Id",
@@ -395,8 +395,8 @@
       "postalCode" : null,
       "standardRate" : null,
       "weekendRate" : null,
-      "rates" : [ null, null ],
       "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
       "deleted" : false,
       "fullName" : null
     },
@@ -409,8 +409,8 @@
       "firstName" : null,
       "fullName" : "null, null",
       "deleted" : false,
-      "rates" : [ ],
-      "fullAddress" : null
+      "fullAddress" : null,
+      "rates" : [ ]
     },
     "total" : 400.00
   }, {
@@ -418,30 +418,30 @@
     "startDate" : {
       "year" : 2022,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 4,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "TUESDAY",
+      "era" : "CE",
       "dayOfYear" : 277,
-      "era" : "CE"
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
     },
     "endDate" : {
       "year" : 2022,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 6,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "THURSDAY",
+      "era" : "CE",
       "dayOfYear" : 279,
-      "era" : "CE"
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
     },
     "host" : {
       "id" : "Test Id",
@@ -454,8 +454,8 @@
       "postalCode" : null,
       "standardRate" : null,
       "weekendRate" : null,
-      "rates" : [ null, null ],
       "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
       "deleted" : false,
       "fullName" : null
     },
@@ -468,8 +468,8 @@
       "firstName" : null,
       "fullName" : "null, null",
       "deleted" : false,
-      "rates" : [ ],
-      "fullAddress" : null
+      "fullAddress" : null,
+      "rates" : [ ]
     },
     "total" : 400.00
   }, {
@@ -477,30 +477,30 @@
     "startDate" : {
       "year" : 2022,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 4,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "TUESDAY",
+      "era" : "CE",
       "dayOfYear" : 277,
-      "era" : "CE"
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
     },
     "endDate" : {
       "year" : 2022,
       "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 6,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "THURSDAY",
+      "era" : "CE",
       "dayOfYear" : 279,
-      "era" : "CE"
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
     },
     "host" : {
       "id" : "Test Id",
@@ -513,8 +513,8 @@
       "postalCode" : null,
       "standardRate" : null,
       "weekendRate" : null,
-      "rates" : [ null, null ],
       "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
       "deleted" : false,
       "fullName" : null
     },
@@ -527,8 +527,303 @@
       "firstName" : null,
       "fullName" : "null, null",
       "deleted" : false,
-      "rates" : [ ],
-      "fullAddress" : null
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 6,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 277,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 279,
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 7,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 277,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 279,
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 8,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 277,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 279,
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 9,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 277,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 279,
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 10,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 277,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 279,
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
     },
     "total" : 400.00
   } ],
@@ -537,30 +832,30 @@
     "startDate" : {
       "year" : 2022,
       "month" : "MARCH",
-      "monthValue" : 3,
-      "dayOfMonth" : 5,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "SATURDAY",
+      "era" : "CE",
       "dayOfYear" : 64,
-      "era" : "CE"
+      "dayOfWeek" : "SATURDAY",
+      "leapYear" : false,
+      "monthValue" : 3,
+      "dayOfMonth" : 5
     },
     "endDate" : {
       "year" : 2022,
       "month" : "MARCH",
-      "monthValue" : 3,
-      "dayOfMonth" : 7,
-      "leapYear" : false,
       "chronology" : {
-        "calendarType" : "iso8601",
-        "id" : "ISO"
+        "id" : "ISO",
+        "calendarType" : "iso8601"
       },
-      "dayOfWeek" : "MONDAY",
+      "era" : "CE",
       "dayOfYear" : 66,
-      "era" : "CE"
+      "dayOfWeek" : "MONDAY",
+      "leapYear" : false,
+      "monthValue" : 3,
+      "dayOfMonth" : 7
     },
     "host" : {
       "id" : "3f413626-e129-4d06-b68c-36450822213f",
@@ -573,8 +868,8 @@
       "postalCode" : null,
       "standardRate" : null,
       "weekendRate" : null,
-      "rates" : [ null, null ],
       "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
       "deleted" : false,
       "fullName" : null
     },
@@ -587,8 +882,8 @@
       "firstName" : null,
       "fullName" : "null, null",
       "deleted" : false,
-      "rates" : [ ],
-      "fullAddress" : null
+      "fullAddress" : null,
+      "rates" : [ ]
     },
     "total" : 387
   } ]

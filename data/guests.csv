@@ -408,7 +408,7 @@ guest_id,first_name,last_name,email,phone,state
 407,Cristiano,Witten,cwittenba@homestead.com,(212) 2560276,NY,false
 408,Rhianon,Benedicto,rbenedictobb@hc360.com,(718) 3520541,NY,false
 409,Brande,Challis,bchallisbc@youtube.com,(574) 9790533,IN,false
-410,Lonny,Afonso,lafonsobd@discuz.net,(402) 2609934,NE,false
+410,Lonny,Afonso,lafonsobd@discuz.net,(402) 2609934,NE,true
 411,Gae,Matterface,gmatterfacebe@telegraph.co.uk,(212) 9915073,NY,false
 412,Rebecka,Neilus,rneilusbf@wired.com,(202) 7638115,DC,false
 413,Kellby,Warbey,kwarbeybg@fastcompany.com,(603) 1948338,NH,false

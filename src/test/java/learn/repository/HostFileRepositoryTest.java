@@ -53,19 +53,8 @@ class HostFileRepositoryTest {
 
     @Test
     void shouldAddValidHost() throws DataAccessException {
-        Host host = new Host();
-        host.setLastName("Test");
-        host.setEmail("Test@Test.com");
-        host.setPhone("1234567890");
-        host.setAddress("1 Test");
-        host.setCity("Testville");
-        host.setState("Test");
-        host.setPostalCode("11111");
-        host.setStandardRate(new BigDecimal("200.00"));
-        host.setWeekendRate(new BigDecimal("250.00"));
-
-        User user = host;
-        Host actual = repository.add(user);
+        User host = makeHost();
+        Host actual = repository.add(host);
 
         assertNotNull(actual);
     }
@@ -89,19 +78,8 @@ class HostFileRepositoryTest {
 
     @Test
     void shouldNotUpdateInvalidHost() throws DataAccessException {
-        Host host = new Host();
-        host.setLastName("Test");
-        host.setEmail("Test@Test.com");
-        host.setPhone("1234567890");
-        host.setAddress("1 Test");
-        host.setCity("Testville");
-        host.setState("Test");
-        host.setPostalCode("11111");
-        host.setStandardRate(new BigDecimal("200.00"));
-        host.setWeekendRate(new BigDecimal("250.00"));
-
-        User user = host;
-        assertFalse(repository.update(user));
+        User host = makeHost();
+        assertFalse(repository.update(host));
     }
 
     @Test
@@ -118,6 +96,24 @@ class HostFileRepositoryTest {
     void shouldNotDeleteIfInvalid() throws DataAccessException {
         assertFalse(repository.deleteByEmail("test"));
         assertFalse(repository.deleteByEmail(null));
+    }
+
+    private Host makeHost() {
+        Host host = new Host();
+
+        host.setLastName("Test");
+        host.setEmail("Test@Test.com");
+        host.setPhone("1234567890");
+
+        host.setAddress("1 Test");
+        host.setCity("Testville");
+        host.setState("Test");
+        host.setPostalCode("11111");
+
+        host.setStandardRate(new BigDecimal("200.00"));
+        host.setWeekendRate(new BigDecimal("250.00"));
+
+        return host;
     }
 
 }

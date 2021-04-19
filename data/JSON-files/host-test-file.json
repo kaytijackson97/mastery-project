@@ -10,8 +10,8 @@
     "postalCode" : "83757",
     "standardRate" : 200,
     "weekendRate" : 250,
-    "rates" : [ 200, 250 ],
     "fullAddress" : "2 Debra Way,Boise,Virginia,83757",
+    "rates" : [ 200, 250 ],
     "deleted" : false,
     "fullName" : "Test"
   },
@@ -26,8 +26,8 @@
     "postalCode" : "83757",
     "standardRate" : 200,
     "weekendRate" : 250,
-    "rates" : [ 200, 250 ],
     "fullAddress" : "2 Debra Way,Boise,ID,83757",
+    "rates" : [ 200, 250 ],
     "deleted" : true,
     "fullName" : "Deleted Test"
   }

@@ -1,5 +1,6 @@
 package learn.repository;
 
+import learn.models.Guest;
 import learn.models.Host;
 import learn.models.Reservation;
 import learn.repository.convertToJSON.ReservationToJSONRepository;
@@ -63,16 +64,9 @@ class ReservationFileRepositoryTest {
     @Test
     void shouldAddValidReservation() throws DataAccessException {
         List<Reservation> all = repository.findById(testHostId);
-        Reservation reservation = new Reservation();
-        reservation.setStartDate(LocalDate.of(2022, 10, 4));
-        reservation.setEndDate(LocalDate.of(2022, 10, 6));
-        Host host = new Host();
-        host.setId(testHostId);
-        reservation.setHost(host);
-        reservation.setGuest(GuestRepositoryDouble.GUEST);
-        reservation.setTotal(new BigDecimal("400.00"));
-        reservation = repository.add(reservation);
+        Reservation reservation = makeReservation(testHostId, GuestRepositoryDouble.GUEST.getId());
 
+        reservation = repository.add(reservation);
         List<Reservation> actual = repository.findById(testHostId);
 
         assertNotNull(reservation);
@@ -91,16 +85,8 @@ class ReservationFileRepositoryTest {
 
     @Test
     void shouldReturnMakeNewFileIfNoPreviousReservations() throws DataAccessException {
-        Reservation reservation = new Reservation();
-        reservation.setStartDate(LocalDate.of(2022, 10, 4));
-        reservation.setEndDate(LocalDate.of(2022, 10, 6));
-        Host host = new Host();
-        host.setId("Test Id");
-        reservation.setHost(host);
-        reservation.setGuest(GuestRepositoryDouble.GUEST);
-        reservation.setTotal(new BigDecimal("400.00"));
+        Reservation reservation = makeReservation("Test Id", GuestRepositoryDouble.GUEST.getId());
         reservation = repository.add(reservation);
-
         assertNotNull(reservation);
     }
 
@@ -113,53 +99,17 @@ class ReservationFileRepositoryTest {
     @Test
     void shouldUpdateIfValid() throws DataAccessException {
         List<Reservation> reservations = repository.findById(testHostId);
-        Reservation reservation = reservations.get(0);
-
-        reservation.setStartDate(LocalDate.of(2021, 10, 8));
-        reservation.setEndDate(LocalDate.of(2021, 10, 9));
+        Reservation reservation = makeReservation(testHostId, GuestRepositoryDouble.GUEST.getId());
+        reservation.setReservationId(reservations.get(0).getReservationId());
 
         assertTrue(repository.update(reservation));
-
-    }
-
-    @Test
-    void shouldAllowForNewReservationsOnOldDates() throws DataAccessException {
-        List<Reservation> reservations = repository.findById(testHostId);
-        Reservation reservation = reservations.get(0);
-
-        reservation.setStartDate(LocalDate.of(2021, 10, 8));
-        reservation.setEndDate(LocalDate.of(2021, 10, 9));
-
-        assertTrue(repository.update(reservation));
-
-        Reservation newReservation = new Reservation();
-        newReservation.setStartDate(LocalDate.of(2022, 10, 12));
-        newReservation.setEndDate(LocalDate.of(2022, 10, 14));
-        Host host = new Host();
-        host.setId(testHostId);
-        newReservation.setHost(host);
-        newReservation.setGuest(GuestRepositoryDouble.GUEST);
-        newReservation.setTotal(new BigDecimal("400.00"));
-
-        newReservation = repository.add(newReservation);
-        assertNotNull(newReservation);
-
-        List<Reservation> all = repository.findById(testHostId);
-        assertEquals(reservations.size() + 1, all.size());
 
     }
 
     @Test
     void shouldNotUpdateIfNoExistingReservation() throws DataAccessException {
-        Reservation reservation = new Reservation();
+        Reservation reservation = makeReservation(testHostId, GuestRepositoryDouble.GUEST.getId());
         reservation.setReservationId(-1);
-        reservation.setStartDate(LocalDate.of(2022, 10, 12));
-        reservation.setEndDate(LocalDate.of(2022, 10, 14));
-        Host host = new Host();
-        host.setId(testHostId);
-        reservation.setHost(host);
-        reservation.setGuest(GuestRepositoryDouble.GUEST);
-        reservation.setTotal(new BigDecimal("400.00"));
 
         assertFalse(repository.update(reservation));
     }
@@ -173,7 +123,6 @@ class ReservationFileRepositoryTest {
     void shouldDeleteIfValid() throws DataAccessException {
         Reservation reservation = repository.findById(testHostId).get(0);
         assertTrue(repository.deleteById(HostRepositoryDouble.HOST_ID, reservation.getReservationId()));
-
     }
 
     @Test
@@ -182,6 +131,24 @@ class ReservationFileRepositoryTest {
         reservation.setReservationId(-1);
 
         assertFalse(repository.deleteById(HostRepositoryDouble.HOST_ID, reservation.getReservationId()));
+    }
+
+    //support method
+    private Reservation makeReservation(String hostId, String guestId) {
+        Reservation reservation = new Reservation();
+        reservation.setStartDate(LocalDate.of(2022, 10, 4));
+        reservation.setEndDate(LocalDate.of(2022, 10, 6));
+
+        Host host = new Host();
+        host.setId(hostId);
+        reservation.setHost(host);
+
+        Guest guest = new Guest();
+        guest.setId(guestId);
+        reservation.setGuest(guest);
+
+        reservation.setTotal(new BigDecimal("400.00"));
+        return reservation;
     }
 
 }

@@ -11,9 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class GuestServiceTest {
 
-    private final Guest guest = new Guest(null, "Test", "Test", "Test@test.com", "(111) 1111111", "TT", false);
-
-
     GuestService service = new GuestService(new GuestRepositoryDouble());
 
     @Test
@@ -60,6 +57,7 @@ public class GuestServiceTest {
 
     @Test
     void shouldAddValidGuest() throws DataAccessException {
+        Guest guest = makeGuest();
         Result<User> result = service.addUser(guest);
         assertTrue(result.isSuccess());
     }
@@ -77,7 +75,7 @@ public class GuestServiceTest {
 
     @Test
     void shouldNotAddGuestIfInvalidEmail() throws DataAccessException {
-        Guest newGuest = guest;
+        Guest newGuest = makeGuest();
         newGuest.setEmail(null);
         User user = newGuest;
         Result<User> result = service.addUser(user);
@@ -112,84 +110,83 @@ public class GuestServiceTest {
 
     @Test
     void shouldNotAddGuestIfInvalidPhone() throws DataAccessException {
-        Guest newGuest = guest;
+        User newGuest = makeGuest();
         newGuest.setPhone(null);
-        User user = newGuest;
-        Result<User> result = service.addUser(user);
+        Result<User> result = service.addUser(newGuest);
         assertFalse(result.isSuccess());
 
-        newGuest.setPhone(" ");
-        user = newGuest;
-        result = service.addUser(user);
+        newGuest = makeGuest();
+        newGuest.setPhone(null);
+        result = service.addUser(newGuest);
         assertFalse(result.isSuccess());
 
+        newGuest = makeGuest();
         newGuest.setPhone("1234567890");
-        user = newGuest;
-        result = service.addUser(user);
+        result = service.addUser(newGuest);
         assertFalse(result.isSuccess());
 
+        newGuest = makeGuest();
         newGuest.setPhone("(123) 123456734");
-        user = newGuest;
-        result = service.addUser(user);
+        result = service.addUser(newGuest);
         assertFalse(result.isSuccess());
 
+        newGuest = makeGuest();
         newGuest.setPhone("aaaaaaaaaaaa");
-        user = newGuest;
-        result = service.addUser(user);
+        result = service.addUser(newGuest);
         assertFalse(result.isSuccess());
 
+        newGuest = makeGuest();
         newGuest.setPhone("(aaa) aaaaaaa");
-        user = newGuest;
-        result = service.addUser(user);
+        result = service.addUser(newGuest);
         assertFalse(result.isSuccess());
 
+        newGuest = makeGuest();
         newGuest.setPhone("(111)11111111");
-        user = newGuest;
-        result = service.addUser(user);
+        result = service.addUser(newGuest);
         assertFalse(result.isSuccess());
 
+        newGuest = makeGuest();
         newGuest.setPhone("a123a 1234567");
-        user = newGuest;
-        result = service.addUser(user);
+        result = service.addUser(newGuest);
         assertFalse(result.isSuccess());
 
+        newGuest = makeGuest();
         newGuest.setPhone("(123)1234567");
-        user = newGuest;
-        result = service.addUser(user);
+        result = service.addUser(newGuest);
         assertFalse(result.isSuccess());
     }
 
     @Test
     void shouldAddHostWithValidState() throws DataAccessException {
-        Guest newGuest = guest;
-        newGuest.setState("MN");
-        User user = newGuest;
-        Result<User> result = service.addUser(user);
+        User guest = makeGuest();
+        guest.setState("MN");
+        Result<User> result = service.addUser(guest);
         assertTrue(result.isSuccess());
     }
 
     @Test
     void shouldNotAddHostIfInvalidState() throws DataAccessException {
-        Guest newGuest = guest;
-        newGuest.setState(",,");
-        User user = newGuest;
+        User guest = makeGuest();
+        guest.setState(",,");
+        User user = guest;
         Result<User> result = service.addUser(user);
         assertFalse(result.isSuccess());
 
-        newGuest.setState("Virginia");
-        user = newGuest;
+        guest.setState("Virginia");
+        user = guest;
         result = service.addUser(user);
         assertFalse(result.isSuccess());
     }
 
     @Test
     void shouldNotAddGuestIfNoName() throws DataAccessException {
+        Guest guest = makeGuest();
         guest.setFirstName(" ");
         User user = guest;
         Result<User> result = service.addUser(user);
         assertFalse(result.isSuccess());
 
-        Guest newGuest = guest;
+        Guest newGuest = makeGuest();
         newGuest.setLastName(" ");
         user = newGuest;
         result = service.addUser(user);
@@ -198,7 +195,7 @@ public class GuestServiceTest {
 
     @Test
     void shouldNotAddGuestIfIdIsSet() throws DataAccessException {
-        Guest newGuest = guest;
+        User newGuest = makeGuest();
         newGuest.setId("Test");
         Result<User> result = service.addUser(newGuest);
         assertFalse(result.isSuccess());
@@ -206,7 +203,7 @@ public class GuestServiceTest {
 
     @Test
     void shouldNotAddHostIfDuplicate() throws DataAccessException {
-        Guest newGuest = guest;
+        User newGuest = makeGuest();
         newGuest.setEmail("wkuhlie@patch.com");
         Result<User> result = service.addUser(newGuest);
         assertFalse(result.isSuccess());
@@ -233,6 +230,7 @@ public class GuestServiceTest {
 
     @Test
     void shouldDeleteIfValid() throws DataAccessException {
+        User guest = makeGuest();
         Result<User> result = service.deleteUser(guest);
         assertFalse(result.isSuccess());
     }
@@ -259,9 +257,22 @@ public class GuestServiceTest {
     }
 
     @Test
-    void shouldNotBeFoundByEmailIfDeleted()  throws DataAccessException {
+    void shouldNotBeFoundByEmailIfDeleted() throws DataAccessException {
         Result<User> result = service.findByEmail(GuestRepositoryDouble.DELETED_GUEST.getEmail());
         assertNull(result.getPayload());
     }
 
+    //support methods
+    private Guest makeGuest() {
+        Guest guest = new Guest();
+
+        guest.setFirstName("Test");
+        guest.setLastName("Test");
+        guest.setEmail("Test@test.com");
+        guest.setPhone("(111) 1111111");
+        guest.setState("TT");
+        guest.setDeleted(false);
+
+        return guest;
+    }
 }
