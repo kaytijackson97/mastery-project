@@ -19,8 +19,7 @@ public class ReservationToJSONRepositoryTest {
     private static final String SEED_JSON_FILE = "./data/JSON-files/reservation-seed-file.json";
     private static final String TEST_JSON_FILE = "./data/JSON-files/reservation-test-file.json";
 
-    ReservationRepository repositoryDouble = new ReservationRepositoryDouble();
-    ReservationToJSONRepository repository = new ReservationToJSONFileRepository(TEST_JSON_FILE, repositoryDouble);
+    ReservationToJSONRepository repository = new ReservationToJSONFileRepository(TEST_JSON_FILE, ReservationFileRepositoryTest.TEST_DIRECTORY_FOLDER);
 
     @BeforeEach
     void setUp() throws IOException {

@@ -6,236 +6,590 @@
       "month" : "OCTOBER",
       "monthValue" : 10,
       "dayOfMonth" : 12,
+      "leapYear" : false,
       "chronology" : {
         "calendarType" : "iso8601",
         "id" : "ISO"
       },
-      "era" : "CE",
-      "dayOfYear" : 285,
       "dayOfWeek" : "TUESDAY",
-      "leapYear" : false
+      "dayOfYear" : 285,
+      "era" : "CE"
     },
     "endDate" : {
       "year" : 2021,
       "month" : "OCTOBER",
       "monthValue" : 10,
       "dayOfMonth" : 14,
+      "leapYear" : false,
       "chronology" : {
         "calendarType" : "iso8601",
         "id" : "ISO"
       },
-      "era" : "CE",
-      "dayOfYear" : 287,
       "dayOfWeek" : "THURSDAY",
-      "leapYear" : false
+      "dayOfYear" : 287,
+      "era" : "CE"
     },
     "host" : {
       "id" : "2e72f86c-b8fe-4265-b4f1-304dea8762db",
-      "lastName" : "Test",
-      "email" : "kdeclerkdc@sitemeter.com",
-      "phone" : "(208) 9496329",
-      "state" : "Virginia",
-      "address" : "2 Debra Way",
-      "city" : "Boise",
-      "postalCode" : 83757,
-      "standardRate" : 200,
-      "weekendRate" : 250,
-      "fullAddress" : "2 Debra Way,Boise,Virginia,83757",
-      "rates" : [ 200, 250 ],
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "rates" : [ null, null ],
+      "fullAddress" : "null,null,null,null",
       "deleted" : false,
-      "fullName" : "Test"
+      "fullName" : null
     },
     "guest" : {
       "id" : "663",
-      "lastName" : "Kuhl",
-      "email" : "wkuhlie@patch.com",
-      "phone" : "(704) 3740857",
-      "state" : "NC",
-      "firstName" : "Wallis",
-      "fullName" : "Wallis, Kuhl",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
       "deleted" : false,
-      "fullAddress" : "NC",
-      "rates" : [ ]
+      "rates" : [ ],
+      "fullAddress" : null
     },
-    "total" : null
+    "total" : 400
   }, {
     "reservationId" : 2,
     "startDate" : {
       "year" : 2021,
-      "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 19,
+      "month" : "SEPTEMBER",
+      "monthValue" : 9,
+      "dayOfMonth" : 10,
+      "leapYear" : false,
       "chronology" : {
         "calendarType" : "iso8601",
         "id" : "ISO"
       },
-      "era" : "CE",
-      "dayOfYear" : 292,
-      "dayOfWeek" : "TUESDAY",
-      "leapYear" : false
+      "dayOfWeek" : "FRIDAY",
+      "dayOfYear" : 253,
+      "era" : "CE"
     },
     "endDate" : {
       "year" : 2021,
-      "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 21,
+      "month" : "SEPTEMBER",
+      "monthValue" : 9,
+      "dayOfMonth" : 16,
+      "leapYear" : false,
       "chronology" : {
         "calendarType" : "iso8601",
         "id" : "ISO"
       },
-      "era" : "CE",
-      "dayOfYear" : 294,
       "dayOfWeek" : "THURSDAY",
-      "leapYear" : false
+      "dayOfYear" : 259,
+      "era" : "CE"
     },
     "host" : {
       "id" : "2e72f86c-b8fe-4265-b4f1-304dea8762db",
-      "lastName" : "Test",
-      "email" : "kdeclerkdc@sitemeter.com",
-      "phone" : "(208) 9496329",
-      "state" : "Virginia",
-      "address" : "2 Debra Way",
-      "city" : "Boise",
-      "postalCode" : 83757,
-      "standardRate" : 200,
-      "weekendRate" : 250,
-      "fullAddress" : "2 Debra Way,Boise,Virginia,83757",
-      "rates" : [ 200, 250 ],
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "rates" : [ null, null ],
+      "fullAddress" : "null,null,null,null",
       "deleted" : false,
-      "fullName" : "Test"
+      "fullName" : null
     },
     "guest" : {
-      "id" : "663",
-      "lastName" : "Kuhl",
-      "email" : "wkuhlie@patch.com",
-      "phone" : "(704) 3740857",
-      "state" : "NC",
-      "firstName" : "Wallis",
-      "fullName" : "Wallis, Kuhl",
+      "id" : "136",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
       "deleted" : false,
-      "fullAddress" : "NC",
-      "rates" : [ ]
+      "rates" : [ ],
+      "fullAddress" : null
     },
-    "total" : null
+    "total" : 1300
   }, {
     "reservationId" : 3,
     "startDate" : {
-      "year" : 2020,
+      "year" : 2021,
       "month" : "OCTOBER",
       "monthValue" : 10,
-      "dayOfMonth" : 12,
+      "dayOfMonth" : 2,
+      "leapYear" : false,
       "chronology" : {
         "calendarType" : "iso8601",
         "id" : "ISO"
       },
-      "era" : "CE",
-      "dayOfYear" : 286,
-      "dayOfWeek" : "MONDAY",
-      "leapYear" : true
+      "dayOfWeek" : "SATURDAY",
+      "dayOfYear" : 275,
+      "era" : "CE"
     },
     "endDate" : {
-      "year" : 2020,
+      "year" : 2021,
       "month" : "OCTOBER",
       "monthValue" : 10,
-      "dayOfMonth" : 14,
+      "dayOfMonth" : 4,
+      "leapYear" : false,
       "chronology" : {
         "calendarType" : "iso8601",
         "id" : "ISO"
       },
-      "era" : "CE",
-      "dayOfYear" : 288,
-      "dayOfWeek" : "WEDNESDAY",
-      "leapYear" : true
+      "dayOfWeek" : "MONDAY",
+      "dayOfYear" : 277,
+      "era" : "CE"
     },
     "host" : {
       "id" : "2e72f86c-b8fe-4265-b4f1-304dea8762db",
-      "lastName" : "Test",
-      "email" : "kdeclerkdc@sitemeter.com",
-      "phone" : "(208) 9496329",
-      "state" : "Virginia",
-      "address" : "2 Debra Way",
-      "city" : "Boise",
-      "postalCode" : 83757,
-      "standardRate" : 200,
-      "weekendRate" : 250,
-      "fullAddress" : "2 Debra Way,Boise,Virginia,83757",
-      "rates" : [ 200, 250 ],
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "rates" : [ null, null ],
+      "fullAddress" : "null,null,null,null",
       "deleted" : false,
-      "fullName" : "Test"
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "738",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "rates" : [ ],
+      "fullAddress" : null
+    },
+    "total" : 450
+  } ],
+  "hostReservations1" : [ {
+    "reservationId" : 0,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 4,
+      "leapYear" : false,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "dayOfWeek" : "TUESDAY",
+      "dayOfYear" : 277,
+      "era" : "CE"
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 6,
+      "leapYear" : false,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "dayOfWeek" : "THURSDAY",
+      "dayOfYear" : 279,
+      "era" : "CE"
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "rates" : [ null, null ],
+      "fullAddress" : "null,null,null,null",
+      "deleted" : false,
+      "fullName" : null
     },
     "guest" : {
       "id" : "663",
-      "lastName" : "Kuhl",
-      "email" : "wkuhlie@patch.com",
-      "phone" : "(704) 3740857",
-      "state" : "NC",
-      "firstName" : "Wallis",
-      "fullName" : "Wallis, Kuhl",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
       "deleted" : false,
-      "fullAddress" : "NC",
-      "rates" : [ ]
+      "rates" : [ ],
+      "fullAddress" : null
     },
-    "total" : null
+    "total" : 400.00
+  }, {
+    "reservationId" : 1,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 4,
+      "leapYear" : false,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "dayOfWeek" : "TUESDAY",
+      "dayOfYear" : 277,
+      "era" : "CE"
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 6,
+      "leapYear" : false,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "dayOfWeek" : "THURSDAY",
+      "dayOfYear" : 279,
+      "era" : "CE"
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "rates" : [ null, null ],
+      "fullAddress" : "null,null,null,null",
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "rates" : [ ],
+      "fullAddress" : null
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 2,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 4,
+      "leapYear" : false,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "dayOfWeek" : "TUESDAY",
+      "dayOfYear" : 277,
+      "era" : "CE"
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 6,
+      "leapYear" : false,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "dayOfWeek" : "THURSDAY",
+      "dayOfYear" : 279,
+      "era" : "CE"
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "rates" : [ null, null ],
+      "fullAddress" : "null,null,null,null",
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "rates" : [ ],
+      "fullAddress" : null
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 3,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 4,
+      "leapYear" : false,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "dayOfWeek" : "TUESDAY",
+      "dayOfYear" : 277,
+      "era" : "CE"
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 6,
+      "leapYear" : false,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "dayOfWeek" : "THURSDAY",
+      "dayOfYear" : 279,
+      "era" : "CE"
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "rates" : [ null, null ],
+      "fullAddress" : "null,null,null,null",
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "rates" : [ ],
+      "fullAddress" : null
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 4,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 4,
+      "leapYear" : false,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "dayOfWeek" : "TUESDAY",
+      "dayOfYear" : 277,
+      "era" : "CE"
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 6,
+      "leapYear" : false,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "dayOfWeek" : "THURSDAY",
+      "dayOfYear" : 279,
+      "era" : "CE"
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "rates" : [ null, null ],
+      "fullAddress" : "null,null,null,null",
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "rates" : [ ],
+      "fullAddress" : null
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 5,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 4,
+      "leapYear" : false,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "dayOfWeek" : "TUESDAY",
+      "dayOfYear" : 277,
+      "era" : "CE"
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 6,
+      "leapYear" : false,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "dayOfWeek" : "THURSDAY",
+      "dayOfYear" : 279,
+      "era" : "CE"
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "rates" : [ null, null ],
+      "fullAddress" : "null,null,null,null",
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "rates" : [ ],
+      "fullAddress" : null
+    },
+    "total" : 400.00
   } ],
-  "hostReservations1" : [ ],
   "hostReservations2" : [ {
     "reservationId" : 1,
     "startDate" : {
-      "year" : 2021,
-      "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 12,
+      "year" : 2022,
+      "month" : "MARCH",
+      "monthValue" : 3,
+      "dayOfMonth" : 5,
+      "leapYear" : false,
       "chronology" : {
         "calendarType" : "iso8601",
         "id" : "ISO"
       },
-      "era" : "CE",
-      "dayOfYear" : 285,
-      "dayOfWeek" : "TUESDAY",
-      "leapYear" : false
+      "dayOfWeek" : "SATURDAY",
+      "dayOfYear" : 64,
+      "era" : "CE"
     },
     "endDate" : {
-      "year" : 2021,
-      "month" : "OCTOBER",
-      "monthValue" : 10,
-      "dayOfMonth" : 14,
+      "year" : 2022,
+      "month" : "MARCH",
+      "monthValue" : 3,
+      "dayOfMonth" : 7,
+      "leapYear" : false,
       "chronology" : {
         "calendarType" : "iso8601",
         "id" : "ISO"
       },
-      "era" : "CE",
-      "dayOfYear" : 287,
-      "dayOfWeek" : "THURSDAY",
-      "leapYear" : false
+      "dayOfWeek" : "MONDAY",
+      "dayOfYear" : 66,
+      "era" : "CE"
     },
     "host" : {
       "id" : "3f413626-e129-4d06-b68c-36450822213f",
-      "lastName" : "McGreary",
-      "email" : "smcgreary20@upenn.edu",
-      "phone" : "(513) 1248143",
-      "state" : "OH",
-      "address" : "8 Orin Street",
-      "city" : "Cincinnati",
-      "postalCode" : 45264,
-      "standardRate" : 172.0,
-      "weekendRate" : 215.0,
-      "fullAddress" : "8 Orin Street,Cincinnati,OH,45264",
-      "rates" : [ 172.0, 215.0 ],
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "rates" : [ null, null ],
+      "fullAddress" : "null,null,null,null",
       "deleted" : false,
-      "fullName" : "McGreary"
+      "fullName" : null
     },
     "guest" : {
-      "id" : "663",
-      "lastName" : "Kuhl",
-      "email" : "wkuhlie@patch.com",
-      "phone" : "(704) 3740857",
-      "state" : "NC",
-      "firstName" : "Wallis",
-      "fullName" : "Wallis, Kuhl",
+      "id" : "136",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
       "deleted" : false,
-      "fullAddress" : "NC",
-      "rates" : [ ]
+      "rates" : [ ],
+      "fullAddress" : null
     },
-    "total" : null
+    "total" : 387
   } ]
 }

@@ -160,6 +160,29 @@ public class GuestServiceTest {
     }
 
     @Test
+    void shouldAddHostWithValidState() throws DataAccessException {
+        Guest newGuest = guest;
+        newGuest.setState("MN");
+        User user = newGuest;
+        Result<User> result = service.addUser(user);
+        assertTrue(result.isSuccess());
+    }
+
+    @Test
+    void shouldNotAddHostIfInvalidState() throws DataAccessException {
+        Guest newGuest = guest;
+        newGuest.setState(",,");
+        User user = newGuest;
+        Result<User> result = service.addUser(user);
+        assertFalse(result.isSuccess());
+
+        newGuest.setState("Virginia");
+        user = newGuest;
+        result = service.addUser(user);
+        assertFalse(result.isSuccess());
+    }
+
+    @Test
     void shouldNotAddGuestIfNoName() throws DataAccessException {
         guest.setFirstName(" ");
         User user = guest;

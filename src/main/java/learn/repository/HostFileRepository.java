@@ -118,7 +118,7 @@ public class HostFileRepository implements HostRepository {
         host.setAddress(addressFields[0]);
         host.setCity(addressFields[1]);
         host.setState(user.getState());
-        host.setPostalCode(Integer.parseInt(addressFields[3]));
+        host.setPostalCode(addressFields[3]);
 
         host.setStandardRate(user.getRates().get(0));
         host.setWeekendRate(user.getRates().get(1));
@@ -138,7 +138,7 @@ public class HostFileRepository implements HostRepository {
         host.setAddress(fields[4].replace(DELIMITER_REPLACEMENT, DELIMITER));
         host.setCity(fields[5].replace(DELIMITER_REPLACEMENT, DELIMITER));
         host.setState(fields[6]);
-        host.setPostalCode(Integer.parseInt(fields[7]));
+        host.setPostalCode(fields[7]);
 
         host.setStandardRate(BigDecimal.valueOf(Double.parseDouble(fields[8])));
         host.setWeekendRate(BigDecimal.valueOf(Double.parseDouble(fields[9])));

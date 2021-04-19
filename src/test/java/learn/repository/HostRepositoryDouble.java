@@ -63,7 +63,7 @@ public class HostRepositoryDouble implements HostRepository {
         host.setAddress("2 Debra Way");
         host.setCity("Boise");
         host.setState("ID");
-        host.setPostalCode(83757);
+        host.setPostalCode("83757");
         host.setStandardRate(new BigDecimal("200"));
         host.setWeekendRate(new BigDecimal("250"));
         host.setDeleted(false);
@@ -79,7 +79,7 @@ public class HostRepositoryDouble implements HostRepository {
         host.setAddress("2 Debra Way");
         host.setCity("Boise");
         host.setState("ID");
-        host.setPostalCode(83757);
+        host.setPostalCode("83757");
         host.setStandardRate(new BigDecimal("200"));
         host.setWeekendRate(new BigDecimal("250"));
         host.setDeleted(true);
@@ -95,7 +95,7 @@ public class HostRepositoryDouble implements HostRepository {
         host.setAddress("8 Orin Street");
         host.setCity("Cincinnati");
         host.setState("OH");
-        host.setPostalCode(45264);
+        host.setPostalCode("45264");
         host.setStandardRate(new BigDecimal("172.0"));
         host.setWeekendRate(new BigDecimal("215.0"));
         host.setDeleted(false);
@@ -114,7 +114,7 @@ public class HostRepositoryDouble implements HostRepository {
         host.setAddress(addressFields[0]);
         host.setCity(addressFields[1]);
         host.setState(user.getState());
-        host.setPostalCode(Integer.parseInt(addressFields[3]));
+        host.setPostalCode(addressFields[3]);
 
         host.setStandardRate(user.getRates().get(0));
         host.setWeekendRate(user.getRates().get(1));

@@ -60,7 +60,7 @@ class HostFileRepositoryTest {
         host.setAddress("1 Test");
         host.setCity("Testville");
         host.setState("Test");
-        host.setPostalCode(11111);
+        host.setPostalCode("11111");
         host.setStandardRate(new BigDecimal("200.00"));
         host.setWeekendRate(new BigDecimal("250.00"));
 
@@ -96,7 +96,7 @@ class HostFileRepositoryTest {
         host.setAddress("1 Test");
         host.setCity("Testville");
         host.setState("Test");
-        host.setPostalCode(11111);
+        host.setPostalCode("11111");
         host.setStandardRate(new BigDecimal("200.00"));
         host.setWeekendRate(new BigDecimal("250.00"));
 

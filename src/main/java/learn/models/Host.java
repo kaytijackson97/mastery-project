@@ -7,14 +7,14 @@ public class Host extends User {
     private String id;
     private String address;
     private String city;
-    private int postalCode;
+    private String postalCode;
     private BigDecimal standardRate;
     private BigDecimal weekendRate;
 
     public Host() {
     }
 
-    public Host(String id, String last_name, String email, String phone, String address, String city, String state, int postalCode, BigDecimal standardRate, BigDecimal weekendRate, boolean isDeleted) {
+    public Host(String id, String last_name, String email, String phone, String address, String city, String state, String postalCode, BigDecimal standardRate, BigDecimal weekendRate, boolean isDeleted) {
         super(id, last_name, email, phone, state, isDeleted);
         this.address = address;
         this.city = city;
@@ -47,11 +47,11 @@ public class Host extends User {
         this.city = city;
     }
 
-    public int getPostalCode() {
+    public String getPostalCode() {
         return postalCode;
     }
 
-    public void setPostalCode(int postalCode) {
+    public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
 

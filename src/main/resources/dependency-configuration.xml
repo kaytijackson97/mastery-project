@@ -36,7 +36,7 @@
 
     <bean id="reservationToJSONRepository" class="learn.repository.convertToJSON.ReservationToJSONFileRepository">
         <constructor-arg value="./data/JSON-files/reservation.json"/>
-        <constructor-arg ref="reservationRepository"/>
+        <constructor-arg value="./data/reservations"/>
     </bean>
 
     <bean id="reservationService" class="learn.domain.ReservationService">

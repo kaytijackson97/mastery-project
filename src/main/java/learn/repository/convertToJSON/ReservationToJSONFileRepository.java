@@ -21,9 +21,13 @@ import java.util.Map;
 public class ReservationToJSONFileRepository implements ReservationToJSONRepository {
 
     private final String filePath;
+    private final String repository;
+    private final String delimiter = ",";
+    private final int reservationSplitFields = 5;
 
-    public ReservationToJSONFileRepository(String filePath) {
+    public ReservationToJSONFileRepository(String filePath, String repository) {
         this.filePath = filePath;
+        this.repository = repository;
     }
 
     @Override
@@ -74,8 +78,8 @@ public class ReservationToJSONFileRepository implements ReservationToJSONReposit
             reader.readLine();
 
             for (String line = reader.readLine(); line != null; line = reader.readLine()) {
-                String[] fields = line.split(DELIMITER, -1);
-                if (fields.length == RESERVATION_SPLIT_FIELDS) {
+                String[] fields = line.split(delimiter, -1);
+                if (fields.length == reservationSplitFields) {
                     all.add(deserialized(fields, id));
                 }
             }

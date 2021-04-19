@@ -9,13 +9,14 @@ import java.util.Scanner;
 
 public class ConsoleIO {
 
-    private static final String INVALID_NUMBER_PROMPT = "Input must be a whole number";
+    private static final String INVALID_NUMBER_PROMPT = "Input must be a number";
     private static final String INVALID_DATE_FORMAT_PROMPT = "Input must be formatted as YYYY-MM-DD";
     private static final String INVALID_DATE_PROMPT = "Input must be after %s%n";
     private static final String INVALID_BOOLEAN_PROMPT = "Input must be [y/n]";
     private static final String INVALID_EMAIL_PROMPT = "Invalid email";
     private static final String INVALID_PHONE_FORMAT_PROMPT = "Invalid phone number format (ex. (123) 4567890)";
     private static final String INVALID_AMOUNT = "Invalid amount";
+    private static final String INVALID_POSTAL_CODE = "Invalid postal code";
 
     private final Scanner console = new Scanner(System.in);
     public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -75,6 +76,45 @@ public class ConsoleIO {
         return newValue;
     }
 
+    public String readRequiredPostalCode(String prompt) {
+        String postalCode = "";
+        do {
+            postalCode = readRequiredString(prompt);
+            if (postalCode.length() != 5) {
+                println(INVALID_POSTAL_CODE);
+                postalCode = "";
+                continue;
+            }
+            int postalCodeInt = getInt(postalCode);
+            if (postalCodeInt < 0) {
+                println(INVALID_POSTAL_CODE);
+                postalCode = "";
+            }
+        } while (postalCode.isBlank());
+        return postalCode;
+    }
+
+    public String readPostalCode(String prompt, String previousPostalCode) {
+        String postalCode = "";
+        do {
+            postalCode = readString(prompt);
+            if (postalCode.isBlank()) {
+                return previousPostalCode;
+            }
+            if (postalCode.length() != 5) {
+                println(INVALID_POSTAL_CODE);
+                postalCode = "";
+                continue;
+            }
+            int postalCodeInt = getInt(postalCode);
+            if (postalCodeInt < 0) {
+                println(INVALID_POSTAL_CODE);
+                postalCode = "";
+            }
+        } while (postalCode.isBlank());
+        return postalCode;
+    }
+
     public boolean readBoolean(String prompt) {
         do {
             String input = readRequiredString(prompt);
@@ -127,7 +167,7 @@ public class ConsoleIO {
                 System.out.println(INVALID_DATE_FORMAT_PROMPT);
             }
             printf(INVALID_DATE_PROMPT, LocalDate.now());
-        } while (date.isBefore(LocalDate.now().plusDays(1)));
+        } while (date.equals(LocalDate.now()));
 
         return date;
     }
@@ -143,11 +183,53 @@ public class ConsoleIO {
         } while (true);
     }
 
+    public String readState(String prompt, String previousState) {
+        do {
+            String state = readString(prompt);
+            if (state.isBlank()) {
+                return previousState;
+            }
+
+            if (state.length() != 2) {
+                println("State must be abbreviation (ex. MN).");
+                continue;
+            }
+
+            if (!Character.isLetter(state.charAt(0)) || !Character.isLetter(state.charAt(1))) {
+                println("State must be abbreviation (ex. MN).");
+                continue;
+            }
+            return state;
+        } while (true);
+    }
+
+    public String readRequiredState(String prompt) {
+        do {
+            String state = readRequiredString(prompt);
+
+            if (state.length() != 2) {
+                println("State must be abbreviation (ex. MN).");
+                continue;
+            }
+
+            if (!Character.isLetter(state.charAt(0)) || !Character.isLetter(state.charAt(1))) {
+                println("State must be abbreviation (ex. MN).");
+                continue;
+            }
+            return state;
+        } while (true);
+    }
+
     public String readRequiredEmail(String prompt) {
         while (true) {
             String email = readRequiredString(prompt);
 
             if (!email.contains("@")) {
+                println(INVALID_EMAIL_PROMPT);
+                continue;
+            }
+
+            if (email.contains(",")) {
                 println(INVALID_EMAIL_PROMPT);
                 continue;
             }

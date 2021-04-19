@@ -82,6 +82,11 @@ public class Validation {
             return result;
         }
 
+        if (email.contains(",")) {
+            result.addErrorMessage("Email cannot contain a comma");
+            return result;
+        }
+
         if (!email.contains("@")) {
             result.addErrorMessage("Not a valid email address.");
             return result;
@@ -141,9 +146,16 @@ public class Validation {
             result.addErrorMessage("Invalid Address.");
         }
 
+        if (addressFields[addressFields.length - 1].length() != 5) {
+            result.addErrorMessage("Invalid postal code.");
+        }
+
         try {
             String postalCode = addressFields[addressFields.length - 1];
-            Integer.parseInt(postalCode);
+            int postalCodeInt = Integer.parseInt(postalCode);
+            if (postalCodeInt < 0) {
+                result.addErrorMessage("Invalid postal code.");
+            }
         } catch (NumberFormatException ex) {
             result.addErrorMessage("Invalid postal code.");
         }
@@ -155,6 +167,10 @@ public class Validation {
         Result<User> result = new Result<>();
 
         if (state.length() != 2) {
+            result.addErrorMessage("State must be abbreviation (ex. MN).");
+        }
+
+        if (!Character.isLetter(state.charAt(0)) || !Character.isLetter(state.charAt(1))) {
             result.addErrorMessage("State must be abbreviation (ex. MN).");
         }
 

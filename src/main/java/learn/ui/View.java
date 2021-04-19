@@ -44,14 +44,9 @@ public class View {
         host.setAddress(cleanField(io.readRequiredString("Address: ")));
         host.setCity(cleanField(io.readRequiredString("City: ")));
 
-        do {
-            host.setState(cleanField(io.readRequiredString("State Abbreviation: ")));
-            if (host.getState().length() != 2) {
-                io.println("State must be an abbreviation (ex. MN)");
-            }
-        } while (host.getState().length() != 2);
+        host.setState(io.readRequiredState("State Abbreviation: "));
 
-        host.setPostalCode(io.readRequiredInt("Postal Code: "));
+        host.setPostalCode(io.readRequiredPostalCode("Postal Code: "));
 
         host.setStandardRate(io.readRequiredBigDecimal("Standard Rate: "));
         host.setWeekendRate(io.readRequiredBigDecimal("Weekend Rate: "));
@@ -66,7 +61,7 @@ public class View {
         guest.setEmail(io.readRequiredEmail("Email: "));
         guest.setPhone(io.readRequiredPhone("Phone: "));
 
-        guest.setState(cleanField(io.readRequiredString("State Abbreviation: ")));
+        guest.setState(cleanField(io.readRequiredState("State Abbreviation: ")));
 
         return guest;
     }
@@ -105,12 +100,10 @@ public class View {
             host.setCity(city);
         }
 
-        String state = io.readString("State (" + host.getState() + "): ");
-        if (!state.isBlank()) {
-            host.setState(state);
-        }
+        String state = io.readState("State (" + host.getState() + "): ", host.getState());
+        host.setState(state);
 
-        int postalCode = io.readInt("Postal Code (" + host.getPostalCode() + "): ", host.getPostalCode());
+        String postalCode = io.readPostalCode("Postal Code (" + host.getPostalCode() + "): ", host.getPostalCode());
         host.setPostalCode(postalCode);
 
         BigDecimal standardRate = io.readBigDecimal("Standard Rate (" + host.getStandardRate() + "): ", host.getStandardRate());
@@ -134,10 +127,8 @@ public class View {
         String phone = io.readPhone("Phone (" + guest.getPhone() + "): ", guest.getPhone());
         guest.setPhone(phone);
 
-        String state = io.readString("State (" + guest.getState() + "): ");
-        if (!state.isBlank()) {
-            guest.setState(state);
-        }
+        String state = io.readState("State (" + guest.getState() + "): ", guest.getState());
+        guest.setState(state);
 
         return guest;
     }
@@ -213,6 +204,10 @@ public class View {
             return;
         }
         for (Reservation r : reservations) {
+            if (r.getGuest().isDeleted()) {
+                continue;
+            }
+
             io.printf("ID: %s, %s - %s, Guest: %s Email: %s%n",
                     r.getReservationId(),
                     r.getStartDate(),
@@ -247,7 +242,7 @@ public class View {
         host.setAddress(addressFields[0]);
         host.setCity(addressFields[1]);
         host.setState(user.getState());
-        host.setPostalCode(Integer.parseInt(addressFields[3]));
+        host.setPostalCode(addressFields[3]);
 
         host.setStandardRate(user.getRates().get(0));
         host.setWeekendRate(user.getRates().get(1));

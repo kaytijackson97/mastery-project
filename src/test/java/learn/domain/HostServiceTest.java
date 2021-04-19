@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class HostServiceTest {
 
-    private final Host host = new Host(null, "Test", "Test@test.com", "(111) 1111111", "1 Test", "Test", "TT", 11111, new BigDecimal("100.00"), new BigDecimal("150.00"), false);
+    private final Host host = new Host(null, "Test", "Test@test.com", "(111) 1111111", "1 Test", "Test", "TT", "11111", new BigDecimal("100.00"), new BigDecimal("150.00"), false);
 
     HostService service = new HostService(new HostRepositoryDouble());
 
@@ -32,6 +32,12 @@ public class HostServiceTest {
     @Test
     void shouldNotAcceptInvalidEmail() throws DataAccessException {
         Result<User> result = service.findByEmail("test@test.com");
+        assertFalse(result.isSuccess());
+    }
+
+    @Test
+    void shouldNotAcceptEmailWithComma() throws DataAccessException {
+        Result<User> result = service.findByEmail("test@te,st.com");
         assertFalse(result.isSuccess());
     }
 
@@ -180,6 +186,66 @@ public class HostServiceTest {
         host.setLastName(" ");
         User user = host;
         Result<User> result = service.addUser(user);
+        assertFalse(result.isSuccess());
+    }
+
+    @Test
+    void shouldNotAddHostIfNoState() throws DataAccessException {
+        host.setState(" ");
+        User user = host;
+        Result<User> result = service.addUser(user);
+        assertFalse(result.isSuccess());
+    }
+
+    @Test
+    void shouldAddHostWithValidState() throws DataAccessException {
+        host.setState("MN");
+        User user = host;
+        Result<User> result = service.addUser(user);
+        assertTrue(result.isSuccess());
+    }
+
+    @Test
+    void shouldNotAddHostIfInvalidState() throws DataAccessException {
+        host.setState(",,");
+        User user = host;
+        Result<User> result = service.addUser(user);
+        assertFalse(result.isSuccess());
+
+        host.setState("Virginia");
+        user = host;
+        result = service.addUser(user);
+        assertFalse(result.isSuccess());
+    }
+
+    @Test
+    void shouldAddHostWithValidPostalCode() throws DataAccessException {
+        host.setPostalCode("12345");
+        User user = host;
+        Result<User> result = service.addUser(user);
+        assertTrue(result.isSuccess());
+    }
+
+    @Test
+    void shouldNotAddHostIfInvalidPostalCode() throws DataAccessException {
+        host.setPostalCode("-1234");
+        User user = host;
+        Result<User> result = service.addUser(user);
+        assertFalse(result.isSuccess());
+
+        host.setPostalCode("Virginia");
+        user = host;
+        result = service.addUser(user);
+        assertFalse(result.isSuccess());
+
+        host.setPostalCode(" ");
+        user = host;
+        result = service.addUser(user);
+        assertFalse(result.isSuccess());
+
+        host.setPostalCode(null);
+        user = host;
+        result = service.addUser(user);
         assertFalse(result.isSuccess());
     }
 

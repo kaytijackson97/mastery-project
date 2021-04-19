@@ -7,11 +7,11 @@
     "state" : "Virginia",
     "address" : "2 Debra Way",
     "city" : "Boise",
-    "postalCode" : 83757,
+    "postalCode" : "83757",
     "standardRate" : 200,
     "weekendRate" : 250,
-    "fullAddress" : "2 Debra Way,Boise,Virginia,83757",
     "rates" : [ 200, 250 ],
+    "fullAddress" : "2 Debra Way,Boise,Virginia,83757",
     "deleted" : false,
     "fullName" : "Test"
   },
@@ -23,11 +23,11 @@
     "state" : "ID",
     "address" : "2 Debra Way",
     "city" : "Boise",
-    "postalCode" : 83757,
+    "postalCode" : "83757",
     "standardRate" : 200,
     "weekendRate" : 250,
-    "fullAddress" : "2 Debra Way,Boise,ID,83757",
     "rates" : [ 200, 250 ],
+    "fullAddress" : "2 Debra Way,Boise,ID,83757",
     "deleted" : true,
     "fullName" : "Deleted Test"
   }

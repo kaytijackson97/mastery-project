@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -30,8 +31,11 @@ public class ReservationService {
     }
 
     public List<Reservation> findById(String id) throws DataAccessException {
-        Map<String, Guest> guestMap = guestRepository.findAll().stream()
-                .collect(Collectors.toMap(Guest::getId, i -> i));
+        List<Guest> all = guestRepository.findAll();
+        Map<String, Guest> guestMap = new HashMap<>();
+        for (Guest g : all) {
+            guestMap.put(g.getId(), g);
+        }
 
         Host host = hostRepository.findAll().stream()
                 .filter(i -> i.getId().equalsIgnoreCase(id))
