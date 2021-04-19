@@ -661,7 +661,7 @@ guest_id,first_name,last_name,email,phone,state
 660,Minny,Ville,mvilleib@google.es,(601) 6129674,MS,false
 661,Genovera,Lauga,glaugaic@slashdot.org,(760) 5109211,CA,false
 662,Florance,Oiller,foillerid@utexas.edu,(309) 1332447,IL,false
-663,Wallis,Kuhl,wkuhlie@patch.com,(704) 3740857,NC,true
+663,Wallis,Kuhl,wkuhlie@patch.com,(704) 3740857,NC,false
 664,Louisa,Foux,lfouxif@twitpic.com,(202) 8208418,DC,false
 665,Chere,Haslum,chaslumig@oracle.com,(602) 7698508,AZ,false
 666,Clary,Sherrell,csherrellih@ucoz.ru,(954) 2339230,FL,false

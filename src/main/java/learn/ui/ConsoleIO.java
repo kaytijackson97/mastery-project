@@ -162,14 +162,15 @@ public class ConsoleIO {
             String dateString = readRequiredString(prompt);
             try {
                 date = LocalDate.parse(dateString, FORMATTER);
-                break;
             } catch (DateTimeParseException ex) {
                 System.out.println(INVALID_DATE_FORMAT_PROMPT);
             }
-            printf(INVALID_DATE_PROMPT, LocalDate.now());
-        } while (date.equals(LocalDate.now()));
-
-        return date;
+            if (date.isBefore(LocalDate.now().plusDays(1))) {
+                printf(INVALID_DATE_PROMPT, LocalDate.now());
+            } else {
+                return date;
+            }
+        } while (true);
     }
 
     public LocalDate readRequiredDate(String prompt, LocalDate startDate) {
@@ -230,6 +231,11 @@ public class ConsoleIO {
             }
 
             if (email.contains(",")) {
+                println(INVALID_EMAIL_PROMPT);
+                continue;
+            }
+
+            if (email.charAt(email.length() - 1) == '.') {
                 println(INVALID_EMAIL_PROMPT);
                 continue;
             }
