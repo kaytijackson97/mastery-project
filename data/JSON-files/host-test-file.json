@@ -1,21 +1,5 @@
 {
-  "TestDelete@test.com" : {
-    "id" : "TestDeleteId",
-    "lastName" : "Deleted Test",
-    "email" : "TestDelete@test.com",
-    "phone" : "(208) 9496329",
-    "state" : "ID",
-    "address" : "2 Debra Way",
-    "city" : "Boise",
-    "postalCode" : 83757,
-    "standardRate" : 200,
-    "weekendRate" : 250,
-    "fullAddress" : "2 Debra Way,Boise,ID,83757",
-    "rates" : [ 200, 250 ],
-    "deleted" : true,
-    "fullName" : "Deleted Test"
-  },
-  "kdeclerkdc@sitemeter.com" : {
+  "host1" : {
     "id" : "2e72f86c-b8fe-4265-b4f1-304dea8762db",
     "lastName" : "Test",
     "email" : "kdeclerkdc@sitemeter.com",
@@ -30,5 +14,21 @@
     "rates" : [ 200, 250 ],
     "deleted" : false,
     "fullName" : "Test"
+  },
+  "host2" : {
+    "id" : "TestDeleteId",
+    "lastName" : "Deleted Test",
+    "email" : "TestDelete@test.com",
+    "phone" : "(208) 9496329",
+    "state" : "ID",
+    "address" : "2 Debra Way",
+    "city" : "Boise",
+    "postalCode" : 83757,
+    "standardRate" : 200,
+    "weekendRate" : 250,
+    "fullAddress" : "2 Debra Way,Boise,ID,83757",
+    "rates" : [ 200, 250 ],
+    "deleted" : true,
+    "fullName" : "Deleted Test"
   }
 }

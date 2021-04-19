@@ -2,6 +2,7 @@ package learn.repository;
 
 import learn.models.Host;
 import learn.models.Reservation;
+import learn.repository.convertToJSON.ReservationToJSONRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -20,11 +21,12 @@ class ReservationFileRepositoryTest {
 
     private static final String SEED_FILE = "./data/reservations-seed-file.csv";
     private static final String TEST_FILE = "./data/reservations-test-folder/2e72f86c-b8fe-4265-b4f1-304dea8762db.csv";
-    private static final String TEST_DIRECTORY_PATH = "./data/reservations-test-folder";
+    public static final String TEST_DIRECTORY_FOLDER = "./data/reservations-test-folder";
 
     private final String testHostId = "2e72f86c-b8fe-4265-b4f1-304dea8762db";
 
-    ReservationFileRepository repository = new ReservationFileRepository(TEST_DIRECTORY_PATH);
+    ReservationToJSONRepository reservationToJSONRepository = new ReservationToJSONRepositoryDouble();
+    ReservationFileRepository repository = new ReservationFileRepository(TEST_DIRECTORY_FOLDER, reservationToJSONRepository);
 
     @BeforeEach
     void setUp() throws IOException {

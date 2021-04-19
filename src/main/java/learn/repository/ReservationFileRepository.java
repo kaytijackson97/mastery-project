@@ -3,6 +3,7 @@ package learn.repository;
 import learn.models.Guest;
 import learn.models.Host;
 import learn.models.Reservation;
+import learn.repository.convertToJSON.ReservationToJSONRepository;
 
 import java.io.*;
 import java.math.BigDecimal;
@@ -17,10 +18,12 @@ public class ReservationFileRepository implements ReservationRepository {
     private static final String HEADER = "id,start_date,end_date,guest_id,total";
     private static final String DELIMITER = ",";
     private final String repository;
+    private final ReservationToJSONRepository reservationToJSONRepository;
     private final int RESERVATION_SPLIT_FIELDS = 5;
 
-    public ReservationFileRepository(String repository) {
+    public ReservationFileRepository(String repository, ReservationToJSONRepository reservationToJSONRepository) {
         this.repository = repository;
+        this.reservationToJSONRepository = reservationToJSONRepository;
     }
 
     @Override
@@ -101,7 +104,7 @@ public class ReservationFileRepository implements ReservationRepository {
         return false;
     }
 
-    private String getFilePath(String id) {
+    public String getFilePath(String id) {
         return Paths.get(repository, id + ".csv").toString();
     }
 
@@ -154,5 +157,6 @@ public class ReservationFileRepository implements ReservationRepository {
         } catch (FileNotFoundException ex) {
             throw new DataAccessException(ex.getMessage());
         }
+        reservationToJSONRepository.writeToJSON(new File(repository));
     }
 }

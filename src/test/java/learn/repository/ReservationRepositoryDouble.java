@@ -16,14 +16,17 @@ public class ReservationRepositoryDouble implements ReservationRepository {
     private final Reservation reservation = new Reservation(HostRepositoryDouble.HOST, GuestRepositoryDouble.GUEST, startDate, endDate);
     private final Reservation reservation1 = new Reservation(HostRepositoryDouble.HOST, GuestRepositoryDouble.GUEST, startDate.plusWeeks(1), endDate.plusWeeks(1));
     private final Reservation oldReservation = new Reservation(HostRepositoryDouble.HOST, GuestRepositoryDouble.GUEST, startDate.minusYears(1), endDate.minusYears(1));
+    private final Reservation differentHostReservation = new Reservation(HostRepositoryDouble.SECOND_VALID_HOST, GuestRepositoryDouble.GUEST, startDate, endDate);
 
     public ReservationRepositoryDouble() {
         reservation.setReservationId(1);
         reservation1.setReservationId(2);
         oldReservation.setReservationId(3);
+        differentHostReservation.setReservationId(1);
         reservations.add(reservation);
         reservations.add(reservation1);
         reservations.add(oldReservation);
+        reservations.add(differentHostReservation);
     }
 
     @Override

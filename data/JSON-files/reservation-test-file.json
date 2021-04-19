@@ -1,0 +1,241 @@
+{
+  "hostReservations3" : [ {
+    "reservationId" : 1,
+    "startDate" : {
+      "year" : 2021,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 12,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 285,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false
+    },
+    "endDate" : {
+      "year" : 2021,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 14,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 287,
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false
+    },
+    "host" : {
+      "id" : "2e72f86c-b8fe-4265-b4f1-304dea8762db",
+      "lastName" : "Test",
+      "email" : "kdeclerkdc@sitemeter.com",
+      "phone" : "(208) 9496329",
+      "state" : "Virginia",
+      "address" : "2 Debra Way",
+      "city" : "Boise",
+      "postalCode" : 83757,
+      "standardRate" : 200,
+      "weekendRate" : 250,
+      "fullAddress" : "2 Debra Way,Boise,Virginia,83757",
+      "rates" : [ 200, 250 ],
+      "deleted" : false,
+      "fullName" : "Test"
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : "Kuhl",
+      "email" : "wkuhlie@patch.com",
+      "phone" : "(704) 3740857",
+      "state" : "NC",
+      "firstName" : "Wallis",
+      "fullName" : "Wallis, Kuhl",
+      "deleted" : false,
+      "fullAddress" : "NC",
+      "rates" : [ ]
+    },
+    "total" : null
+  }, {
+    "reservationId" : 2,
+    "startDate" : {
+      "year" : 2021,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 19,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 292,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false
+    },
+    "endDate" : {
+      "year" : 2021,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 21,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 294,
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false
+    },
+    "host" : {
+      "id" : "2e72f86c-b8fe-4265-b4f1-304dea8762db",
+      "lastName" : "Test",
+      "email" : "kdeclerkdc@sitemeter.com",
+      "phone" : "(208) 9496329",
+      "state" : "Virginia",
+      "address" : "2 Debra Way",
+      "city" : "Boise",
+      "postalCode" : 83757,
+      "standardRate" : 200,
+      "weekendRate" : 250,
+      "fullAddress" : "2 Debra Way,Boise,Virginia,83757",
+      "rates" : [ 200, 250 ],
+      "deleted" : false,
+      "fullName" : "Test"
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : "Kuhl",
+      "email" : "wkuhlie@patch.com",
+      "phone" : "(704) 3740857",
+      "state" : "NC",
+      "firstName" : "Wallis",
+      "fullName" : "Wallis, Kuhl",
+      "deleted" : false,
+      "fullAddress" : "NC",
+      "rates" : [ ]
+    },
+    "total" : null
+  }, {
+    "reservationId" : 3,
+    "startDate" : {
+      "year" : 2020,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 12,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 286,
+      "dayOfWeek" : "MONDAY",
+      "leapYear" : true
+    },
+    "endDate" : {
+      "year" : 2020,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 14,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 288,
+      "dayOfWeek" : "WEDNESDAY",
+      "leapYear" : true
+    },
+    "host" : {
+      "id" : "2e72f86c-b8fe-4265-b4f1-304dea8762db",
+      "lastName" : "Test",
+      "email" : "kdeclerkdc@sitemeter.com",
+      "phone" : "(208) 9496329",
+      "state" : "Virginia",
+      "address" : "2 Debra Way",
+      "city" : "Boise",
+      "postalCode" : 83757,
+      "standardRate" : 200,
+      "weekendRate" : 250,
+      "fullAddress" : "2 Debra Way,Boise,Virginia,83757",
+      "rates" : [ 200, 250 ],
+      "deleted" : false,
+      "fullName" : "Test"
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : "Kuhl",
+      "email" : "wkuhlie@patch.com",
+      "phone" : "(704) 3740857",
+      "state" : "NC",
+      "firstName" : "Wallis",
+      "fullName" : "Wallis, Kuhl",
+      "deleted" : false,
+      "fullAddress" : "NC",
+      "rates" : [ ]
+    },
+    "total" : null
+  } ],
+  "hostReservations1" : [ ],
+  "hostReservations2" : [ {
+    "reservationId" : 1,
+    "startDate" : {
+      "year" : 2021,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 12,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 285,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false
+    },
+    "endDate" : {
+      "year" : 2021,
+      "month" : "OCTOBER",
+      "monthValue" : 10,
+      "dayOfMonth" : 14,
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 287,
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false
+    },
+    "host" : {
+      "id" : "3f413626-e129-4d06-b68c-36450822213f",
+      "lastName" : "McGreary",
+      "email" : "smcgreary20@upenn.edu",
+      "phone" : "(513) 1248143",
+      "state" : "OH",
+      "address" : "8 Orin Street",
+      "city" : "Cincinnati",
+      "postalCode" : 45264,
+      "standardRate" : 172.0,
+      "weekendRate" : 215.0,
+      "fullAddress" : "8 Orin Street,Cincinnati,OH,45264",
+      "rates" : [ 172.0, 215.0 ],
+      "deleted" : false,
+      "fullName" : "McGreary"
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : "Kuhl",
+      "email" : "wkuhlie@patch.com",
+      "phone" : "(704) 3740857",
+      "state" : "NC",
+      "firstName" : "Wallis",
+      "fullName" : "Wallis, Kuhl",
+      "deleted" : false,
+      "fullAddress" : "NC",
+      "rates" : [ ]
+    },
+    "total" : null
+  } ]
+}

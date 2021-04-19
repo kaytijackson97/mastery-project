@@ -1,5 +1,6 @@
 package learn.repository.convertToJSON;
 
+import learn.models.Host;
 import learn.models.Reservation;
 import learn.repository.DataAccessException;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 public interface ReservationToJSONRepository {
 
-    List<Reservation> findAll(File directory) throws DataAccessException;
+    void writeToJSON(File directory) throws DataAccessException;
 
-    void writeToJSON() throws DataAccessException;
+    String getFileNameNoExtension(String fileName) throws DataAccessException;
 }

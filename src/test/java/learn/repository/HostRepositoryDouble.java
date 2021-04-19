@@ -14,6 +14,7 @@ public class HostRepositoryDouble implements HostRepository {
     public static final String HOST_ID = "2e72f86c-b8fe-4265-b4f1-304dea8762db";
     public static final Host HOST = makeHost();
     public static final Host DELETED_HOST = makeDeletedHost();
+    public static final Host SECOND_VALID_HOST = makeSecondValidHost();
 
     public HostRepositoryDouble() {
         hosts.add(HOST);
@@ -82,6 +83,22 @@ public class HostRepositoryDouble implements HostRepository {
         host.setStandardRate(new BigDecimal("200"));
         host.setWeekendRate(new BigDecimal("250"));
         host.setDeleted(true);
+        return host;
+    }
+
+    private static Host makeSecondValidHost() {
+        Host host = new Host();
+        host.setId("3f413626-e129-4d06-b68c-36450822213f");
+        host.setLastName("McGreary");
+        host.setEmail("smcgreary20@upenn.edu");
+        host.setPhone("(513) 1248143");
+        host.setAddress("8 Orin Street");
+        host.setCity("Cincinnati");
+        host.setState("OH");
+        host.setPostalCode(45264);
+        host.setStandardRate(new BigDecimal("172.0"));
+        host.setWeekendRate(new BigDecimal("215.0"));
+        host.setDeleted(false);
         return host;
     }
 
