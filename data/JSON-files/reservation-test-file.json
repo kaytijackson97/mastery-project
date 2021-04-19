@@ -5,8 +5,8 @@
       "year" : 2021,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 285,
@@ -19,8 +19,8 @@
       "year" : 2021,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 287,
@@ -64,8 +64,8 @@
       "year" : 2021,
       "month" : "SEPTEMBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 253,
@@ -78,8 +78,8 @@
       "year" : 2021,
       "month" : "SEPTEMBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 259,
@@ -123,8 +123,8 @@
       "year" : 2021,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 275,
@@ -137,8 +137,8 @@
       "year" : 2021,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -183,8 +183,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -197,8 +197,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -242,8 +242,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -256,8 +256,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -301,8 +301,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -315,8 +315,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -360,8 +360,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -374,8 +374,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -419,8 +419,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -433,8 +433,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -478,8 +478,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -492,8 +492,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -537,8 +537,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -551,8 +551,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -596,8 +596,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -610,8 +610,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -655,8 +655,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -669,8 +669,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -714,8 +714,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -728,8 +728,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -773,8 +773,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -787,8 +787,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -832,8 +832,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -846,8 +846,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -891,8 +891,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -905,8 +905,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -950,8 +950,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -964,8 +964,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -1009,8 +1009,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -1023,8 +1023,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -1068,8 +1068,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -1082,8 +1082,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -1127,8 +1127,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -1141,8 +1141,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -1186,8 +1186,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 277,
@@ -1200,8 +1200,8 @@
       "year" : 2022,
       "month" : "OCTOBER",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 279,
@@ -1239,6 +1239,65 @@
       "rates" : [ ]
     },
     "total" : 400.00
+  }, {
+    "reservationId" : 18,
+    "startDate" : {
+      "year" : 2025,
+      "month" : "SEPTEMBER",
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 256,
+      "dayOfWeek" : "SATURDAY",
+      "leapYear" : false,
+      "monthValue" : 9,
+      "dayOfMonth" : 13
+    },
+    "endDate" : {
+      "year" : 2025,
+      "month" : "AUGUST",
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 224,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 8,
+      "dayOfMonth" : 12
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
   } ],
   "hostReservations2" : [ {
     "reservationId" : 1,
@@ -1246,8 +1305,8 @@
       "year" : 2022,
       "month" : "MARCH",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 64,
@@ -1260,8 +1319,8 @@
       "year" : 2022,
       "month" : "MARCH",
       "chronology" : {
-        "id" : "ISO",
-        "calendarType" : "iso8601"
+        "calendarType" : "iso8601",
+        "id" : "ISO"
       },
       "era" : "CE",
       "dayOfYear" : 66,

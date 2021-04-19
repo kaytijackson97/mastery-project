@@ -6,6 +6,7 @@ import learn.models.Reservation;
 import learn.repository.convertToJSON.ReservationToJSONRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.cglib.core.Local;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -15,6 +16,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,6 +25,9 @@ class ReservationFileRepositoryTest {
     private static final String SEED_FILE = "./data/reservations-seed-file.csv";
     private static final String TEST_FILE = "./data/reservations-test-folder/2e72f86c-b8fe-4265-b4f1-304dea8762db.csv";
     public static final String TEST_DIRECTORY_FOLDER = "./data/reservations-test-folder";
+    private final LocalDate startDate = getRandomDate(LocalDate.now());
+    private final LocalDate endDate = getRandomDate(startDate);
+
 
     private final String testHostId = "2e72f86c-b8fe-4265-b4f1-304dea8762db";
 
@@ -136,8 +141,8 @@ class ReservationFileRepositoryTest {
     //support method
     private Reservation makeReservation(String hostId, String guestId) {
         Reservation reservation = new Reservation();
-        reservation.setStartDate(LocalDate.of(2022, 10, 4));
-        reservation.setEndDate(LocalDate.of(2022, 10, 6));
+        reservation.setStartDate(startDate);
+        reservation.setEndDate(endDate);
 
         Host host = new Host();
         host.setId(hostId);
@@ -149,6 +154,14 @@ class ReservationFileRepositoryTest {
 
         reservation.setTotal(new BigDecimal("400.00"));
         return reservation;
+    }
+
+    private LocalDate getRandomDate(LocalDate startDate) {
+        Random random = new Random();
+        int year = random.nextInt(5);
+        int month = random.nextInt(12);
+        int day = random.nextInt(28);
+        return LocalDate.of(startDate.getYear() + year, month, day);
     }
 
 }
