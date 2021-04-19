@@ -3,6 +3,8 @@ package learn.domain;
 import learn.models.User;
 
 import java.math.BigDecimal;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class Validation {
 
@@ -77,62 +79,34 @@ public class Validation {
 
     public Result<User> validateEmail(String email) {
         Result<User> result = new Result<>();
-        if (email == null || email.isBlank()) {
+        if (email == null) {
             result.addErrorMessage("Email cannot but empty.");
             return result;
         }
 
-        if (email.contains(",")) {
-            result.addErrorMessage("Email cannot contain a comma");
-            return result;
-        }
+        //regular expression for email
+        String emailRegex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
 
-        if (!email.contains("@")) {
-            result.addErrorMessage("Not a valid email address.");
-            return result;
-        }
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(email);
 
-        String[] emailParts = email.split("@");
-        if (emailParts.length != 2 || !emailParts[emailParts.length - 1].contains(".")) {
+        if (!matcher.matches()) {
             result.addErrorMessage("Not a valid email address.");
         }
+
         return result;
     }
 
     public Result<User> validatePhone(String phone) {
         Result<User> result = new Result<>();
 
-        if (phone.length() != 13) {
-            result.addErrorMessage("Not a valid phone format.");
-            return result;
-        }
+        //regex for phone number
+        String phoneRegex = "[(]\\d\\d\\d[)]\\s\\d\\d\\d\\d\\d\\d\\d";
+        Pattern pattern = Pattern.compile(phoneRegex);
+        Matcher matcher = pattern.matcher(phone);
 
-        for (int i = 0; i < phone.length(); i++) {
-            switch (i) {
-                case 0:
-                    if (phone.charAt(i) != '(') {
-                        result.addErrorMessage("Not a valid phone format.");
-                    }
-                    break;
-
-                case 4:
-                    if (phone.charAt(i) != ')') {
-                        result.addErrorMessage("Not a valid phone format.");
-                    }
-                    break;
-
-                case 5:
-                    if (phone.charAt(i) != ' ') {
-                        result.addErrorMessage("Not a valid phone format.");
-                    }
-                    break;
-
-                default:
-                    if (!Character.isDigit(phone.charAt(i))) {
-                        result.addErrorMessage("Not a valid phone format.");
-                    }
-                    break;
-            }
+        if (!matcher.matches()) {
+            result.addErrorMessage("Not a valid phone number.");
         }
         return result;
     }

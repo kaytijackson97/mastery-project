@@ -826,6 +826,419 @@
       "rates" : [ ]
     },
     "total" : 400.00
+  }, {
+    "reservationId" : 11,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 277,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 279,
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 12,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 277,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 279,
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 13,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 277,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 279,
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 14,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 277,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 279,
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 15,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 277,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 279,
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 16,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 277,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 279,
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 17,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 277,
+      "dayOfWeek" : "TUESDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 4
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "OCTOBER",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 279,
+      "dayOfWeek" : "THURSDAY",
+      "leapYear" : false,
+      "monthValue" : 10,
+      "dayOfMonth" : 6
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
   } ],
   "hostReservations2" : [ {
     "reservationId" : 1,

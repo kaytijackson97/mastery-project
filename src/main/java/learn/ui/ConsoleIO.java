@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ConsoleIO {
 
@@ -225,25 +227,15 @@ public class ConsoleIO {
         while (true) {
             String email = readRequiredString(prompt);
 
-            if (!email.contains("@")) {
-                println(INVALID_EMAIL_PROMPT);
-                continue;
-            }
+            String emailRegex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
 
-            if (email.contains(",")) {
-                println(INVALID_EMAIL_PROMPT);
-                continue;
-            }
+            Pattern pattern = Pattern.compile(emailRegex);
+            Matcher matcher = pattern.matcher(email);
 
-            if (email.charAt(email.length() - 1) == '.') {
-                println(INVALID_EMAIL_PROMPT);
-                continue;
-            }
-
-            String[] emailArray = email.split("@");
-            if (emailArray.length == 2 && emailArray[emailArray.length - 1].contains(".")) {
+            if (matcher.matches()) {
                 return email;
             }
+
             println(INVALID_EMAIL_PROMPT);
         }
     }
@@ -321,37 +313,18 @@ public class ConsoleIO {
     }
 
     private String getPhone(String phone) {
-        if (phone == null || phone.length() != 13) {
+        if (phone == null) {
             return null;
         }
 
-        for (int i = 0; i < phone.length(); i++) {
-            switch (i) {
-                case 0:
-                    if (phone.charAt(i) != '(') {
-                        return null;
-                    }
-                    break;
+        String phoneRegex = "[(]\\d\\d\\d[)]\\s\\d\\d\\d\\d\\d\\d\\d";
+        Pattern pattern = Pattern.compile(phoneRegex);
+        Matcher matcher = pattern.matcher(phone);
 
-                case 4:
-                    if (phone.charAt(i) != ')') {
-                        return null;
-                    }
-                    break;
-
-                case 5:
-                    if (phone.charAt(i) != ' ') {
-                        return null;
-                    }
-                    break;
-
-                default:
-                    if (!Character.isDigit(phone.charAt(i))) {
-                        return null;
-                    }
-                    break;
-            }
+        if (!matcher.matches()) {
+            return null;
         }
+
         return phone;
     }
 }
