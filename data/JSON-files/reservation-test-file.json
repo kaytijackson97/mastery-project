@@ -1298,6 +1298,183 @@
       "rates" : [ ]
     },
     "total" : 400.00
+  }, {
+    "reservationId" : 19,
+    "startDate" : {
+      "year" : 2023,
+      "month" : "JANUARY",
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 21,
+      "dayOfWeek" : "SATURDAY",
+      "leapYear" : false,
+      "monthValue" : 1,
+      "dayOfMonth" : 21
+    },
+    "endDate" : {
+      "year" : 2023,
+      "month" : "FEBRUARY",
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 49,
+      "dayOfWeek" : "SATURDAY",
+      "leapYear" : false,
+      "monthValue" : 2,
+      "dayOfMonth" : 18
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 20,
+    "startDate" : {
+      "year" : 2022,
+      "month" : "JULY",
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 196,
+      "dayOfWeek" : "FRIDAY",
+      "leapYear" : false,
+      "monthValue" : 7,
+      "dayOfMonth" : 15
+    },
+    "endDate" : {
+      "year" : 2022,
+      "month" : "JULY",
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 199,
+      "dayOfWeek" : "MONDAY",
+      "leapYear" : false,
+      "monthValue" : 7,
+      "dayOfMonth" : 18
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
+  }, {
+    "reservationId" : 21,
+    "startDate" : {
+      "year" : 2024,
+      "month" : "NOVEMBER",
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 320,
+      "dayOfWeek" : "FRIDAY",
+      "leapYear" : true,
+      "monthValue" : 11,
+      "dayOfMonth" : 15
+    },
+    "endDate" : {
+      "year" : 2024,
+      "month" : "NOVEMBER",
+      "chronology" : {
+        "calendarType" : "iso8601",
+        "id" : "ISO"
+      },
+      "era" : "CE",
+      "dayOfYear" : 323,
+      "dayOfWeek" : "MONDAY",
+      "leapYear" : true,
+      "monthValue" : 11,
+      "dayOfMonth" : 18
+    },
+    "host" : {
+      "id" : "Test Id",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "address" : null,
+      "city" : null,
+      "postalCode" : null,
+      "standardRate" : null,
+      "weekendRate" : null,
+      "fullAddress" : "null,null,null,null",
+      "rates" : [ null, null ],
+      "deleted" : false,
+      "fullName" : null
+    },
+    "guest" : {
+      "id" : "663",
+      "lastName" : null,
+      "email" : null,
+      "phone" : null,
+      "state" : null,
+      "firstName" : null,
+      "fullName" : "null, null",
+      "deleted" : false,
+      "fullAddress" : null,
+      "rates" : [ ]
+    },
+    "total" : 400.00
   } ],
   "hostReservations2" : [ {
     "reservationId" : 1,

@@ -26,7 +26,7 @@ class ReservationFileRepositoryTest {
     private static final String TEST_FILE = "./data/reservations-test-folder/2e72f86c-b8fe-4265-b4f1-304dea8762db.csv";
     public static final String TEST_DIRECTORY_FOLDER = "./data/reservations-test-folder";
     private final LocalDate startDate = getRandomDate(LocalDate.now());
-    private final LocalDate endDate = getRandomDate(startDate);
+    private final LocalDate endDate = startDate.plusDays(3);
 
 
     private final String testHostId = "2e72f86c-b8fe-4265-b4f1-304dea8762db";
