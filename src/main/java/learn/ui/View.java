@@ -213,7 +213,7 @@ public class View {
                 continue;
             }
 
-            io.printf("ID: %s, %s - %s, Guest: %s Email: %s%n",
+            io.printf("ID: %s, %s - %s, Guest: %s, Email: %s%n",
                     r.getReservationId(),
                     r.getStartDate(),
                     r.getEndDate(),
