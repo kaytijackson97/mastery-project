@@ -35,30 +35,6 @@ public class View {
         return mainMenuOptions.get(input);
     }
 
-    public String setString(String prompt) {
-        return io.readRequiredString(prompt);
-    }
-
-    public String setEmail() {
-        return io.readRequiredEmail("Email: ");
-    }
-
-    public String setPhone() {
-        return io.readRequiredPhone("Phone (ex. (123) 4567890): ");
-    }
-
-    public String setState() {
-        return io.readRequiredState("State Abbreviation: ");
-    }
-
-    public String setPostalCode() {
-        return io.readRequiredPostalCode("Postal Code: ");
-    }
-
-    public BigDecimal setRate(String prompt) {
-        return io.readRequiredBigDecimal(prompt);
-    }
-
     public User addGuest() {
         Guest guest = new Guest();
         guest.setFirstName(io.readRequiredString("First Name: "));
@@ -139,16 +115,32 @@ public class View {
     }
 
     //choose
+    public String chooseString(String prompt) {
+        return io.readRequiredString(prompt);
+    }
+
+    public String chooseEmail() {
+        return io.readRequiredEmail("Email: ");
+    }
+
+    public String choosePhone() {
+        return io.readRequiredPhone("Phone (ex. (123) 4567890): ");
+    }
+
+    public String chooseState() {
+        return io.readRequiredState("State Abbreviation: ");
+    }
+
+    public String choosePostalCode() {
+        return io.readRequiredPostalCode("Postal Code: ");
+    }
+
+    public BigDecimal chooseRate(String prompt) {
+        return io.readRequiredBigDecimal(prompt);
+    }
+
     public String chooseUser(String userType) {
         return io.readRequiredEmail(userType + " Email: ");
-    }
-
-    public LocalDate chooseStartDate() {
-        return io.readRequiredDate("Start Date: ");
-    }
-
-    public LocalDate chooseEndDate(LocalDate startDate) {
-        return io.readRequiredDate("End Date: ", startDate);
     }
 
     public int chooseReservation(List<Reservation> reservations) {
@@ -162,6 +154,14 @@ public class View {
             }
             io.println("Reservation ID does not exist");
         } while (true);
+    }
+
+    public LocalDate chooseStartDate() {
+        return io.readRequiredDate("Start Date: ");
+    }
+
+    public LocalDate chooseEndDate(LocalDate startDate) {
+        return io.readRequiredDate("End Date: ", startDate);
     }
 
     public boolean chooseToDelete(int reservationId) {

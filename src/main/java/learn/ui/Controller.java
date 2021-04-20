@@ -140,17 +140,17 @@ public class Controller {
         view.displayHeader(MainMenu.MAKE_HOST.getTitle());
         Host host = new Host();
 
-        host.setLastName(view.setString("Last Name: "));
-        host.setEmail(view.setEmail());
-        host.setPhone(view.setPhone());
+        host.setLastName(view.chooseString("Last Name: "));
+        host.setEmail(view.chooseEmail());
+        host.setPhone(view.choosePhone());
 
-        host.setAddress(view.setString("Address: "));
-        host.setCity(view.setString("City: "));
-        host.setState(view.setState());
-        host.setPostalCode(view.setPostalCode());
+        host.setAddress(view.chooseString("Address: "));
+        host.setCity(view.chooseString("City: "));
+        host.setState(view.chooseState());
+        host.setPostalCode(view.choosePostalCode());
 
-        host.setStandardRate(view.setRate("Standard Rate: "));
-        host.setWeekendRate(view.setRate("Weekend Rate: "));
+        host.setStandardRate(view.chooseRate("Standard Rate: "));
+        host.setWeekendRate(view.chooseRate("Weekend Rate: "));
         return host;
     }
 
