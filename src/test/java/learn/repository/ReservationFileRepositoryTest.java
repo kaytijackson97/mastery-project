@@ -158,9 +158,9 @@ class ReservationFileRepositoryTest {
 
     private LocalDate getRandomDate(LocalDate startDate) {
         Random random = new Random();
-        int year = random.nextInt(5);
-        int month = random.nextInt(12);
-        int day = random.nextInt(28);
+        int year = random.nextInt(5) + 2;
+        int month = random.nextInt(11) + 1;
+        int day = random.nextInt(27) + 1;
         return LocalDate.of(startDate.getYear() + year, month, day);
     }
 

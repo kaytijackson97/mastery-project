@@ -35,23 +35,28 @@ public class View {
         return mainMenuOptions.get(input);
     }
 
-    public User addHost() {
-        Host host = new Host();
-        host.setLastName(io.readRequiredString("Last Name: "));
-        host.setEmail(io.readRequiredEmail("Email: "));
-        host.setPhone(io.readRequiredPhone("Phone (ex. (123) 4567890): "));
+    public String setString(String prompt) {
+        return io.readRequiredString(prompt);
+    }
 
-        host.setAddress(cleanField(io.readRequiredString("Address: ")));
-        host.setCity(cleanField(io.readRequiredString("City: ")));
+    public String setEmail() {
+        return io.readRequiredEmail("Email: ");
+    }
 
-        host.setState(io.readRequiredState("State Abbreviation: "));
+    public String setPhone() {
+        return io.readRequiredPhone("Phone (ex. (123) 4567890): ");
+    }
 
-        host.setPostalCode(io.readRequiredPostalCode("Postal Code: "));
+    public String setState() {
+        return io.readRequiredState("State Abbreviation: ");
+    }
 
-        host.setStandardRate(io.readRequiredBigDecimal("Standard Rate: "));
-        host.setWeekendRate(io.readRequiredBigDecimal("Weekend Rate: "));
+    public String setPostalCode() {
+        return io.readRequiredPostalCode("Postal Code: ");
+    }
 
-        return host;
+    public BigDecimal setRate(String prompt) {
+        return io.readRequiredBigDecimal(prompt);
     }
 
     public User addGuest() {
@@ -70,7 +75,7 @@ public class View {
         displayHeader("Editing Reservation " + reservation.getReservationId());
 
         LocalDate startDate = io.readDate("Start (" + reservation.getStartDate() + "): ", reservation.getStartDate());
-        LocalDate endDate = io.readDate("End (" + reservation.getStartDate() + "): ", reservation.getEndDate(), startDate);
+        LocalDate endDate = io.readDate("End (" + reservation.getEndDate() + "): ", reservation.getEndDate(), startDate);
 
         reservation.setStartDate(startDate);
         reservation.setEndDate(endDate);

@@ -47,8 +47,7 @@ public class Controller {
                     break;
 
                 case MAKE_HOST:
-                    view.displayHeader(MainMenu.MAKE_HOST.getTitle());
-                    User host = view.addHost();
+                    Host host = makeHost();
                     makeUser(hostService, host);
                     break;
 
@@ -135,6 +134,24 @@ public class Controller {
         } else {
             view.displayStatus(false, result.getMessages());
         }
+    }
+
+    private Host makeHost() {
+        view.displayHeader(MainMenu.MAKE_HOST.getTitle());
+        Host host = new Host();
+
+        host.setLastName(view.setString("Last Name: "));
+        host.setEmail(view.setEmail());
+        host.setPhone(view.setPhone());
+
+        host.setAddress(view.setString("Address: "));
+        host.setCity(view.setString("City: "));
+        host.setState(view.setState());
+        host.setPostalCode(view.setPostalCode());
+
+        host.setStandardRate(view.setRate("Standard Rate: "));
+        host.setWeekendRate(view.setRate("Weekend Rate: "));
+        return host;
     }
 
     private void makeUser(UserService userService, User user) throws DataAccessException {
