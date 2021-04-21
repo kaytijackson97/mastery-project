@@ -35,18 +35,6 @@ public class View {
         return mainMenuOptions.get(input);
     }
 
-    public User addGuest() {
-        Guest guest = new Guest();
-        guest.setFirstName(io.readRequiredString("First Name: "));
-        guest.setLastName(io.readRequiredString("Last Name: "));
-        guest.setEmail(io.readRequiredEmail("Email: "));
-        guest.setPhone(io.readRequiredPhone("Phone: "));
-
-        guest.setState(cleanField(io.readRequiredState("State Abbreviation: ")));
-
-        return guest;
-    }
-
     public Reservation editReservation(Reservation reservation) {
         displayHeader("Editing Reservation " + reservation.getReservationId());
 
@@ -114,6 +102,9 @@ public class View {
         return guest;
     }
 
+    //update field
+
+
     //choose
     public String chooseString(String prompt) {
         return io.readRequiredString(prompt);
@@ -143,6 +134,14 @@ public class View {
         return io.readRequiredEmail(userType + " Email: ");
     }
 
+    public LocalDate chooseStartDate() {
+        return io.readRequiredDate("Start Date: ");
+    }
+
+    public LocalDate chooseEndDate(LocalDate startDate) {
+        return io.readRequiredDate("End Date: ", startDate);
+    }
+
     public int chooseReservation(List<Reservation> reservations) {
         int choice = -1;
         do {
@@ -154,14 +153,6 @@ public class View {
             }
             io.println("Reservation ID does not exist");
         } while (true);
-    }
-
-    public LocalDate chooseStartDate() {
-        return io.readRequiredDate("Start Date: ");
-    }
-
-    public LocalDate chooseEndDate(LocalDate startDate) {
-        return io.readRequiredDate("End Date: ", startDate);
     }
 
     public boolean chooseToDelete(int reservationId) {

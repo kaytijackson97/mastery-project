@@ -52,8 +52,7 @@ public class Controller {
                     break;
 
                 case MAKE_GUEST:
-                    view.displayHeader(MainMenu.MAKE_GUEST.getTitle());
-                    User guest = view.addGuest();
+                    User guest = makeGuest();
                     makeUser(guestService, guest);
                     break;
 
@@ -152,6 +151,21 @@ public class Controller {
         host.setStandardRate(view.chooseRate("Standard Rate: "));
         host.setWeekendRate(view.chooseRate("Weekend Rate: "));
         return host;
+    }
+
+    private Guest makeGuest() {
+        view.displayHeader(MainMenu.MAKE_GUEST.getTitle());
+        Guest guest = new Guest();
+
+        guest.setFirstName(view.chooseString("First Name: "));
+        guest.setLastName(view.chooseString("Last Name: "));
+
+        guest.setEmail(view.chooseEmail());
+        guest.setPhone(view.choosePhone());
+
+        guest.setState(view.chooseState());
+
+        return guest;
     }
 
     private void makeUser(UserService userService, User user) throws DataAccessException {
