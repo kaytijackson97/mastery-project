@@ -3,7 +3,6 @@ package learn.domain;
 import learn.models.Host;
 import learn.models.User;
 import learn.repository.DataAccessException;
-import learn.repository.GuestRepositoryDouble;
 import learn.repository.HostRepositoryDouble;
 import org.junit.jupiter.api.Test;
 

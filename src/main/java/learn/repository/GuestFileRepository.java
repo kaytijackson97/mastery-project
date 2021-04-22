@@ -1,7 +1,6 @@
 package learn.repository;
 
 import learn.models.Guest;
-import learn.models.Host;
 import learn.models.User;
 import learn.repository.convertToJSON.GuestToJSONRepository;
 

@@ -1,7 +1,6 @@
 package learn.repository;
 
 import learn.models.Guest;
-import learn.models.Host;
 import learn.repository.convertToJSON.GuestToJSONFileRepository;
 import learn.repository.convertToJSON.GuestToJSONRepository;
 import org.junit.jupiter.api.BeforeEach;
